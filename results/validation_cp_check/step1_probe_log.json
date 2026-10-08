@@ -1,0 +1,182 @@
+[
+ {
+  "cmd": "/PREP7",
+  "ok": true,
+  "resp": "*****MAPDL VERIFICATION RUN ONLY*****\n     DO NOT USE RESULTS FOR PRODUCTION\n\n          ***** MAPDL ANALYSIS DEFINITION (PREP7) *****"
+ },
+ {
+  "cmd": "ET,1,SOLID185",
+  "ok": true,
+  "resp": "ELEMENT TYPE          1 IS SOLID185     3-D 8-NODE STRUCTURAL SOLID \n  KEYOPT( 1- 6)=        0      0      0        0      0      0\n  KEYOPT( 7-12)=        0      0      0        0      0      0\n  KEYOPT(13-18)=        0      0      0        0      0      0\n\n CURRENT NODAL DOF SET IS  UX    UY    UZ  \n  THREE-DIMENSIONAL MODEL"
+ },
+ {
+  "cmd": "TB,ELAS,1,,,OELM",
+  "ok": true,
+  "resp": "ORTHROTROPIC ELASTIC with MAJOR POISSONS RATIO OPTION FOR MATERIAL 1"
+ },
+ {
+  "cmd": "TBDATA,1,66690,66690,66690,75400,75400,75400",
+  "ok": true,
+  "resp": "DATA FOR  ELAS  TABLE FOR MATERIAL   1\n LOC=  1 6.66900e+04     6.66900e+04     6.66900e+04     7.54000e+04     7.54000e+04     7.54000e+04"
+ },
+ {
+  "cmd": "TBDATA,7,0.4189,0.4189,0.4189",
+  "ok": true,
+  "resp": "DATA FOR  ELAS  TABLE FOR MATERIAL   1\n LOC=  7 4.18900e-01     4.18900e-01     4.18900e-01"
+ },
+ {
+  "cmd": "TB,XTAL,1,,,ORIE",
+  "ok": true,
+  "resp": "CRYSTAL ORIENTATION OPTION FOR MATERIAL 1"
+ },
+ {
+  "cmd": "TBDATA,1,0,0,0",
+  "ok": true,
+  "resp": "DATA FOR  XTAL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  0.0000    \n LOC=  1 0.00000e+00     0.00000e+00     0.00000e+00"
+ },
+ {
+  "cmd": "TB,XTAL,1,,,NSLFAM",
+  "ok": true,
+  "resp": "NUMBER OF SLIP FAMILIES OPTION FOR MATERIAL 1"
+ },
+ {
+  "cmd": "TBDATA,1,1",
+  "ok": true,
+  "resp": "DATA FOR  XTAL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  0.0000    \n LOC=  1 1.00000e+00"
+ },
+ {
+  "cmd": "TB,XTAL,1,,,FORM",
+  "ok": true,
+  "resp": "CRYSTAL PLASTICITY FORMULATION OPTION FOR MATERIAL 1"
+ },
+ {
+  "cmd": "TBDATA,1,1",
+  "ok": true,
+  "resp": "DATA FOR  XTAL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  0.0000    \n LOC=  1 1.00000e+00"
+ },
+ {
+  "cmd": "TB,XTAL,1,,,XPARAM",
+  "ok": true,
+  "resp": "CRYSTAL CHARACTERISTIC PARAMETERS OPTION FOR MATERIAL 1"
+ },
+ {
+  "cmd": "TBDATA,1,1,0,1,12,0,1",
+  "ok": true,
+  "resp": "DATA FOR  XTAL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  0.0000    \n LOC=  1 1.00000e+00     0.00000e+00     1.00000e+00     1.20000e+01     0.00000e+00     1.00000e+00"
+ },
+ {
+  "cmd": "TB,XTAL,1,,,HARD",
+  "ok": true,
+  "resp": "SLIP FAMILY HARDNESS VALUES OPTION FOR MATERIAL 1"
+ },
+ {
+  "cmd": "TBDATA,1,80,10,81,1,0,1.4",
+  "ok": true,
+  "resp": "DATA FOR  XTAL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  0.0000    \n LOC=  1 8.00000e+01     1.00000e+01     8.10000e+01     1.00000e+00     0.00000e+00     1.40000e+00"
+ },
+ {
+  "cmd": "TB,XTAL,1,,,FLFCC",
+  "ok": true,
+  "resp": "FCC CRYSTAL FLOW PARAMETERS OPTION FOR MATERIAL 1"
+ },
+ {
+  "cmd": "TBDATA,1,1.0,1,1,0.01,8.23e-20,1.0",
+  "ok": true,
+  "resp": "DATA FOR  XTAL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  0.0000    \n LOC=  1 1.00000e+00     1.00000e+00     1.00000e+00     1.00000e-02     8.23000e-20     1.00000e+00"
+ },
+ {
+  "cmd": "TBLIST,ALL,1",
+  "ok": true,
+  "resp": "                                             \n\n                     1 \n Temps     0.0000000e+00 \n INIHARD1 8.0000000e+01 \n HARDMOD1 1.0000000e+01 \n HARDSAT1 8.1000000e+01 \n HARDMODP 1.0000000e+00 \n HARDSATP 0.0000000e+00 \n XHARD    1.4000000e+00 \n\n\n               Crystal  (XTAL) Table For Material     1\n               FCC flow params                                                                 \n\n                     1 \n Temps     0.0000000e+00 \n PREXP    1.0000000e+00 \n SL_POW1  1.0000000e+00 \n SL_POW2  1.0000000e+00 \n SLRES_RA 1.0000000e-02 \n ACT_EN   8.2300000e-20 \n cbya     1.0000000e+00"
+ },
+ {
+  "cmd": "BLOCK,0,10,0,10,0,10",
+  "ok": true,
+  "resp": "CREATE A HEXAHEDRAL VOLUME WITH\n X-DISTANCES FROM      0.000000000     TO      10.00000000    \n Y-DISTANCES FROM      0.000000000     TO      10.00000000    \n Z-DISTANCES FROM      0.000000000     TO      10.00000000    \n\n      OUTPUT VOLUME =     1"
+ },
+ {
+  "cmd": "ESIZE,2.5",
+  "ok": true,
+  "resp": "DEFAULT ELEMENT DIVISIONS PER LINE BASED ON ELEMENT SIZE =   2.50"
+ },
+ {
+  "cmd": "VMESH,ALL",
+  "ok": true,
+  "resp": "GENERATE NODES AND ELEMENTS   IN  ALL  SELECTED VOLUMES  \n\n NUMBER OF VOLUMES MESHED   =         1\n MAXIMUM NODE NUMBER        =       125\n MAXIMUM ELEMENT NUMBER     =        64"
+ },
+ {
+  "cmd": "FINISH",
+  "ok": true,
+  "resp": "***** ROUTINE COMPLETED *****  ELAPSED TIME =         0.000"
+ },
+ {
+  "cmd": "/SOLU",
+  "ok": true,
+  "resp": "*****  MAPDL SOLUTION ROUTINE  *****"
+ },
+ {
+  "cmd": "NLGEOM,ON",
+  "ok": true,
+  "resp": "LARGE DEFORMATION ANALYSIS"
+ },
+ {
+  "cmd": "NSEL,S,LOC,Z,0",
+  "ok": true,
+  "resp": "SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN  0.0000     AND   0.0000    \n   KABS=  0.  TOLERANCE= 0.100000E-05\n\n         25  NODES (OF        125  DEFINED) SELECTED BY  NSEL  COMMAND."
+ },
+ {
+  "cmd": "D,ALL,UZ,0",
+  "ok": true,
+  "resp": "SPECIFIED CONSTRAINT UZ   FOR SELECTED NODES            1 TO         125 BY           1\n REAL=  0.00000000       IMAG=  0.00000000"
+ },
+ {
+  "cmd": "NSEL,S,LOC,Z,10",
+  "ok": true,
+  "resp": "SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN  10.000     AND   10.000    \n   KABS=  0.  TOLERANCE= 0.500000E-01\n\n         25  NODES (OF        125  DEFINED) SELECTED BY  NSEL  COMMAND."
+ },
+ {
+  "cmd": "D,ALL,UZ,0.001",
+  "ok": true,
+  "resp": "SPECIFIED CONSTRAINT UZ   FOR SELECTED NODES            1 TO         125 BY           1\n REAL= 1.000000000E-03   IMAG=  0.00000000"
+ },
+ {
+  "cmd": "NSEL,ALL",
+  "ok": true,
+  "resp": "ALL SELECT   FOR ITEM=NODE COMPONENT=    \n  IN RANGE         1 TO        125 STEP          1\n\n        125  NODES (OF        125  DEFINED) SELECTED BY NSEL  COMMAND."
+ },
+ {
+  "cmd": "D,NODE(0,0,0),UX,0",
+  "ok": true,
+  "resp": "SPECIFIED CONSTRAINT UX   FOR SELECTED NODES            2 TO           2 BY           1\n REAL=  0.00000000       IMAG=  0.00000000"
+ },
+ {
+  "cmd": "D,NODE(0,0,0),UY,0",
+  "ok": true,
+  "resp": "SPECIFIED CONSTRAINT UY   FOR SELECTED NODES            2 TO           2 BY           1\n REAL=  0.00000000       IMAG=  0.00000000"
+ },
+ {
+  "cmd": "D,NODE(10,0,0),UY,0",
+  "ok": true,
+  "resp": "SPECIFIED CONSTRAINT UY   FOR SELECTED NODES           10 TO          10 BY           1\n REAL=  0.00000000       IMAG=  0.00000000"
+ },
+ {
+  "cmd": "TIME,1",
+  "ok": true,
+  "resp": "TIME=  1.0000"
+ },
+ {
+  "cmd": "NSUBST,2,10,2",
+  "ok": true,
+  "resp": "USE       2 SUBSTEPS INITIALLY THIS LOAD STEP FOR ALL  DEGREES OF FREEDOM\n FOR AUTOMATIC TIME STEPPING:\n   USE     10 SUBSTEPS AS A MAXIMUM\n   USE      2 SUBSTEPS AS A MINIMUM"
+ },
+ {
+  "cmd": "SOLVE",
+  "ok": true,
+  "resp": " TIME =  0.500000         TIME INC =  0.500000    \n *** AUTO STEP TIME:  NEXT TIME INC = 0.50000      UNCHANGED\n\n     FORCE CONVERGENCE VALUE  =  0.1880E-01  CRITERION=   1.032    \n     DISP CONVERGENCE VALUE   =  0.1486E-07  CRITERION=  0.2500E-04 <<< CONVERGED\n    EQUIL ITER   1 COMPLETED.  NEW TRIANG MATRIX.  MAX DOF INC= -0.1486E-07\n     FORCE CONVERGENCE VALUE  =  0.3939E-06  CRITERION=   1.032     <<< CONVERGED\n    >>> SOLUTION CONVERGED AFTER EQUILIBRIUM ITERATION   1\n *** LOAD STEP     1   SUBSTEP     2  COMPLETED.    CUM ITER =      3\n *** TIME =   1.00000         TIME INC =  0.500000"
+ },
+ {
+  "cmd": "FINISH",
+  "ok": true,
+  "resp": "FINISH SOLUTION PROCESSING\n\n\n ***** ROUTINE COMPLETED *****  ELAPSED TIME =         0.000"
+ }
+]

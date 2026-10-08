@@ -1,0 +1,12 @@
+T_C,C11_GPa,C12_GPa,C44_GPa,source
+26.85,170.0,122.5,75.8,"Chang & Himmel, UCRL-16697 (Lawrence Radiation Lab., 1966; publ. J. Appl. Phys. 37, 3567), Table I 'Adiabatic Elastic Constants ... for Copper', report p.14 (PDF p.18); T = 300 K"
+76.85,167.5,121.5,74.5,"Chang & Himmel, UCRL-16697 (Lawrence Radiation Lab., 1966; publ. J. Appl. Phys. 37, 3567), Table I 'Adiabatic Elastic Constants ... for Copper', report p.14 (PDF p.18); T = 350 K"
+126.85,165.5,120.5,73.1,"Chang & Himmel, UCRL-16697 (Lawrence Radiation Lab., 1966; publ. J. Appl. Phys. 37, 3567), Table I 'Adiabatic Elastic Constants ... for Copper', report p.14 (PDF p.18); T = 400 K"
+176.85,163.5,119.5,71.8,"Chang & Himmel, UCRL-16697 (Lawrence Radiation Lab., 1966; publ. J. Appl. Phys. 37, 3567), Table I 'Adiabatic Elastic Constants ... for Copper', report p.14 (PDF p.18); T = 450 K"
+226.85,161.5,118.5,70.4,"Chang & Himmel, UCRL-16697 (Lawrence Radiation Lab., 1966; publ. J. Appl. Phys. 37, 3567), Table I 'Adiabatic Elastic Constants ... for Copper', report p.14 (PDF p.18); T = 500 K"
+276.85,159.5,117.5,69.1,"Chang & Himmel, UCRL-16697 (Lawrence Radiation Lab., 1966; publ. J. Appl. Phys. 37, 3567), Table I 'Adiabatic Elastic Constants ... for Copper', report p.14 (PDF p.18); T = 550 K"
+326.85,157.5,116.5,67.7,"Chang & Himmel, UCRL-16697 (Lawrence Radiation Lab., 1966; publ. J. Appl. Phys. 37, 3567), Table I 'Adiabatic Elastic Constants ... for Copper', report p.14 (PDF p.18); T = 600 K"
+376.85,155.5,115.5,66.3,"Chang & Himmel, UCRL-16697 (Lawrence Radiation Lab., 1966; publ. J. Appl. Phys. 37, 3567), Table I 'Adiabatic Elastic Constants ... for Copper', report p.14 (PDF p.18); T = 650 K"
+426.85,153.5,114.5,65.0,"Chang & Himmel, UCRL-16697 (Lawrence Radiation Lab., 1966; publ. J. Appl. Phys. 37, 3567), Table I 'Adiabatic Elastic Constants ... for Copper', report p.14 (PDF p.18); T = 700 K"
+476.85,151.5,113.5,63.6,"Chang & Himmel, UCRL-16697 (Lawrence Radiation Lab., 1966; publ. J. Appl. Phys. 37, 3567), Table I 'Adiabatic Elastic Constants ... for Copper', report p.14 (PDF p.18); T = 750 K"
+526.85,149.5,112.5,62.3,"Chang & Himmel, UCRL-16697 (Lawrence Radiation Lab., 1966; publ. J. Appl. Phys. 37, 3567), Table I 'Adiabatic Elastic Constants ... for Copper', report p.14 (PDF p.18); T = 800 K"

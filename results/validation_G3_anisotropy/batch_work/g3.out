@@ -1,0 +1,4088 @@
+
+ Ansys Mechanical Enterprise Academic Student      
+
+
+ *------------------------------------------------------------------*
+ |                                                                  |
+ |   W E L C O M E   T O   T H E   A N S Y S (R)  P R O G R A M     |
+ |                                                                  |
+ *------------------------------------------------------------------*
+
+
+
+
+ ***************************************************************
+ *         ANSYS MAPDL 2026 R1          LEGAL NOTICES          *
+ ***************************************************************
+ *                                                             *
+ * Copyright (c) 2026 Synopsys, Inc. and ANSYS, Inc.           *
+ * All rights reserved.                                        *
+ * Unauthorized use, distribution or duplication is            *
+ * prohibited.                                                 *
+ *                                                             *
+ * Ansys is a registered trademark of Ansys, Inc. or its       *
+ * subsidiaries in the United States or other countries.       *
+ * See the Ansys, Inc. online documentation or the Ansys, Inc. *
+ * documentation CD or online help for the complete Legal      *
+ * Notice.                                                     *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * THIS ANSYS SOFTWARE PRODUCT AND PROGRAM DOCUMENTATION       *
+ * INCLUDE TRADE SECRETS AND CONFIDENTIAL AND PROPRIETARY      *
+ * PRODUCTS OF ANSYS, INC., ITS SUBSIDIARIES, OR LICENSORS.    *
+ * The software products and documentation are furnished by    *
+ * Ansys, Inc. or its subsidiaries under a software license    *
+ * agreement that contains provisions concerning               *
+ * non-disclosure, copying, length and nature of use,          *
+ * compliance with exporting laws, warranties, disclaimers,    *
+ * limitations of liability, and remedies, and other           *
+ * provisions.  The software products and documentation may be *
+ * used, disclosed, transferred, or copied only in accordance  *
+ * with the terms and conditions of that software license      *
+ * agreement.                                                  *
+ *                                                             *
+ * Ansys, Inc. is a UL registered                              *
+ * ISO 9001:2015 company.                                      *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * This product is subject to U.S. laws governing export and   *
+ * re-export.                                                  *
+ *                                                             *
+ * For U.S. Government users, except as specifically granted   *
+ * by the Ansys, Inc. software license agreement, the use,     *
+ * duplication, or disclosure by the United States Government  *
+ * is subject to restrictions stated in the Ansys, Inc.        *
+ * software license agreement and FAR 12.212 (for non-DOD      *
+ * licenses).                                                  *
+ *                                                             *
+ ***************************************************************
+
+ 2026 R1 
+     
+ Point Releases and Patches installed:   
+     
+ Ansys, Inc. License Manager 2026 R1 
+ Discovery (full install) 2026 R1
+ Core WB Files 2026 R1   
+ optiSLang Core UI 2026 R1   
+ CFX (includes CFD-Post) 2026 R1 
+ Chemkin 2026 R1 
+ EnSight 2026 R1 
+ FENSAP-ICE 2026 R1  
+ Fluent (includes CFD-Post) 2026 R1  
+ Polyflow (includes CFD-Post) 2026 R1
+ Forte (includes EnSight) 2026 R1
+ Rocky 2026 R1   
+ TurboGrid 2026 R1   
+ ACIS Geometry Interface 2026 R1 
+ AutoCAD Geometry Interface 2026 R1  
+ Catia, Version 4 Geometry Interface 2026 R1 
+ Catia, Version 5 Geometry Interface 2026 R1 
+ Catia, Version 6 Geometry Interface 2026 R1 
+ Creo Elements/Direct Modeling Geometry Interface 2026 R1
+ Creo Parametric Geometry Interface 2026 R1  
+ Inventor Geometry Interface 2026 R1 
+ JTOpen Geometry Interface 2026 R1   
+ NX Geometry Interface 2026 R1   
+ Parasolid Geometry Interface  2026 R1   
+ Solid Edge Geometry Interface 2026 R1   
+ SOLIDWORKS Geometry Interface 2026 R1   
+ Speos 2026 R1   
+ SpaceClaim 2026 R1  
+ Speos RPC 2026 R1   
+ Zemax OpticStudio 2026 R1   
+ Dynamic Reporting 2026 R1   
+ Aqwa 2026 R1
+ Autodyn 2026 R1 
+ Material Calibration App 2026 R1
+ Mechanical Products 2026 R1 
+ Motion 2026 R1  
+ Academic Student 2026 R1
+
+
+          *****  MAPDL COMMAND LINE ARGUMENTS  *****
+  INITIAL JOBNAME              = g3                                                                                                                                                                                                                                                      
+  BATCH MODE REQUESTED (-b)    = LIST
+  INPUT FILE COPY MODE (-c)    = COPY
+  SHARED MEMORY PARALLEL REQUESTED
+    SINGLE PROCESS WITH SINGLE THREAD REQUESTED
+    TOTAL OF     1 CORES REQUESTED
+  INPUT FILE NAME              = C:\Users\USER\.claude-science\orgs\f50c262b-2754-4e2c-b4cd-c0deca628d34\workspaces\0b7dce47-624a-4a52-8bdc-8d464908c370\g3_results\batch_work\g3_master.dat
+  OUTPUT FILE NAME             = C:\Users\USER\.claude-science\orgs\f50c262b-2754-4e2c-b4cd-c0deca628d34\workspaces\0b7dce47-624a-4a52-8bdc-8d464908c370\g3_results\batch_work\g3.out
+  INITIAL DIRECTORY = C:\Users\USER\.claude-science\orgs\f50c262b-2754-4e2c-b4cd-c0deca628d34\workspaces\0b7dce47-624a-4a52-8bdc-8d464908c370\g3_results\batch_work
+
+ RELEASE= 2026 R1              BUILD= 26.1      UP20260202   VERSION=WINDOWS x64 
+ CURRENT JOBNAME=g3  20:16:23  OCT 08, 2026  Elapsed Time=       0.109
+
+     1  /CLEAR,NOSTART  
+     2  /TITLE,G3 Cu cube esys [100] || z  (uMKS: um, MPa)  
+     3  /PREP7  
+     4  ET,1,SOLID185   
+     5  MP,DENS,1,8.96e-15     ! kg/um^3 (unused in static, keeps material complete)
+     6  TB,ANEL,1,1,,0  
+     7  TBTEMP,25   
+     8  TBDATA,1,1.691000000000e+05,1.222000000000e+05,1.222000000000e+05,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00  
+     9  TBDATA,7,1.691000000000e+05,1.222000000000e+05,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,1.691000000000e+05  
+    10  TBDATA,13,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,7.540000000000e+04,0.000000000000e+00,0.000000000000e+00 
+    11  TBDATA,19,7.540000000000e+04,0.000000000000e+00,7.540000000000e+04  
+    12  BLOCK,0,1.000000000000e+00,0,1.000000000000e+00,0,1.000000000000e+00
+    13  ! crystal frame -> local CS 11 from three keypoints 
+    14  K,1001,0,0,0
+    15  K,1002,0.000000000000e+00,0.000000000000e+00,1.000000000000e+00    ! crystal [100]  
+    16  K,1003,1.000000000000e+00,0.000000000000e+00,0.000000000000e+00    ! crystal [010] (xy-plane)   
+    17  CSKP,11,0,1001,1002,1003
+    18  CSYS,0  
+    19  ESYS,11 
+    20  MAT,1   
+    21  TYPE,1  
+    22  ESIZE,2.500000000000e-01
+    23  MSHAPE,0,3D 
+    24  MSHKEY,1
+    25  VMESH,ALL   
+    26  *GET,NELEM,ELEM,0,COUNT 
+    27  *GET,NNODE,NODE,0,COUNT 
+    28  FINISH  
+    29      
+    30  /SOLU   
+    31  ANTYPE,STATIC   
+    32  CSYS,0  
+    33  S0=1.000000000000e+02   
+    34  NSEL,S,LOC,Z,1.000000000000e+00 
+    35  SF,ALL,PRES,-S0        ! negative pressure = tension
+    36  NSEL,S,LOC,Z,0  
+    37  SF,ALL,PRES,-S0 
+    38  ALLSEL,ALL  
+    39  ! 3-2-1 restraint: removes 6 rigid-body modes, zero reactions   
+    40  NA=NODE(0,0,0)  
+    41  NB=NODE(1.000000000000e+00,0,0) 
+    42  NC=NODE(0,1.000000000000e+00,0) 
+    43  D,NA,UX,0,,,,UY,UZ  
+    44  D,NB,UY,0,,,,UZ 
+    45  D,NC,UZ,0   
+    46  *GET,TCPU0,ACTIVE,0,TIME,CPU
+    47  SOLVE   
+    48  *GET,TCPU1,ACTIVE,0,TIME,CPU
+    49  CPU_SOLVE=TCPU1-TCPU0   
+    50  FINISH  
+    51      
+    52  /POST1  
+    53  SET,LAST
+    54  RSYS,0                 ! report in global frame 
+    55  CSYS,0  
+    56  ! ---- face-averaged UZ ----
+    57  NSEL,S,LOC,Z,1.000000000000e+00 
+    58  *GET,NTOP,NODE,0,COUNT  
+    59  UZ_TOP=0
+    60  ND=0
+    61  *DO,II,1,NTOP   
+    62  ND=NDNEXT(ND)   
+    63  UZ_TOP=UZ_TOP+UZ(ND)
+    64  *ENDDO  
+    65  UZ_TOP=UZ_TOP/NTOP  
+    66  NSEL,S,LOC,Z,0  
+    67  *GET,NBOT,NODE,0,COUNT  
+    68  UZ_BOT=0
+    69  ND=0
+    70  *DO,II,1,NBOT   
+    71  ND=NDNEXT(ND)   
+    72  UZ_BOT=UZ_BOT+UZ(ND)
+    73  *ENDDO  
+    74  UZ_BOT=UZ_BOT/NBOT  
+    75  ALLSEL,ALL  
+    76  ! ---- nodal-averaged stress and elastic strain (global frame) ---- 
+    77  SX_AVG=0
+    78  EX_AVG=0
+    79  SY_AVG=0
+    80  EY_AVG=0
+    81  SZ_AVG=0
+    82  EZ_AVG=0
+    83  SXY_AVG=0   
+    84  EXY_AVG=0   
+    85  SYZ_AVG=0   
+    86  EYZ_AVG=0   
+    87  SXZ_AVG=0   
+    88  EXZ_AVG=0   
+    89  SZ_DEVMAX=0 
+    90  ND=0
+    91  *DO,II,1,NNODE  
+    92  ND=NDNEXT(ND)   
+    93  *GET,VTMP,NODE,ND,S,X   
+    94  SX_AVG=SX_AVG+VTMP  
+    95  *GET,VTMP,NODE,ND,EPEL,X
+    96  EX_AVG=EX_AVG+VTMP  
+    97  *GET,VTMP,NODE,ND,S,Y   
+    98  SY_AVG=SY_AVG+VTMP  
+    99  *GET,VTMP,NODE,ND,EPEL,Y
+   100  EY_AVG=EY_AVG+VTMP  
+   101  *GET,VTMP,NODE,ND,S,Z   
+   102  SZ_AVG=SZ_AVG+VTMP  
+   103  DTMP=ABS(VTMP-S0)   
+   104  *IF,DTMP,GT,SZ_DEVMAX,THEN  
+   105  SZ_DEVMAX=DTMP  
+   106  *ENDIF  
+   107  *GET,VTMP,NODE,ND,EPEL,Z
+   108  EZ_AVG=EZ_AVG+VTMP  
+   109  *GET,VTMP,NODE,ND,S,XY  
+   110  SXY_AVG=SXY_AVG+VTMP
+   111  *GET,VTMP,NODE,ND,EPEL,XY   
+   112  EXY_AVG=EXY_AVG+VTMP
+   113  *GET,VTMP,NODE,ND,S,YZ  
+   114  SYZ_AVG=SYZ_AVG+VTMP
+   115  *GET,VTMP,NODE,ND,EPEL,YZ   
+   116  EYZ_AVG=EYZ_AVG+VTMP
+   117  *GET,VTMP,NODE,ND,S,XZ  
+   118  SXZ_AVG=SXZ_AVG+VTMP
+   119  *GET,VTMP,NODE,ND,EPEL,XZ   
+   120  EXZ_AVG=EXZ_AVG+VTMP
+   121  *ENDDO  
+   122  SX_AVG=SX_AVG/NNODE 
+   123  EX_AVG=EX_AVG/NNODE 
+   124  SY_AVG=SY_AVG/NNODE 
+   125  EY_AVG=EY_AVG/NNODE 
+   126  SZ_AVG=SZ_AVG/NNODE 
+   127  EZ_AVG=EZ_AVG/NNODE 
+   128  SXY_AVG=SXY_AVG/NNODE   
+   129  EXY_AVG=EXY_AVG/NNODE   
+   130  SYZ_AVG=SYZ_AVG/NNODE   
+   131  EYZ_AVG=EYZ_AVG/NNODE   
+   132  SXZ_AVG=SXZ_AVG/NNODE   
+   133  EXZ_AVG=EXZ_AVG/NNODE   
+   134      
+   135  *CFOPEN,g3_esys_100,txt 
+   136  *VWRITE,NELEM   
+   137  ('NELEM ',E24.15)   
+   138  *VWRITE,NNODE   
+   139  ('NNODE ',E24.15)   
+   140  *VWRITE,NTOP
+   141  ('NTOP ',E24.15)
+   142  *VWRITE,NBOT
+   143  ('NBOT ',E24.15)
+   144  *VWRITE,CPU_SOLVE   
+   145  ('CPU_SOLVE ',E24.15)   
+   146  *VWRITE,UZ_TOP  
+   147  ('UZ_TOP ',E24.15)  
+   148  *VWRITE,UZ_BOT  
+   149  ('UZ_BOT ',E24.15)  
+   150  *VWRITE,SX_AVG  
+   151  ('SX_AVG ',E24.15)  
+   152  *VWRITE,SY_AVG  
+   153  ('SY_AVG ',E24.15)  
+   154  *VWRITE,SZ_AVG  
+   155  ('SZ_AVG ',E24.15)  
+   156  *VWRITE,SXY_AVG 
+   157  ('SXY_AVG ',E24.15) 
+   158  *VWRITE,SYZ_AVG 
+   159  ('SYZ_AVG ',E24.15) 
+   160  *VWRITE,SXZ_AVG 
+   161  ('SXZ_AVG ',E24.15) 
+   162  *VWRITE,EX_AVG  
+   163  ('EX_AVG ',E24.15)  
+   164  *VWRITE,EY_AVG  
+   165  ('EY_AVG ',E24.15)  
+   166  *VWRITE,EZ_AVG  
+   167  ('EZ_AVG ',E24.15)  
+   168  *VWRITE,EXY_AVG 
+   169  ('EXY_AVG ',E24.15) 
+   170  *VWRITE,EYZ_AVG 
+   171  ('EYZ_AVG ',E24.15) 
+   172  *VWRITE,EXZ_AVG 
+   173  ('EXZ_AVG ',E24.15) 
+   174  *VWRITE,SZ_DEVMAX   
+   175  ('SZ_DEVMAX ',E24.15)   
+   176  *CFCLOS 
+   177  FINISH  
+   178      
+   179      
+   180  /CLEAR,NOSTART  
+   181  /TITLE,G3 Cu cube esys [110] || z  (uMKS: um, MPa)  
+   182  /PREP7  
+   183  ET,1,SOLID185   
+   184  MP,DENS,1,8.96e-15     ! kg/um^3 (unused in static, keeps material complete)
+   185  TB,ANEL,1,1,,0  
+   186  TBTEMP,25   
+   187  TBDATA,1,1.691000000000e+05,1.222000000000e+05,1.222000000000e+05,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00  
+   188  TBDATA,7,1.691000000000e+05,1.222000000000e+05,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,1.691000000000e+05  
+   189  TBDATA,13,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,7.540000000000e+04,0.000000000000e+00,0.000000000000e+00 
+   190  TBDATA,19,7.540000000000e+04,0.000000000000e+00,7.540000000000e+04  
+   191  BLOCK,0,1.000000000000e+00,0,1.000000000000e+00,0,1.000000000000e+00
+   192  ! crystal frame -> local CS 11 from three keypoints 
+   193  K,1001,0,0,0
+   194  K,1002,0.000000000000e+00,7.071067811865e-01,7.071067811865e-01    ! crystal [100]  
+   195  K,1003,0.000000000000e+00,-7.071067811865e-01,7.071067811865e-01    ! crystal [010] (xy-plane)  
+   196  CSKP,11,0,1001,1002,1003
+   197  CSYS,0  
+   198  ESYS,11 
+   199  MAT,1   
+   200  TYPE,1  
+   201  ESIZE,2.500000000000e-01
+   202  MSHAPE,0,3D 
+   203  MSHKEY,1
+   204  VMESH,ALL   
+   205  *GET,NELEM,ELEM,0,COUNT 
+   206  *GET,NNODE,NODE,0,COUNT 
+   207  FINISH  
+   208      
+   209  /SOLU   
+   210  ANTYPE,STATIC   
+   211  CSYS,0  
+   212  S0=1.000000000000e+02   
+   213  NSEL,S,LOC,Z,1.000000000000e+00 
+   214  SF,ALL,PRES,-S0        ! negative pressure = tension
+   215  NSEL,S,LOC,Z,0  
+   216  SF,ALL,PRES,-S0 
+   217  ALLSEL,ALL  
+   218  ! 3-2-1 restraint: removes 6 rigid-body modes, zero reactions   
+   219  NA=NODE(0,0,0)  
+   220  NB=NODE(1.000000000000e+00,0,0) 
+   221  NC=NODE(0,1.000000000000e+00,0) 
+   222  D,NA,UX,0,,,,UY,UZ  
+   223  D,NB,UY,0,,,,UZ 
+   224  D,NC,UZ,0   
+   225  *GET,TCPU0,ACTIVE,0,TIME,CPU
+   226  SOLVE   
+   227  *GET,TCPU1,ACTIVE,0,TIME,CPU
+   228  CPU_SOLVE=TCPU1-TCPU0   
+   229  FINISH  
+   230      
+   231  /POST1  
+   232  SET,LAST
+   233  RSYS,0                 ! report in global frame 
+   234  CSYS,0  
+   235  ! ---- face-averaged UZ ----
+   236  NSEL,S,LOC,Z,1.000000000000e+00 
+   237  *GET,NTOP,NODE,0,COUNT  
+   238  UZ_TOP=0
+   239  ND=0
+   240  *DO,II,1,NTOP   
+   241  ND=NDNEXT(ND)   
+   242  UZ_TOP=UZ_TOP+UZ(ND)
+   243  *ENDDO  
+   244  UZ_TOP=UZ_TOP/NTOP  
+   245  NSEL,S,LOC,Z,0  
+   246  *GET,NBOT,NODE,0,COUNT  
+   247  UZ_BOT=0
+   248  ND=0
+   249  *DO,II,1,NBOT   
+   250  ND=NDNEXT(ND)   
+   251  UZ_BOT=UZ_BOT+UZ(ND)
+   252  *ENDDO  
+   253  UZ_BOT=UZ_BOT/NBOT  
+   254  ALLSEL,ALL  
+   255  ! ---- nodal-averaged stress and elastic strain (global frame) ---- 
+   256  SX_AVG=0
+   257  EX_AVG=0
+   258  SY_AVG=0
+   259  EY_AVG=0
+   260  SZ_AVG=0
+   261  EZ_AVG=0
+   262  SXY_AVG=0   
+   263  EXY_AVG=0   
+   264  SYZ_AVG=0   
+   265  EYZ_AVG=0   
+   266  SXZ_AVG=0   
+   267  EXZ_AVG=0   
+   268  SZ_DEVMAX=0 
+   269  ND=0
+   270  *DO,II,1,NNODE  
+   271  ND=NDNEXT(ND)   
+   272  *GET,VTMP,NODE,ND,S,X   
+   273  SX_AVG=SX_AVG+VTMP  
+   274  *GET,VTMP,NODE,ND,EPEL,X
+   275  EX_AVG=EX_AVG+VTMP  
+   276  *GET,VTMP,NODE,ND,S,Y   
+   277  SY_AVG=SY_AVG+VTMP  
+   278  *GET,VTMP,NODE,ND,EPEL,Y
+   279  EY_AVG=EY_AVG+VTMP  
+   280  *GET,VTMP,NODE,ND,S,Z   
+   281  SZ_AVG=SZ_AVG+VTMP  
+   282  DTMP=ABS(VTMP-S0)   
+   283  *IF,DTMP,GT,SZ_DEVMAX,THEN  
+   284  SZ_DEVMAX=DTMP  
+   285  *ENDIF  
+   286  *GET,VTMP,NODE,ND,EPEL,Z
+   287  EZ_AVG=EZ_AVG+VTMP  
+   288  *GET,VTMP,NODE,ND,S,XY  
+   289  SXY_AVG=SXY_AVG+VTMP
+   290  *GET,VTMP,NODE,ND,EPEL,XY   
+   291  EXY_AVG=EXY_AVG+VTMP
+   292  *GET,VTMP,NODE,ND,S,YZ  
+   293  SYZ_AVG=SYZ_AVG+VTMP
+   294  *GET,VTMP,NODE,ND,EPEL,YZ   
+   295  EYZ_AVG=EYZ_AVG+VTMP
+   296  *GET,VTMP,NODE,ND,S,XZ  
+   297  SXZ_AVG=SXZ_AVG+VTMP
+   298  *GET,VTMP,NODE,ND,EPEL,XZ   
+   299  EXZ_AVG=EXZ_AVG+VTMP
+   300  *ENDDO  
+   301  SX_AVG=SX_AVG/NNODE 
+   302  EX_AVG=EX_AVG/NNODE 
+   303  SY_AVG=SY_AVG/NNODE 
+   304  EY_AVG=EY_AVG/NNODE 
+   305  SZ_AVG=SZ_AVG/NNODE 
+   306  EZ_AVG=EZ_AVG/NNODE 
+   307  SXY_AVG=SXY_AVG/NNODE   
+   308  EXY_AVG=EXY_AVG/NNODE   
+   309  SYZ_AVG=SYZ_AVG/NNODE   
+   310  EYZ_AVG=EYZ_AVG/NNODE   
+   311  SXZ_AVG=SXZ_AVG/NNODE   
+   312  EXZ_AVG=EXZ_AVG/NNODE   
+   313      
+   314  *CFOPEN,g3_esys_110,txt 
+   315  *VWRITE,NELEM   
+   316  ('NELEM ',E24.15)   
+   317  *VWRITE,NNODE   
+   318  ('NNODE ',E24.15)   
+   319  *VWRITE,NTOP
+   320  ('NTOP ',E24.15)
+   321  *VWRITE,NBOT
+   322  ('NBOT ',E24.15)
+   323  *VWRITE,CPU_SOLVE   
+   324  ('CPU_SOLVE ',E24.15)   
+   325  *VWRITE,UZ_TOP  
+   326  ('UZ_TOP ',E24.15)  
+   327  *VWRITE,UZ_BOT  
+   328  ('UZ_BOT ',E24.15)  
+   329  *VWRITE,SX_AVG  
+   330  ('SX_AVG ',E24.15)  
+   331  *VWRITE,SY_AVG  
+   332  ('SY_AVG ',E24.15)  
+   333  *VWRITE,SZ_AVG  
+   334  ('SZ_AVG ',E24.15)  
+   335  *VWRITE,SXY_AVG 
+   336  ('SXY_AVG ',E24.15) 
+   337  *VWRITE,SYZ_AVG 
+   338  ('SYZ_AVG ',E24.15) 
+   339  *VWRITE,SXZ_AVG 
+   340  ('SXZ_AVG ',E24.15) 
+   341  *VWRITE,EX_AVG  
+   342  ('EX_AVG ',E24.15)  
+   343  *VWRITE,EY_AVG  
+   344  ('EY_AVG ',E24.15)  
+   345  *VWRITE,EZ_AVG  
+   346  ('EZ_AVG ',E24.15)  
+   347  *VWRITE,EXY_AVG 
+   348  ('EXY_AVG ',E24.15) 
+   349  *VWRITE,EYZ_AVG 
+   350  ('EYZ_AVG ',E24.15) 
+   351  *VWRITE,EXZ_AVG 
+   352  ('EXZ_AVG ',E24.15) 
+   353  *VWRITE,SZ_DEVMAX   
+   354  ('SZ_DEVMAX ',E24.15)   
+   355  *CFCLOS 
+   356  FINISH  
+   357      
+   358      
+   359  /CLEAR,NOSTART  
+   360  /TITLE,G3 Cu cube esys [111] || z  (uMKS: um, MPa)  
+   361  /PREP7  
+   362  ET,1,SOLID185   
+   363  MP,DENS,1,8.96e-15     ! kg/um^3 (unused in static, keeps material complete)
+   364  TB,ANEL,1,1,,0  
+   365  TBTEMP,25   
+   366  TBDATA,1,1.691000000000e+05,1.222000000000e+05,1.222000000000e+05,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00  
+   367  TBDATA,7,1.691000000000e+05,1.222000000000e+05,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,1.691000000000e+05  
+   368  TBDATA,13,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,7.540000000000e+04,0.000000000000e+00,0.000000000000e+00 
+   369  TBDATA,19,7.540000000000e+04,0.000000000000e+00,7.540000000000e+04  
+   370  BLOCK,0,1.000000000000e+00,0,1.000000000000e+00,0,1.000000000000e+00
+   371  ! crystal frame -> local CS 11 from three keypoints 
+   372  K,1001,0,0,0
+   373  K,1002,7.071067811865e-01,4.082482904639e-01,5.773502691896e-01    ! crystal [100]  
+   374  K,1003,-7.071067811865e-01,4.082482904639e-01,5.773502691896e-01    ! crystal [010] (xy-plane)  
+   375  CSKP,11,0,1001,1002,1003
+   376  CSYS,0  
+   377  ESYS,11 
+   378  MAT,1   
+   379  TYPE,1  
+   380  ESIZE,2.500000000000e-01
+   381  MSHAPE,0,3D 
+   382  MSHKEY,1
+   383  VMESH,ALL   
+   384  *GET,NELEM,ELEM,0,COUNT 
+   385  *GET,NNODE,NODE,0,COUNT 
+   386  FINISH  
+   387      
+   388  /SOLU   
+   389  ANTYPE,STATIC   
+   390  CSYS,0  
+   391  S0=1.000000000000e+02   
+   392  NSEL,S,LOC,Z,1.000000000000e+00 
+   393  SF,ALL,PRES,-S0        ! negative pressure = tension
+   394  NSEL,S,LOC,Z,0  
+   395  SF,ALL,PRES,-S0 
+   396  ALLSEL,ALL  
+   397  ! 3-2-1 restraint: removes 6 rigid-body modes, zero reactions   
+   398  NA=NODE(0,0,0)  
+   399  NB=NODE(1.000000000000e+00,0,0) 
+   400  NC=NODE(0,1.000000000000e+00,0) 
+   401  D,NA,UX,0,,,,UY,UZ  
+   402  D,NB,UY,0,,,,UZ 
+   403  D,NC,UZ,0   
+   404  *GET,TCPU0,ACTIVE,0,TIME,CPU
+   405  SOLVE   
+   406  *GET,TCPU1,ACTIVE,0,TIME,CPU
+   407  CPU_SOLVE=TCPU1-TCPU0   
+   408  FINISH  
+   409      
+   410  /POST1  
+   411  SET,LAST
+   412  RSYS,0                 ! report in global frame 
+   413  CSYS,0  
+   414  ! ---- face-averaged UZ ----
+   415  NSEL,S,LOC,Z,1.000000000000e+00 
+   416  *GET,NTOP,NODE,0,COUNT  
+   417  UZ_TOP=0
+   418  ND=0
+   419  *DO,II,1,NTOP   
+   420  ND=NDNEXT(ND)   
+   421  UZ_TOP=UZ_TOP+UZ(ND)
+   422  *ENDDO  
+   423  UZ_TOP=UZ_TOP/NTOP  
+   424  NSEL,S,LOC,Z,0  
+   425  *GET,NBOT,NODE,0,COUNT  
+   426  UZ_BOT=0
+   427  ND=0
+   428  *DO,II,1,NBOT   
+   429  ND=NDNEXT(ND)   
+   430  UZ_BOT=UZ_BOT+UZ(ND)
+   431  *ENDDO  
+   432  UZ_BOT=UZ_BOT/NBOT  
+   433  ALLSEL,ALL  
+   434  ! ---- nodal-averaged stress and elastic strain (global frame) ---- 
+   435  SX_AVG=0
+   436  EX_AVG=0
+   437  SY_AVG=0
+   438  EY_AVG=0
+   439  SZ_AVG=0
+   440  EZ_AVG=0
+   441  SXY_AVG=0   
+   442  EXY_AVG=0   
+   443  SYZ_AVG=0   
+   444  EYZ_AVG=0   
+   445  SXZ_AVG=0   
+   446  EXZ_AVG=0   
+   447  SZ_DEVMAX=0 
+   448  ND=0
+   449  *DO,II,1,NNODE  
+   450  ND=NDNEXT(ND)   
+   451  *GET,VTMP,NODE,ND,S,X   
+   452  SX_AVG=SX_AVG+VTMP  
+   453  *GET,VTMP,NODE,ND,EPEL,X
+   454  EX_AVG=EX_AVG+VTMP  
+   455  *GET,VTMP,NODE,ND,S,Y   
+   456  SY_AVG=SY_AVG+VTMP  
+   457  *GET,VTMP,NODE,ND,EPEL,Y
+   458  EY_AVG=EY_AVG+VTMP  
+   459  *GET,VTMP,NODE,ND,S,Z   
+   460  SZ_AVG=SZ_AVG+VTMP  
+   461  DTMP=ABS(VTMP-S0)   
+   462  *IF,DTMP,GT,SZ_DEVMAX,THEN  
+   463  SZ_DEVMAX=DTMP  
+   464  *ENDIF  
+   465  *GET,VTMP,NODE,ND,EPEL,Z
+   466  EZ_AVG=EZ_AVG+VTMP  
+   467  *GET,VTMP,NODE,ND,S,XY  
+   468  SXY_AVG=SXY_AVG+VTMP
+   469  *GET,VTMP,NODE,ND,EPEL,XY   
+   470  EXY_AVG=EXY_AVG+VTMP
+   471  *GET,VTMP,NODE,ND,S,YZ  
+   472  SYZ_AVG=SYZ_AVG+VTMP
+   473  *GET,VTMP,NODE,ND,EPEL,YZ   
+   474  EYZ_AVG=EYZ_AVG+VTMP
+   475  *GET,VTMP,NODE,ND,S,XZ  
+   476  SXZ_AVG=SXZ_AVG+VTMP
+   477  *GET,VTMP,NODE,ND,EPEL,XZ   
+   478  EXZ_AVG=EXZ_AVG+VTMP
+   479  *ENDDO  
+   480  SX_AVG=SX_AVG/NNODE 
+   481  EX_AVG=EX_AVG/NNODE 
+   482  SY_AVG=SY_AVG/NNODE 
+   483  EY_AVG=EY_AVG/NNODE 
+   484  SZ_AVG=SZ_AVG/NNODE 
+   485  EZ_AVG=EZ_AVG/NNODE 
+   486  SXY_AVG=SXY_AVG/NNODE   
+   487  EXY_AVG=EXY_AVG/NNODE   
+   488  SYZ_AVG=SYZ_AVG/NNODE   
+   489  EYZ_AVG=EYZ_AVG/NNODE   
+   490  SXZ_AVG=SXZ_AVG/NNODE   
+   491  EXZ_AVG=EXZ_AVG/NNODE   
+   492      
+   493  *CFOPEN,g3_esys_111,txt 
+   494  *VWRITE,NELEM   
+   495  ('NELEM ',E24.15)   
+   496  *VWRITE,NNODE   
+   497  ('NNODE ',E24.15)   
+   498  *VWRITE,NTOP
+   499  ('NTOP ',E24.15)
+   500  *VWRITE,NBOT
+   501  ('NBOT ',E24.15)
+   502  *VWRITE,CPU_SOLVE   
+   503  ('CPU_SOLVE ',E24.15)   
+   504  *VWRITE,UZ_TOP  
+   505  ('UZ_TOP ',E24.15)  
+   506  *VWRITE,UZ_BOT  
+   507  ('UZ_BOT ',E24.15)  
+   508  *VWRITE,SX_AVG  
+   509  ('SX_AVG ',E24.15)  
+   510  *VWRITE,SY_AVG  
+   511  ('SY_AVG ',E24.15)  
+   512  *VWRITE,SZ_AVG  
+   513  ('SZ_AVG ',E24.15)  
+   514  *VWRITE,SXY_AVG 
+   515  ('SXY_AVG ',E24.15) 
+   516  *VWRITE,SYZ_AVG 
+   517  ('SYZ_AVG ',E24.15) 
+   518  *VWRITE,SXZ_AVG 
+   519  ('SXZ_AVG ',E24.15) 
+   520  *VWRITE,EX_AVG  
+   521  ('EX_AVG ',E24.15)  
+   522  *VWRITE,EY_AVG  
+   523  ('EY_AVG ',E24.15)  
+   524  *VWRITE,EZ_AVG  
+   525  ('EZ_AVG ',E24.15)  
+   526  *VWRITE,EXY_AVG 
+   527  ('EXY_AVG ',E24.15) 
+   528  *VWRITE,EYZ_AVG 
+   529  ('EYZ_AVG ',E24.15) 
+   530  *VWRITE,EXZ_AVG 
+   531  ('EXZ_AVG ',E24.15) 
+   532  *VWRITE,SZ_DEVMAX   
+   533  ('SZ_DEVMAX ',E24.15)   
+   534  *CFCLOS 
+   535  FINISH  
+   536      
+   537      
+   538  /CLEAR,NOSTART  
+   539  /TITLE,G3 Cu cube prerot [100] || z  (uMKS: um, MPa)
+   540  /PREP7  
+   541  ET,1,SOLID185   
+   542  MP,DENS,1,8.96e-15     ! kg/um^3 (unused in static, keeps material complete)
+   543  TB,ANEL,1,1,,0  
+   544  TBTEMP,25   
+   545  TBDATA,1,1.691000000000e+05,1.222000000000e+05,1.222000000000e+05,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00  
+   546  TBDATA,7,1.691000000000e+05,1.222000000000e+05,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,1.691000000000e+05  
+   547  TBDATA,13,0.000000000000e+00,0.000000000000e+00,0.000000000000e+00,7.540000000000e+04,0.000000000000e+00,0.000000000000e+00 
+   548  TBDATA,19,7.540000000000e+04,0.000000000000e+00,7.540000000000e+04  
+   549  BLOCK,0,1.000000000000e+00,0,1.000000000000e+00,0,1.000000000000e+00
+   550  ESYS,0                 ! stiffness already rotated to global
+   551  MAT,1   
+   552  TYPE,1  
+   553  ESIZE,2.500000000000e-01
+   554  MSHAPE,0,3D 
+   555  MSHKEY,1
+   556  VMESH,ALL   
+   557  *GET,NELEM,ELEM,0,COUNT 
+   558  *GET,NNODE,NODE,0,COUNT 
+   559  FINISH  
+   560      
+   561  /SOLU   
+   562  ANTYPE,STATIC   
+   563  CSYS,0  
+   564  S0=1.000000000000e+02   
+   565  NSEL,S,LOC,Z,1.000000000000e+00 
+   566  SF,ALL,PRES,-S0        ! negative pressure = tension
+   567  NSEL,S,LOC,Z,0  
+   568  SF,ALL,PRES,-S0 
+   569  ALLSEL,ALL  
+   570  ! 3-2-1 restraint: removes 6 rigid-body modes, zero reactions   
+   571  NA=NODE(0,0,0)  
+   572  NB=NODE(1.000000000000e+00,0,0) 
+   573  NC=NODE(0,1.000000000000e+00,0) 
+   574  D,NA,UX,0,,,,UY,UZ  
+   575  D,NB,UY,0,,,,UZ 
+   576  D,NC,UZ,0   
+   577  *GET,TCPU0,ACTIVE,0,TIME,CPU
+   578  SOLVE   
+   579  *GET,TCPU1,ACTIVE,0,TIME,CPU
+   580  CPU_SOLVE=TCPU1-TCPU0   
+   581  FINISH  
+   582      
+   583  /POST1  
+   584  SET,LAST
+   585  RSYS,0                 ! report in global frame 
+   586  CSYS,0  
+   587  ! ---- face-averaged UZ ----
+   588  NSEL,S,LOC,Z,1.000000000000e+00 
+   589  *GET,NTOP,NODE,0,COUNT  
+   590  UZ_TOP=0
+   591  ND=0
+   592  *DO,II,1,NTOP   
+   593  ND=NDNEXT(ND)   
+   594  UZ_TOP=UZ_TOP+UZ(ND)
+   595  *ENDDO  
+   596  UZ_TOP=UZ_TOP/NTOP  
+   597  NSEL,S,LOC,Z,0  
+   598  *GET,NBOT,NODE,0,COUNT  
+   599  UZ_BOT=0
+   600  ND=0
+   601  *DO,II,1,NBOT   
+   602  ND=NDNEXT(ND)   
+   603  UZ_BOT=UZ_BOT+UZ(ND)
+   604  *ENDDO  
+   605  UZ_BOT=UZ_BOT/NBOT  
+   606  ALLSEL,ALL  
+   607  ! ---- nodal-averaged stress and elastic strain (global frame) ---- 
+   608  SX_AVG=0
+   609  EX_AVG=0
+   610  SY_AVG=0
+   611  EY_AVG=0
+   612  SZ_AVG=0
+   613  EZ_AVG=0
+   614  SXY_AVG=0   
+   615  EXY_AVG=0   
+   616  SYZ_AVG=0   
+   617  EYZ_AVG=0   
+   618  SXZ_AVG=0   
+   619  EXZ_AVG=0   
+   620  SZ_DEVMAX=0 
+   621  ND=0
+   622  *DO,II,1,NNODE  
+   623  ND=NDNEXT(ND)   
+   624  *GET,VTMP,NODE,ND,S,X   
+   625  SX_AVG=SX_AVG+VTMP  
+   626  *GET,VTMP,NODE,ND,EPEL,X
+   627  EX_AVG=EX_AVG+VTMP  
+   628  *GET,VTMP,NODE,ND,S,Y   
+   629  SY_AVG=SY_AVG+VTMP  
+   630  *GET,VTMP,NODE,ND,EPEL,Y
+   631  EY_AVG=EY_AVG+VTMP  
+   632  *GET,VTMP,NODE,ND,S,Z   
+   633  SZ_AVG=SZ_AVG+VTMP  
+   634  DTMP=ABS(VTMP-S0)   
+   635  *IF,DTMP,GT,SZ_DEVMAX,THEN  
+   636  SZ_DEVMAX=DTMP  
+   637  *ENDIF  
+   638  *GET,VTMP,NODE,ND,EPEL,Z
+   639  EZ_AVG=EZ_AVG+VTMP  
+   640  *GET,VTMP,NODE,ND,S,XY  
+   641  SXY_AVG=SXY_AVG+VTMP
+   642  *GET,VTMP,NODE,ND,EPEL,XY   
+   643  EXY_AVG=EXY_AVG+VTMP
+   644  *GET,VTMP,NODE,ND,S,YZ  
+   645  SYZ_AVG=SYZ_AVG+VTMP
+   646  *GET,VTMP,NODE,ND,EPEL,YZ   
+   647  EYZ_AVG=EYZ_AVG+VTMP
+   648  *GET,VTMP,NODE,ND,S,XZ  
+   649  SXZ_AVG=SXZ_AVG+VTMP
+   650  *GET,VTMP,NODE,ND,EPEL,XZ   
+   651  EXZ_AVG=EXZ_AVG+VTMP
+   652  *ENDDO  
+   653  SX_AVG=SX_AVG/NNODE 
+   654  EX_AVG=EX_AVG/NNODE 
+   655  SY_AVG=SY_AVG/NNODE 
+   656  EY_AVG=EY_AVG/NNODE 
+   657  SZ_AVG=SZ_AVG/NNODE 
+   658  EZ_AVG=EZ_AVG/NNODE 
+   659  SXY_AVG=SXY_AVG/NNODE   
+   660  EXY_AVG=EXY_AVG/NNODE   
+   661  SYZ_AVG=SYZ_AVG/NNODE   
+   662  EYZ_AVG=EYZ_AVG/NNODE   
+   663  SXZ_AVG=SXZ_AVG/NNODE   
+   664  EXZ_AVG=EXZ_AVG/NNODE   
+   665      
+   666  *CFOPEN,g3_prerot_100,txt   
+   667  *VWRITE,NELEM   
+   668  ('NELEM ',E24.15)   
+   669  *VWRITE,NNODE   
+   670  ('NNODE ',E24.15)   
+   671  *VWRITE,NTOP
+   672  ('NTOP ',E24.15)
+   673  *VWRITE,NBOT
+   674  ('NBOT ',E24.15)
+   675  *VWRITE,CPU_SOLVE   
+   676  ('CPU_SOLVE ',E24.15)   
+   677  *VWRITE,UZ_TOP  
+   678  ('UZ_TOP ',E24.15)  
+   679  *VWRITE,UZ_BOT  
+   680  ('UZ_BOT ',E24.15)  
+   681  *VWRITE,SX_AVG  
+   682  ('SX_AVG ',E24.15)  
+   683  *VWRITE,SY_AVG  
+   684  ('SY_AVG ',E24.15)  
+   685  *VWRITE,SZ_AVG  
+   686  ('SZ_AVG ',E24.15)  
+   687  *VWRITE,SXY_AVG 
+   688  ('SXY_AVG ',E24.15) 
+   689  *VWRITE,SYZ_AVG 
+   690  ('SYZ_AVG ',E24.15) 
+   691  *VWRITE,SXZ_AVG 
+   692  ('SXZ_AVG ',E24.15) 
+   693  *VWRITE,EX_AVG  
+   694  ('EX_AVG ',E24.15)  
+   695  *VWRITE,EY_AVG  
+   696  ('EY_AVG ',E24.15)  
+   697  *VWRITE,EZ_AVG  
+   698  ('EZ_AVG ',E24.15)  
+   699  *VWRITE,EXY_AVG 
+   700  ('EXY_AVG ',E24.15) 
+   701  *VWRITE,EYZ_AVG 
+   702  ('EYZ_AVG ',E24.15) 
+   703  *VWRITE,EXZ_AVG 
+   704  ('EXZ_AVG ',E24.15) 
+   705  *VWRITE,SZ_DEVMAX   
+   706  ('SZ_DEVMAX ',E24.15)   
+   707  *CFCLOS 
+   708  FINISH  
+   709      
+   710      
+   711  /CLEAR,NOSTART  
+   712  /TITLE,G3 Cu cube prerot [110] || z  (uMKS: um, MPa)
+   713  /PREP7  
+   714  ET,1,SOLID185   
+   715  MP,DENS,1,8.96e-15     ! kg/um^3 (unused in static, keeps material complete)
+   716  TB,ANEL,1,1,,0  
+   717  TBTEMP,25   
+   718  TBDATA,1,1.691000000000e+05,1.222000000000e+05,1.222000000000e+05,0.000000000000e+00,1.831368420684e-12,0.000000000000e+00  
+   719  TBDATA,7,2.210500000000e+05,7.025000000000e+04,0.000000000000e+00,1.700836560104e-12,0.000000000000e+00,2.210500000000e+05  
+   720  TBDATA,13,0.000000000000e+00,1.700836560104e-12,0.000000000000e+00,7.540000000000e+04,0.000000000000e+00,-3.429575581293e-13
+   721  TBDATA,19,2.345000000000e+04,0.000000000000e+00,7.540000000000e+04  
+   722  BLOCK,0,1.000000000000e+00,0,1.000000000000e+00,0,1.000000000000e+00
+   723  ESYS,0                 ! stiffness already rotated to global
+   724  MAT,1   
+   725  TYPE,1  
+   726  ESIZE,2.500000000000e-01
+   727  MSHAPE,0,3D 
+   728  MSHKEY,1
+   729  VMESH,ALL   
+   730  *GET,NELEM,ELEM,0,COUNT 
+   731  *GET,NNODE,NODE,0,COUNT 
+   732  FINISH  
+   733      
+   734  /SOLU   
+   735  ANTYPE,STATIC   
+   736  CSYS,0  
+   737  S0=1.000000000000e+02   
+   738  NSEL,S,LOC,Z,1.000000000000e+00 
+   739  SF,ALL,PRES,-S0        ! negative pressure = tension
+   740  NSEL,S,LOC,Z,0  
+   741  SF,ALL,PRES,-S0 
+   742  ALLSEL,ALL  
+   743  ! 3-2-1 restraint: removes 6 rigid-body modes, zero reactions   
+   744  NA=NODE(0,0,0)  
+   745  NB=NODE(1.000000000000e+00,0,0) 
+   746  NC=NODE(0,1.000000000000e+00,0) 
+   747  D,NA,UX,0,,,,UY,UZ  
+   748  D,NB,UY,0,,,,UZ 
+   749  D,NC,UZ,0   
+   750  *GET,TCPU0,ACTIVE,0,TIME,CPU
+   751  SOLVE   
+   752  *GET,TCPU1,ACTIVE,0,TIME,CPU
+   753  CPU_SOLVE=TCPU1-TCPU0   
+   754  FINISH  
+   755      
+   756  /POST1  
+   757  SET,LAST
+   758  RSYS,0                 ! report in global frame 
+   759  CSYS,0  
+   760  ! ---- face-averaged UZ ----
+   761  NSEL,S,LOC,Z,1.000000000000e+00 
+   762  *GET,NTOP,NODE,0,COUNT  
+   763  UZ_TOP=0
+   764  ND=0
+   765  *DO,II,1,NTOP   
+   766  ND=NDNEXT(ND)   
+   767  UZ_TOP=UZ_TOP+UZ(ND)
+   768  *ENDDO  
+   769  UZ_TOP=UZ_TOP/NTOP  
+   770  NSEL,S,LOC,Z,0  
+   771  *GET,NBOT,NODE,0,COUNT  
+   772  UZ_BOT=0
+   773  ND=0
+   774  *DO,II,1,NBOT   
+   775  ND=NDNEXT(ND)   
+   776  UZ_BOT=UZ_BOT+UZ(ND)
+   777  *ENDDO  
+   778  UZ_BOT=UZ_BOT/NBOT  
+   779  ALLSEL,ALL  
+   780  ! ---- nodal-averaged stress and elastic strain (global frame) ---- 
+   781  SX_AVG=0
+   782  EX_AVG=0
+   783  SY_AVG=0
+   784  EY_AVG=0
+   785  SZ_AVG=0
+   786  EZ_AVG=0
+   787  SXY_AVG=0   
+   788  EXY_AVG=0   
+   789  SYZ_AVG=0   
+   790  EYZ_AVG=0   
+   791  SXZ_AVG=0   
+   792  EXZ_AVG=0   
+   793  SZ_DEVMAX=0 
+   794  ND=0
+   795  *DO,II,1,NNODE  
+   796  ND=NDNEXT(ND)   
+   797  *GET,VTMP,NODE,ND,S,X   
+   798  SX_AVG=SX_AVG+VTMP  
+   799  *GET,VTMP,NODE,ND,EPEL,X
+   800  EX_AVG=EX_AVG+VTMP  
+   801  *GET,VTMP,NODE,ND,S,Y   
+   802  SY_AVG=SY_AVG+VTMP  
+   803  *GET,VTMP,NODE,ND,EPEL,Y
+   804  EY_AVG=EY_AVG+VTMP  
+   805  *GET,VTMP,NODE,ND,S,Z   
+   806  SZ_AVG=SZ_AVG+VTMP  
+   807  DTMP=ABS(VTMP-S0)   
+   808  *IF,DTMP,GT,SZ_DEVMAX,THEN  
+   809  SZ_DEVMAX=DTMP  
+   810  *ENDIF  
+   811  *GET,VTMP,NODE,ND,EPEL,Z
+   812  EZ_AVG=EZ_AVG+VTMP  
+   813  *GET,VTMP,NODE,ND,S,XY  
+   814  SXY_AVG=SXY_AVG+VTMP
+   815  *GET,VTMP,NODE,ND,EPEL,XY   
+   816  EXY_AVG=EXY_AVG+VTMP
+   817  *GET,VTMP,NODE,ND,S,YZ  
+   818  SYZ_AVG=SYZ_AVG+VTMP
+   819  *GET,VTMP,NODE,ND,EPEL,YZ   
+   820  EYZ_AVG=EYZ_AVG+VTMP
+   821  *GET,VTMP,NODE,ND,S,XZ  
+   822  SXZ_AVG=SXZ_AVG+VTMP
+   823  *GET,VTMP,NODE,ND,EPEL,XZ   
+   824  EXZ_AVG=EXZ_AVG+VTMP
+   825  *ENDDO  
+   826  SX_AVG=SX_AVG/NNODE 
+   827  EX_AVG=EX_AVG/NNODE 
+   828  SY_AVG=SY_AVG/NNODE 
+   829  EY_AVG=EY_AVG/NNODE 
+   830  SZ_AVG=SZ_AVG/NNODE 
+   831  EZ_AVG=EZ_AVG/NNODE 
+   832  SXY_AVG=SXY_AVG/NNODE   
+   833  EXY_AVG=EXY_AVG/NNODE   
+   834  SYZ_AVG=SYZ_AVG/NNODE   
+   835  EYZ_AVG=EYZ_AVG/NNODE   
+   836  SXZ_AVG=SXZ_AVG/NNODE   
+   837  EXZ_AVG=EXZ_AVG/NNODE   
+   838      
+   839  *CFOPEN,g3_prerot_110,txt   
+   840  *VWRITE,NELEM   
+   841  ('NELEM ',E24.15)   
+   842  *VWRITE,NNODE   
+   843  ('NNODE ',E24.15)   
+   844  *VWRITE,NTOP
+   845  ('NTOP ',E24.15)
+   846  *VWRITE,NBOT
+   847  ('NBOT ',E24.15)
+   848  *VWRITE,CPU_SOLVE   
+   849  ('CPU_SOLVE ',E24.15)   
+   850  *VWRITE,UZ_TOP  
+   851  ('UZ_TOP ',E24.15)  
+   852  *VWRITE,UZ_BOT  
+   853  ('UZ_BOT ',E24.15)  
+   854  *VWRITE,SX_AVG  
+   855  ('SX_AVG ',E24.15)  
+   856  *VWRITE,SY_AVG  
+   857  ('SY_AVG ',E24.15)  
+   858  *VWRITE,SZ_AVG  
+   859  ('SZ_AVG ',E24.15)  
+   860  *VWRITE,SXY_AVG 
+   861  ('SXY_AVG ',E24.15) 
+   862  *VWRITE,SYZ_AVG 
+   863  ('SYZ_AVG ',E24.15) 
+   864  *VWRITE,SXZ_AVG 
+   865  ('SXZ_AVG ',E24.15) 
+   866  *VWRITE,EX_AVG  
+   867  ('EX_AVG ',E24.15)  
+   868  *VWRITE,EY_AVG  
+   869  ('EY_AVG ',E24.15)  
+   870  *VWRITE,EZ_AVG  
+   871  ('EZ_AVG ',E24.15)  
+   872  *VWRITE,EXY_AVG 
+   873  ('EXY_AVG ',E24.15) 
+   874  *VWRITE,EYZ_AVG 
+   875  ('EYZ_AVG ',E24.15) 
+   876  *VWRITE,EXZ_AVG 
+   877  ('EXZ_AVG ',E24.15) 
+   878  *VWRITE,SZ_DEVMAX   
+   879  ('SZ_DEVMAX ',E24.15)   
+   880  *CFCLOS 
+   881  FINISH  
+   882      
+   883      
+   884  /CLEAR,NOSTART  
+   885  /TITLE,G3 Cu cube prerot [111] || z  (uMKS: um, MPa)
+   886  /PREP7  
+   887  ET,1,SOLID185   
+   888  MP,DENS,1,8.96e-15     ! kg/um^3 (unused in static, keeps material complete)
+   889  TB,ANEL,1,1,,0  
+   890  TBTEMP,25   
+   891  TBDATA,1,2.210500000000e+05,1.048833333333e+05,8.756666666667e+04,1.152154639763e-12,-2.448946485509e+04,-4.647723885788e-13
+   892  TBDATA,7,2.210500000000e+05,8.756666666667e+04,-9.372417728771e-13,2.448946485509e+04,-2.541268289892e-13,2.383666666667e+05
+   893  TBDATA,13,-1.469787171953e-12,-2.264628622579e-12,-4.872828352236e-13,5.808333333333e+04,3.024290563045e-13,-2.448946485509e+04 
+   894  TBDATA,19,4.076666666667e+04,3.952509923926e-13,4.076666666667e+04  
+   895  BLOCK,0,1.000000000000e+00,0,1.000000000000e+00,0,1.000000000000e+00
+   896  ESYS,0                 ! stiffness already rotated to global
+   897  MAT,1   
+   898  TYPE,1  
+   899  ESIZE,2.500000000000e-01
+   900  MSHAPE,0,3D 
+   901  MSHKEY,1
+   902  VMESH,ALL   
+   903  *GET,NELEM,ELEM,0,COUNT 
+   904  *GET,NNODE,NODE,0,COUNT 
+   905  FINISH  
+   906      
+   907  /SOLU   
+   908  ANTYPE,STATIC   
+   909  CSYS,0  
+   910  S0=1.000000000000e+02   
+   911  NSEL,S,LOC,Z,1.000000000000e+00 
+   912  SF,ALL,PRES,-S0        ! negative pressure = tension
+   913  NSEL,S,LOC,Z,0  
+   914  SF,ALL,PRES,-S0 
+   915  ALLSEL,ALL  
+   916  ! 3-2-1 restraint: removes 6 rigid-body modes, zero reactions   
+   917  NA=NODE(0,0,0)  
+   918  NB=NODE(1.000000000000e+00,0,0) 
+   919  NC=NODE(0,1.000000000000e+00,0) 
+   920  D,NA,UX,0,,,,UY,UZ  
+   921  D,NB,UY,0,,,,UZ 
+   922  D,NC,UZ,0   
+   923  *GET,TCPU0,ACTIVE,0,TIME,CPU
+   924  SOLVE   
+   925  *GET,TCPU1,ACTIVE,0,TIME,CPU
+   926  CPU_SOLVE=TCPU1-TCPU0   
+   927  FINISH  
+   928      
+   929  /POST1  
+   930  SET,LAST
+   931  RSYS,0                 ! report in global frame 
+   932  CSYS,0  
+   933  ! ---- face-averaged UZ ----
+   934  NSEL,S,LOC,Z,1.000000000000e+00 
+   935  *GET,NTOP,NODE,0,COUNT  
+   936  UZ_TOP=0
+   937  ND=0
+   938  *DO,II,1,NTOP   
+   939  ND=NDNEXT(ND)   
+   940  UZ_TOP=UZ_TOP+UZ(ND)
+   941  *ENDDO  
+   942  UZ_TOP=UZ_TOP/NTOP  
+   943  NSEL,S,LOC,Z,0  
+   944  *GET,NBOT,NODE,0,COUNT  
+   945  UZ_BOT=0
+   946  ND=0
+   947  *DO,II,1,NBOT   
+   948  ND=NDNEXT(ND)   
+   949  UZ_BOT=UZ_BOT+UZ(ND)
+   950  *ENDDO  
+   951  UZ_BOT=UZ_BOT/NBOT  
+   952  ALLSEL,ALL  
+   953  ! ---- nodal-averaged stress and elastic strain (global frame) ---- 
+   954  SX_AVG=0
+   955  EX_AVG=0
+   956  SY_AVG=0
+   957  EY_AVG=0
+   958  SZ_AVG=0
+   959  EZ_AVG=0
+   960  SXY_AVG=0   
+   961  EXY_AVG=0   
+   962  SYZ_AVG=0   
+   963  EYZ_AVG=0   
+   964  SXZ_AVG=0   
+   965  EXZ_AVG=0   
+   966  SZ_DEVMAX=0 
+   967  ND=0
+   968  *DO,II,1,NNODE  
+   969  ND=NDNEXT(ND)   
+   970  *GET,VTMP,NODE,ND,S,X   
+   971  SX_AVG=SX_AVG+VTMP  
+   972  *GET,VTMP,NODE,ND,EPEL,X
+   973  EX_AVG=EX_AVG+VTMP  
+   974  *GET,VTMP,NODE,ND,S,Y   
+   975  SY_AVG=SY_AVG+VTMP  
+   976  *GET,VTMP,NODE,ND,EPEL,Y
+   977  EY_AVG=EY_AVG+VTMP  
+   978  *GET,VTMP,NODE,ND,S,Z   
+   979  SZ_AVG=SZ_AVG+VTMP  
+   980  DTMP=ABS(VTMP-S0)   
+   981  *IF,DTMP,GT,SZ_DEVMAX,THEN  
+   982  SZ_DEVMAX=DTMP  
+   983  *ENDIF  
+   984  *GET,VTMP,NODE,ND,EPEL,Z
+   985  EZ_AVG=EZ_AVG+VTMP  
+   986  *GET,VTMP,NODE,ND,S,XY  
+   987  SXY_AVG=SXY_AVG+VTMP
+   988  *GET,VTMP,NODE,ND,EPEL,XY   
+   989  EXY_AVG=EXY_AVG+VTMP
+   990  *GET,VTMP,NODE,ND,S,YZ  
+   991  SYZ_AVG=SYZ_AVG+VTMP
+   992  *GET,VTMP,NODE,ND,EPEL,YZ   
+   993  EYZ_AVG=EYZ_AVG+VTMP
+   994  *GET,VTMP,NODE,ND,S,XZ  
+   995  SXZ_AVG=SXZ_AVG+VTMP
+   996  *GET,VTMP,NODE,ND,EPEL,XZ   
+   997  EXZ_AVG=EXZ_AVG+VTMP
+   998  *ENDDO  
+   999  SX_AVG=SX_AVG/NNODE 
+  1000  EX_AVG=EX_AVG/NNODE 
+  1001  SY_AVG=SY_AVG/NNODE 
+  1002  EY_AVG=EY_AVG/NNODE 
+  1003  SZ_AVG=SZ_AVG/NNODE 
+  1004  EZ_AVG=EZ_AVG/NNODE 
+  1005  SXY_AVG=SXY_AVG/NNODE   
+  1006  EXY_AVG=EXY_AVG/NNODE   
+  1007  SYZ_AVG=SYZ_AVG/NNODE   
+  1008  EYZ_AVG=EYZ_AVG/NNODE   
+  1009  SXZ_AVG=SXZ_AVG/NNODE   
+  1010  EXZ_AVG=EXZ_AVG/NNODE   
+  1011      
+  1012  *CFOPEN,g3_prerot_111,txt   
+  1013  *VWRITE,NELEM   
+  1014  ('NELEM ',E24.15)   
+  1015  *VWRITE,NNODE   
+  1016  ('NNODE ',E24.15)   
+  1017  *VWRITE,NTOP
+  1018  ('NTOP ',E24.15)
+  1019  *VWRITE,NBOT
+  1020  ('NBOT ',E24.15)
+  1021  *VWRITE,CPU_SOLVE   
+  1022  ('CPU_SOLVE ',E24.15)   
+  1023  *VWRITE,UZ_TOP  
+  1024  ('UZ_TOP ',E24.15)  
+  1025  *VWRITE,UZ_BOT  
+  1026  ('UZ_BOT ',E24.15)  
+  1027  *VWRITE,SX_AVG  
+  1028  ('SX_AVG ',E24.15)  
+  1029  *VWRITE,SY_AVG  
+  1030  ('SY_AVG ',E24.15)  
+  1031  *VWRITE,SZ_AVG  
+  1032  ('SZ_AVG ',E24.15)  
+  1033  *VWRITE,SXY_AVG 
+  1034  ('SXY_AVG ',E24.15) 
+  1035  *VWRITE,SYZ_AVG 
+  1036  ('SYZ_AVG ',E24.15) 
+  1037  *VWRITE,SXZ_AVG 
+  1038  ('SXZ_AVG ',E24.15) 
+  1039  *VWRITE,EX_AVG  
+  1040  ('EX_AVG ',E24.15)  
+  1041  *VWRITE,EY_AVG  
+  1042  ('EY_AVG ',E24.15)  
+  1043  *VWRITE,EZ_AVG  
+  1044  ('EZ_AVG ',E24.15)  
+  1045  *VWRITE,EXY_AVG 
+  1046  ('EXY_AVG ',E24.15) 
+  1047  *VWRITE,EYZ_AVG 
+  1048  ('EYZ_AVG ',E24.15) 
+  1049  *VWRITE,EXZ_AVG 
+  1050  ('EXZ_AVG ',E24.15) 
+  1051  *VWRITE,SZ_DEVMAX   
+  1052  ('SZ_DEVMAX ',E24.15)   
+  1053  *CFCLOS 
+  1054  FINISH  
+  1055      
+  1056      
+  1057  /EXIT,NOSAVE
+
+ RUN SETUP PROCEDURE FROM FILE= C:\Program Files\ANSYS Inc\ANSYS Student\v261\Ansys\apdl\start.ans
+
+ /INPUT FILE= C:\Program Files\ANSYS Inc\ANSYS Student\v261\Ansys\apdl\start.ans  LINE=       0
+
+ CLEAR MAPDL DATABASE AND RESTART
+
+ Ansys Mechanical Enterprise Academic Student      
+
+ TITLE= 
+ G3 Cu cube esys [100] || z  (uMKS: um, MPa)                                   
+
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   20:16:23  OCT 08, 2026 Elapsed Time=      5.950
+
+ G3 Cu cube esys [100] || z  (uMKS: um, MPa)                                   
+
+
+
+          ***** MAPDL ANALYSIS DEFINITION (PREP7) *****
+
+ ELEMENT TYPE          1 IS SOLID185     3-D 8-NODE STRUCTURAL SOLID 
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ MATERIAL          1     DENS =  0.8960000E-14  
+
+ DEFINE DATA TABLE  ANEL  FOR MATERIAL     1
+   WITH A MAXIMUM OF   1 TEMPERATURE SPECIFICATIONS
+
+ TEMPERATURE TO BE USED FOR THE NEXT TBDAT COMMAND=  25.000    
+    TEMPERATURE SPECIFICATION=  1
+
+ DATA FOR  ANEL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  25.000    
+ LOC=  1 0.16910E+06 0.12220E+06 0.12220E+06  0.0000      0.0000      0.0000    
+
+ DATA FOR  ANEL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  25.000    
+ LOC=  7 0.16910E+06 0.12220E+06  0.0000      0.0000      0.0000     0.16910E+06
+
+ DATA FOR  ANEL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  25.000    
+ LOC= 13  0.0000      0.0000      0.0000      75400.      0.0000      0.0000    
+
+ DATA FOR  ANEL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  25.000    
+ LOC= 19  75400.      0.0000      75400.    
+
+ CREATE A HEXAHEDRAL VOLUME WITH
+ X-DISTANCES FROM      0.000000000     TO      1.000000000    
+ Y-DISTANCES FROM      0.000000000     TO      1.000000000    
+ Z-DISTANCES FROM      0.000000000     TO      1.000000000    
+
+      OUTPUT VOLUME =     1
+
+ KEYPOINT     1001                  X,Y,Z=   0.00000       0.00000       0.00000      IN CSYS=        0
+
+ KEYPOINT     1002                  X,Y,Z=   0.00000       0.00000       1.00000      IN CSYS=        0
+
+ KEYPOINT     1003                  X,Y,Z=   1.00000       0.00000       0.00000      IN CSYS=        0
+
+ COORDINATE SYSTEM       11 DEFINITION.  TYPE= 0  (CARTESIAN)  
+   ORIGIN POINT=     1001  XPOINT=     1002  YPOINT=     1003  PARAMETERS=   1.000   1.000
+   ORIENTATION=  0.00  0.00  1.00   1.00  0.00  0.00   0.00  1.00  0.00
+   THXY,THYZ,THZX=  -90.000    0.000  -90.000
+
+ ACTIVE COORDINATE SYSTEM SET TO        11  (CARTESIAN)  
+
+ ACTIVE COORDINATE SYSTEM SET TO          0  (CARTESIAN)  
+
+ ELEMENT COORDINATE SYSTEM IS PARALLEL TO COORDINATE SYSTEM        11
+
+ MATERIAL NUMBER SET TO         1
+
+ ELEMENT TYPE SET TO         1
+
+ DEFAULT ELEMENT DIVISIONS PER LINE BASED ON ELEMENT SIZE =  0.250    
+ PRODUCE ALL HEXAHEDRAL ELEMENTS IN 3D.
+ USE THE MAPPED MESHER.
+
+ GENERATE NODES AND ELEMENTS   IN  ALL  SELECTED VOLUMES  
+
+ NUMBER OF VOLUMES MESHED   =         1
+ MAXIMUM NODE NUMBER        =       125
+ MAXIMUM ELEMENT NUMBER     =        64
+
+ *GET  NELEM     FROM  ELEM  ITEM=COUN           VALUE=  64.0000000    
+
+ *GET  NNODE     FROM  NODE  ITEM=COUN       VALUE=  125.000000     
+
+
+ ***** ROUTINE COMPLETED *****  ELAPSED TIME =         5.953
+
+
+
+ *****  MAPDL SOLUTION ROUTINE  *****
+
+
+ PERFORM A STATIC ANALYSIS
+  THIS WILL BE A NEW ANALYSIS
+
+ ACTIVE COORDINATE SYSTEM SET TO          0  (CARTESIAN)  
+
+ PARAMETER S0 =     100.0000000    
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN  1.0000     AND   1.0000    
+   KABS=  0.  TOLERANCE= 0.500000E-02
+
+         25  NODES (OF        125  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ GENERATE SURFACE LOAD PRES ON SURFACE DEFINED BY ALL SELECTED NODES
+ VALUES= -100.000000      0.00000000    
+
+ NUMBER OF PRES ELEMENT FACE LOADS STORED =         16
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN  0.0000     AND   0.0000    
+   KABS=  0.  TOLERANCE= 0.100000E-05
+
+         25  NODES (OF        125  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ GENERATE SURFACE LOAD PRES ON SURFACE DEFINED BY ALL SELECTED NODES
+ VALUES= -100.000000      0.00000000    
+
+ NUMBER OF PRES ELEMENT FACE LOADS STORED =         16
+
+ SELECT ALL ENTITIES OF TYPE= ALL  AND BELOW
+
+ PARAMETER NA =     2.000000000    
+
+ PARAMETER NB =     10.00000000    
+
+ PARAMETER NC =     1.000000000    
+
+ SPECIFIED CONSTRAINT UX   FOR SELECTED NODES            2 TO           2 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+ ADDITIONAL DOFS=  UY    UZ  
+
+ SPECIFIED CONSTRAINT UY   FOR SELECTED NODES           10 TO          10 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+ ADDITIONAL DOFS=  UZ  
+
+ SPECIFIED CONSTRAINT UZ   FOR SELECTED NODES            1 TO           1 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ *GET  TCPU0     FROM  ACTI  ITEM=TIME CPU   VALUE= 0.328125000    
+
+ *****  MAPDL SOLVE    COMMAND  *****
+
+ *** SELECTION OF ELEMENT TECHNOLOGIES FOR APPLICABLE ELEMENTS ***
+                ---GIVE SUGGESTIONS ONLY---
+
+ ELEMENT TYPE         1 IS SOLID185. IT IS ASSOCIATED WITH LINEAR MATERIALS ONLY
+ BUT MATERIALS ARE ANISOTROPIC. KEYOPT(2)=2 IS SUGGESTED.
+
+
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   20:16:23  OCT 08, 2026 Elapsed Time=      5.956
+
+ G3 Cu cube esys [100] || z  (uMKS: um, MPa)                                   
+
+
+
+                       S O L U T I O N   O P T I O N S
+
+   PROBLEM DIMENSIONALITY. . . . . . . . . . . . .3-D                  
+   DEGREES OF FREEDOM. . . . . . UX   UY   UZ  
+   ANALYSIS TYPE . . . . . . . . . . . . . . . . .STATIC (STEADY-STATE)
+   GLOBALLY ASSEMBLED MATRIX . . . . . . . . . . .SYMMETRIC  
+
+ *** NOTE ***                            ELAPSED TIME =       5.956   TIME= 20:16:23
+ Present time 0 is less than or equal to the previous time.  Time will   
+ default to 1.                                                           
+
+ *** NOTE ***                            ELAPSED TIME =       5.956   TIME= 20:16:23
+ The conditions for direct assembly have been met.  No .emat or .erot    
+ files will be produced.                                                 
+
+                      L O A D   S T E P   O P T I O N S
+
+   LOAD STEP NUMBER. . . . . . . . . . . . . . . .     1
+   TIME AT END OF THE LOAD STEP. . . . . . . . . .  1.0000    
+   NUMBER OF SUBSTEPS. . . . . . . . . . . . . . .     1
+   STEP CHANGE BOUNDARY CONDITIONS . . . . . . . .    NO
+   PRINT OUTPUT CONTROLS . . . . . . . . . . . . .NO PRINTOUT
+   DATABASE OUTPUT CONTROLS. . . . . . . . . . . .ALL DATA WRITTEN
+                                                  FOR THE LAST SUBSTEP
+
+
+ SOLUTION MONITORING INFO IS WRITTEN TO FILE= g3.mntr                                                                                                                                                                                                                                                             
+
+
+
+                         ***********  PRECISE MASS SUMMARY  ***********
+
+   TOTAL RIGID BODY MASS MATRIX ABOUT ORIGIN
+               Translational mass               |   Coupled translational/rotational mass
+        0.89600E-14    0.0000        0.0000     |     0.0000       0.44800E-14  -0.44800E-14
+         0.0000       0.89600E-14    0.0000     |   -0.44800E-14    0.0000       0.44800E-14
+         0.0000        0.0000       0.89600E-14 |    0.44800E-14  -0.44800E-14    0.0000    
+     ------------------------------------------ | ------------------------------------------
+                                                |         Rotational mass (inertia)
+                                                |    0.59733E-14  -0.22400E-14  -0.22400E-14
+                                                |   -0.22400E-14   0.59733E-14  -0.22400E-14
+                                                |   -0.22400E-14  -0.22400E-14   0.59733E-14
+
+   TOTAL MASS = 0.89600E-14
+     The mass principal axes coincide with the global Cartesian axes
+
+   CENTER OF MASS (X,Y,Z)=   0.50000       0.50000       0.50000    
+
+   TOTAL INERTIA ABOUT CENTER OF MASS
+        0.14933E-14  -0.48882E-29  -0.49484E-29
+       -0.48882E-29   0.14933E-14  -0.50941E-29
+       -0.49484E-29  -0.50941E-29   0.14933E-14
+     The inertia principal axes coincide with the global Cartesian axes
+
+
+  *** MASS SUMMARY BY ELEMENT TYPE ***
+
+  TYPE      MASS
+     1  0.896000E-14
+
+ Range of element maximum matrix coefficients in global coordinates
+ Maximum = 7211.05324 at element 58.                                     
+ Minimum = 7211.05324 at element 62.                                     
+
+   *** ELEMENT MATRIX FORMULATION TIMES
+     TYPE    NUMBER     ENAME   TOTAL ELAPSED   AVG ELAPSED
+
+        1        64  SOLID185          0.0098   0.000152761
+ Elapsed Time at end of element matrix formulation = 5.9853146.          
+
+ SPARSE MATRIX DIRECT SOLVER.
+  Number of equations =         369,    Maximum wavefront =     63
+
+
+  Memory allocated on this process
+  -------------------------------------------------------------------
+  Equation solver memory allocated                     =     0.779 MB
+  Equation solver memory required for in-core mode     =     0.751 MB
+  Equation solver memory required for out-of-core mode =     0.480 MB
+  Total (solver and non-solver) memory allocated       =   349.920 MB
+
+ *** NOTE ***                            ELAPSED TIME =       5.990   TIME= 20:16:23
+ The Sparse Matrix Solver is currently running in the in-core memory     
+ mode.  This memory mode uses the most amount of memory in order to      
+ avoid using the hard drive as much as possible, which most often        
+ results in the fastest solution time.  This mode is recommended if      
+ enough physical memory is present to accommodate all of the solver      
+ data.                                                                   
+ Sparse solver maximum pivot= 54521.1106 at node 121 UX.                 
+ Sparse solver minimum pivot= 2831.22894 at node 15 UX.                  
+ Sparse solver minimum pivot in absolute value= 2831.22894 at node 15    
+ UX.                                                                     
+
+   *** ELEMENT RESULT CALCULATION TIMES
+     TYPE    NUMBER     ENAME   TOTAL ELAPSED   AVG ELAPSED
+
+        1        64  SOLID185          0.0118   0.000184603
+
+   *** NODAL LOAD CALCULATION TIMES
+     TYPE    NUMBER     ENAME   TOTAL ELAPSED   AVG ELAPSED
+
+        1        64  SOLID185          0.0030   0.000047452
+ *** LOAD STEP     1   SUBSTEP     1  COMPLETED.    CUM ITER =      1
+ *** TIME =   1.00000         TIME INC =   1.00000      NEW TRIANG MATRIX
+
+
+ *** MAPDL BINARY FILE STATISTICS
+  BUFFER SIZE USED= 16384
+        0.125 MB WRITTEN ON ASSEMBLED MATRIX FILE: g3.full
+        0.375 MB WRITTEN ON RESULTS FILE: g3.rst
+
+ *GET  TCPU1     FROM  ACTI  ITEM=TIME CPU   VALUE= 0.406250000    
+
+ PARAMETER CPU_SOLVE =    0.7812500000E-01
+
+ FINISH SOLUTION PROCESSING
+
+
+ ***** ROUTINE COMPLETED *****  ELAPSED TIME =         6.031
+
+
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   20:16:23  OCT 08, 2026 Elapsed Time=      6.038
+
+ G3 Cu cube esys [100] || z  (uMKS: um, MPa)                                   
+
+
+
+          ***** MAPDL RESULTS INTERPRETATION (POST1) *****
+
+ *** NOTE ***                            ELAPSED TIME =       6.038   TIME= 20:16:23
+ Reading results into the database (SET command) will update the current 
+ displacement and force boundary conditions in the database with the     
+ values from the results file for that load set.  Note that any          
+ subsequent solutions will use these values unless action is taken to    
+ either SAVE the current values or not overwrite them (/EXIT,NOSAVE).    
+
+
+ USE LAST SUBSTEP ON RESULT FILE  FOR LOAD CASE 0 
+
+ SET COMMAND GOT LOAD STEP=     1  SUBSTEP=     1  CUMULATIVE ITERATION=     1
+   TIME/FREQUENCY=  1.0000    
+ TITLE= G3 Cu cube esys [100] || z  (uMKS: um, MPa)                             
+
+ RSYS KEY SET TO   0
+
+ USE THE GLOBAL COORDINATE SYSTEM FOR SOLUTION RESULTS
+
+ ACTIVE COORDINATE SYSTEM SET TO          0  (CARTESIAN)  
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN  1.0000     AND   1.0000    
+   KABS=  0.  TOLERANCE= 0.500000E-02
+
+         25  NODES (OF        125  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ *GET  NTOP      FROM  NODE  ITEM=COUN       VALUE=  25.0000000     
+
+ PARAMETER UZ_TOP =     0.000000000    
+
+ PARAMETER ND =     0.000000000    
+
+ *DO LOOP ON PARAMETER= II FROM  1.0000     TO  25.000     BY  1.0000    
+
+ PARAMETER ND =     26.00000000    
+
+ PARAMETER UZ_TOP =    0.1502076764E-02
+
+ *ENDDO  INDEX= II                              
+
+ PARAMETER UZ_TOP =    0.1502076764E-02
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN  0.0000     AND   0.0000    
+   KABS=  0.  TOLERANCE= 0.100000E-05
+
+         25  NODES (OF        125  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ *GET  NBOT      FROM  NODE  ITEM=COUN       VALUE=  25.0000000     
+
+ PARAMETER UZ_BOT =     0.000000000    
+
+ PARAMETER ND =     0.000000000    
+
+ *DO LOOP ON PARAMETER= II FROM  1.0000     TO  25.000     BY  1.0000    
+
+ PARAMETER ND =     1.000000000    
+
+ PARAMETER UZ_BOT =     0.000000000    
+
+ *ENDDO  INDEX= II                              
+
+ PARAMETER UZ_BOT =   -0.7027404424E-16
+
+ SELECT ALL ENTITIES OF TYPE= ALL  AND BELOW
+
+ PARAMETER SX_AVG =     0.000000000    
+
+ PARAMETER EX_AVG =     0.000000000    
+
+ PARAMETER SY_AVG =     0.000000000    
+
+ PARAMETER EY_AVG =     0.000000000    
+
+ PARAMETER SZ_AVG =     0.000000000    
+
+ PARAMETER EZ_AVG =     0.000000000    
+
+ PARAMETER SXY_AVG =     0.000000000    
+
+ PARAMETER EXY_AVG =     0.000000000    
+
+ PARAMETER SYZ_AVG =     0.000000000    
+
+ PARAMETER EYZ_AVG =     0.000000000    
+
+ PARAMETER SXZ_AVG =     0.000000000    
+
+ PARAMETER EXZ_AVG =     0.000000000    
+
+ PARAMETER SZ_DEVMAX =     0.000000000    
+
+ PARAMETER ND =     0.000000000    
+
+ *DO LOOP ON PARAMETER= II FROM  1.0000     TO  125.00     BY  1.0000    
+
+ PARAMETER ND =     1.000000000    
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    X     VALUE= 0.513801241E-11
+
+ PARAMETER SX_AVG =    0.5138012411E-11
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL X     VALUE=-0.630119408E-03
+
+ PARAMETER EX_AVG =   -0.6301194080E-03
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    Y     VALUE= 0.525616660E-11
+
+ PARAMETER SY_AVG =    0.5256166596E-11
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL Y     VALUE=-0.630119408E-03
+
+ PARAMETER EY_AVG =   -0.6301194080E-03
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    Z     VALUE=  100.000000    
+
+ PARAMETER SZ_AVG =     100.0000000    
+
+ PARAMETER DTMP =     0.000000000    
+
+ *IF  DTMP  ( =   0.00000     )  GT  
+      SZ_DEVMAX  ( =   0.00000     )  THEN    
+
+ *ENDIF
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL Z     VALUE= 0.150207675E-02
+
+ PARAMETER EZ_AVG =    0.1502076746E-02
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    XY    VALUE=-0.104900871E-10
+
+ PARAMETER SXY_AVG =   -0.1049008710E-10
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL XY    VALUE=-0.139125823E-15
+
+ PARAMETER EXY_AVG =   -0.1391258233E-15
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    YZ    VALUE= 0.192798211E-10
+
+ PARAMETER SYZ_AVG =    0.1927982114E-10
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL YZ    VALUE= 0.255520623E-15
+
+ PARAMETER EYZ_AVG =    0.2555206232E-15
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    XZ    VALUE=-0.192788563E-10
+
+ PARAMETER SXZ_AVG =   -0.1927885629E-10
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL XZ    VALUE=-0.255687748E-15
+
+ PARAMETER EXZ_AVG =   -0.2556877477E-15
+
+ *ENDDO  INDEX= II                              
+
+ PARAMETER SX_AVG =   -0.1543184759E-12
+
+ PARAMETER EX_AVG =   -0.6301194080E-03
+
+ PARAMETER SY_AVG =    0.5331585214E-12
+
+ PARAMETER EY_AVG =   -0.6301194080E-03
+
+ PARAMETER SZ_AVG =     100.0000000    
+
+ PARAMETER EZ_AVG =    0.1502076746E-02
+
+ PARAMETER SXY_AVG =   -0.4057458106E-12
+
+ PARAMETER EXY_AVG =   -0.5381244172E-17
+
+ PARAMETER SYZ_AVG =    0.7165429722E-12
+
+ PARAMETER EYZ_AVG =    0.9323313691E-17
+
+ PARAMETER SXZ_AVG =   -0.1070376322E-12
+
+ PARAMETER EXZ_AVG =   -0.1419597205E-17
+
+ OPENED FILE= g3_esys_100.txt FOR COMMAND FILE DATA 
+
+
+  COMMAND FILE CLOSED 
+
+
+ EXIT THE MAPDL POST1 DATABASE PROCESSOR
+
+
+ ***** ROUTINE COMPLETED *****  ELAPSED TIME =         6.464
+
+
+
+ CLEAR MAPDL DATABASE AND RESTART
+
+ Ansys Mechanical Enterprise Academic Student      
+
+ TITLE= 
+ G3 Cu cube esys [110] || z  (uMKS: um, MPa)                                   
+
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   20:16:23  OCT 08, 2026 Elapsed Time=      6.549
+
+ G3 Cu cube esys [110] || z  (uMKS: um, MPa)                                   
+
+
+
+          ***** MAPDL ANALYSIS DEFINITION (PREP7) *****
+
+ ELEMENT TYPE          1 IS SOLID185     3-D 8-NODE STRUCTURAL SOLID 
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ MATERIAL          1     DENS =  0.8960000E-14  
+
+ DEFINE DATA TABLE  ANEL  FOR MATERIAL     1
+   WITH A MAXIMUM OF   1 TEMPERATURE SPECIFICATIONS
+
+ TEMPERATURE TO BE USED FOR THE NEXT TBDAT COMMAND=  25.000    
+    TEMPERATURE SPECIFICATION=  1
+
+ DATA FOR  ANEL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  25.000    
+ LOC=  1 0.16910E+06 0.12220E+06 0.12220E+06  0.0000      0.0000      0.0000    
+
+ DATA FOR  ANEL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  25.000    
+ LOC=  7 0.16910E+06 0.12220E+06  0.0000      0.0000      0.0000     0.16910E+06
+
+ DATA FOR  ANEL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  25.000    
+ LOC= 13  0.0000      0.0000      0.0000      75400.      0.0000      0.0000    
+
+ DATA FOR  ANEL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  25.000    
+ LOC= 19  75400.      0.0000      75400.    
+
+ CREATE A HEXAHEDRAL VOLUME WITH
+ X-DISTANCES FROM      0.000000000     TO      1.000000000    
+ Y-DISTANCES FROM      0.000000000     TO      1.000000000    
+ Z-DISTANCES FROM      0.000000000     TO      1.000000000    
+
+      OUTPUT VOLUME =     1
+
+ KEYPOINT     1001                  X,Y,Z=   0.00000       0.00000       0.00000      IN CSYS=        0
+
+ KEYPOINT     1002                  X,Y,Z=   0.00000      0.707107      0.707107      IN CSYS=        0
+
+ KEYPOINT     1003                  X,Y,Z=   0.00000     -0.707107      0.707107      IN CSYS=        0
+
+ COORDINATE SYSTEM       11 DEFINITION.  TYPE= 0  (CARTESIAN)  
+   ORIGIN POINT=     1001  XPOINT=     1002  YPOINT=     1003  PARAMETERS=   1.000   1.000
+   ORIENTATION=  0.00  0.71  0.71   0.00 -0.71  0.71   1.00  0.00  0.00
+   THXY,THYZ,THZX=  180.000   45.000  -90.000
+
+ ACTIVE COORDINATE SYSTEM SET TO        11  (CARTESIAN)  
+
+ ACTIVE COORDINATE SYSTEM SET TO          0  (CARTESIAN)  
+
+ ELEMENT COORDINATE SYSTEM IS PARALLEL TO COORDINATE SYSTEM        11
+
+ MATERIAL NUMBER SET TO         1
+
+ ELEMENT TYPE SET TO         1
+
+ DEFAULT ELEMENT DIVISIONS PER LINE BASED ON ELEMENT SIZE =  0.250    
+ PRODUCE ALL HEXAHEDRAL ELEMENTS IN 3D.
+ USE THE MAPPED MESHER.
+
+ GENERATE NODES AND ELEMENTS   IN  ALL  SELECTED VOLUMES  
+
+ NUMBER OF VOLUMES MESHED   =         1
+ MAXIMUM NODE NUMBER        =       125
+ MAXIMUM ELEMENT NUMBER     =        64
+
+ *GET  NELEM     FROM  ELEM  ITEM=COUN           VALUE=  64.0000000    
+
+ *GET  NNODE     FROM  NODE  ITEM=COUN       VALUE=  125.000000     
+
+
+ ***** ROUTINE COMPLETED *****  ELAPSED TIME =         6.551
+
+
+
+ *****  MAPDL SOLUTION ROUTINE  *****
+
+
+ PERFORM A STATIC ANALYSIS
+  THIS WILL BE A NEW ANALYSIS
+
+ ACTIVE COORDINATE SYSTEM SET TO          0  (CARTESIAN)  
+
+ PARAMETER S0 =     100.0000000    
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN  1.0000     AND   1.0000    
+   KABS=  0.  TOLERANCE= 0.500000E-02
+
+         25  NODES (OF        125  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ GENERATE SURFACE LOAD PRES ON SURFACE DEFINED BY ALL SELECTED NODES
+ VALUES= -100.000000      0.00000000    
+
+ NUMBER OF PRES ELEMENT FACE LOADS STORED =         16
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN  0.0000     AND   0.0000    
+   KABS=  0.  TOLERANCE= 0.100000E-05
+
+         25  NODES (OF        125  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ GENERATE SURFACE LOAD PRES ON SURFACE DEFINED BY ALL SELECTED NODES
+ VALUES= -100.000000      0.00000000    
+
+ NUMBER OF PRES ELEMENT FACE LOADS STORED =         16
+
+ SELECT ALL ENTITIES OF TYPE= ALL  AND BELOW
+
+ PARAMETER NA =     2.000000000    
+
+ PARAMETER NB =     10.00000000    
+
+ PARAMETER NC =     1.000000000    
+
+ SPECIFIED CONSTRAINT UX   FOR SELECTED NODES            2 TO           2 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+ ADDITIONAL DOFS=  UY    UZ  
+
+ SPECIFIED CONSTRAINT UY   FOR SELECTED NODES           10 TO          10 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+ ADDITIONAL DOFS=  UZ  
+
+ SPECIFIED CONSTRAINT UZ   FOR SELECTED NODES            1 TO           1 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ *GET  TCPU0     FROM  ACTI  ITEM=TIME CPU   VALUE= 0.921875000    
+
+ *****  MAPDL SOLVE    COMMAND  *****
+
+ *** SELECTION OF ELEMENT TECHNOLOGIES FOR APPLICABLE ELEMENTS ***
+                ---GIVE SUGGESTIONS ONLY---
+
+ ELEMENT TYPE         1 IS SOLID185. IT IS ASSOCIATED WITH LINEAR MATERIALS ONLY
+ BUT MATERIALS ARE ANISOTROPIC. KEYOPT(2)=2 IS SUGGESTED.
+
+
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   20:16:23  OCT 08, 2026 Elapsed Time=      6.552
+
+ G3 Cu cube esys [110] || z  (uMKS: um, MPa)                                   
+
+
+
+                       S O L U T I O N   O P T I O N S
+
+   PROBLEM DIMENSIONALITY. . . . . . . . . . . . .3-D                  
+   DEGREES OF FREEDOM. . . . . . UX   UY   UZ  
+   ANALYSIS TYPE . . . . . . . . . . . . . . . . .STATIC (STEADY-STATE)
+   GLOBALLY ASSEMBLED MATRIX . . . . . . . . . . .SYMMETRIC  
+
+ *** NOTE ***                            ELAPSED TIME =       6.552   TIME= 20:16:23
+ Present time 0 is less than or equal to the previous time.  Time will   
+ default to 1.                                                           
+
+ *** NOTE ***                            ELAPSED TIME =       6.552   TIME= 20:16:23
+ The conditions for direct assembly have been met.  No .emat or .erot    
+ files will be produced.                                                 
+
+                      L O A D   S T E P   O P T I O N S
+
+   LOAD STEP NUMBER. . . . . . . . . . . . . . . .     1
+   TIME AT END OF THE LOAD STEP. . . . . . . . . .  1.0000    
+   NUMBER OF SUBSTEPS. . . . . . . . . . . . . . .     1
+   STEP CHANGE BOUNDARY CONDITIONS . . . . . . . .    NO
+   PRINT OUTPUT CONTROLS . . . . . . . . . . . . .NO PRINTOUT
+   DATABASE OUTPUT CONTROLS. . . . . . . . . . . .ALL DATA WRITTEN
+                                                  FOR THE LAST SUBSTEP
+
+
+ SOLUTION MONITORING INFO IS WRITTEN TO FILE= g3.mntr                                                                                                                                                                                                                                                             
+
+
+
+                         ***********  PRECISE MASS SUMMARY  ***********
+
+   TOTAL RIGID BODY MASS MATRIX ABOUT ORIGIN
+               Translational mass               |   Coupled translational/rotational mass
+        0.89600E-14    0.0000        0.0000     |     0.0000       0.44800E-14  -0.44800E-14
+         0.0000       0.89600E-14    0.0000     |   -0.44800E-14    0.0000       0.44800E-14
+         0.0000        0.0000       0.89600E-14 |    0.44800E-14  -0.44800E-14    0.0000    
+     ------------------------------------------ | ------------------------------------------
+                                                |         Rotational mass (inertia)
+                                                |    0.59733E-14  -0.22400E-14  -0.22400E-14
+                                                |   -0.22400E-14   0.59733E-14  -0.22400E-14
+                                                |   -0.22400E-14  -0.22400E-14   0.59733E-14
+
+   TOTAL MASS = 0.89600E-14
+     The mass principal axes coincide with the global Cartesian axes
+
+   CENTER OF MASS (X,Y,Z)=   0.50000       0.50000       0.50000    
+
+   TOTAL INERTIA ABOUT CENTER OF MASS
+        0.14933E-14  -0.48882E-29  -0.49484E-29
+       -0.48882E-29   0.14933E-14  -0.50941E-29
+       -0.49484E-29  -0.50941E-29   0.14933E-14
+     The inertia principal axes coincide with the global Cartesian axes
+
+
+  *** MASS SUMMARY BY ELEMENT TYPE ***
+
+  TYPE      MASS
+     1  0.896000E-14
+
+ Range of element maximum matrix coefficients in global coordinates
+ Maximum = 7211.05325 at element 61.                                     
+ Minimum = 7211.05324 at element 4.                                      
+
+   *** ELEMENT MATRIX FORMULATION TIMES
+     TYPE    NUMBER     ENAME   TOTAL ELAPSED   AVG ELAPSED
+
+        1        64  SOLID185          0.0072   0.000111889
+ Elapsed Time at end of element matrix formulation = 6.5642044.          
+
+ SPARSE MATRIX DIRECT SOLVER.
+  Number of equations =         369,    Maximum wavefront =     63
+
+
+  Memory allocated on this process
+  -------------------------------------------------------------------
+  Equation solver memory allocated                     =     0.779 MB
+  Equation solver memory required for in-core mode     =     0.751 MB
+  Equation solver memory required for out-of-core mode =     0.480 MB
+  Total (solver and non-solver) memory allocated       =   357.701 MB
+
+ *** NOTE ***                            ELAPSED TIME =       6.567   TIME= 20:16:23
+ The Sparse Matrix Solver is currently running in the in-core memory     
+ mode.  This memory mode uses the most amount of memory in order to      
+ avoid using the hard drive as much as possible, which most often        
+ results in the fastest solution time.  This mode is recommended if      
+ enough physical memory is present to accommodate all of the solver      
+ data.                                                                   
+ Sparse solver maximum pivot= 54358.7237 at node 121 UX.                 
+ Sparse solver minimum pivot= 2673.35593 at node 15 UX.                  
+ Sparse solver minimum pivot in absolute value= 2673.35593 at node 15    
+ UX.                                                                     
+
+   *** ELEMENT RESULT CALCULATION TIMES
+     TYPE    NUMBER     ENAME   TOTAL ELAPSED   AVG ELAPSED
+
+        1        64  SOLID185          0.0057   0.000088367
+
+   *** NODAL LOAD CALCULATION TIMES
+     TYPE    NUMBER     ENAME   TOTAL ELAPSED   AVG ELAPSED
+
+        1        64  SOLID185          0.0008   0.000012836
+ *** LOAD STEP     1   SUBSTEP     1  COMPLETED.    CUM ITER =      1
+ *** TIME =   1.00000         TIME INC =   1.00000      NEW TRIANG MATRIX
+
+
+ *** MAPDL BINARY FILE STATISTICS
+  BUFFER SIZE USED= 16384
+        0.188 MB WRITTEN ON ASSEMBLED MATRIX FILE: g3.full
+        0.375 MB WRITTEN ON RESULTS FILE: g3.rst
+
+ *GET  TCPU1     FROM  ACTI  ITEM=TIME CPU   VALUE= 0.953125000    
+
+ PARAMETER CPU_SOLVE =    0.3125000000E-01
+
+ FINISH SOLUTION PROCESSING
+
+
+ ***** ROUTINE COMPLETED *****  ELAPSED TIME =         6.583
+
+
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   20:16:23  OCT 08, 2026 Elapsed Time=      6.587
+
+ G3 Cu cube esys [110] || z  (uMKS: um, MPa)                                   
+
+
+
+          ***** MAPDL RESULTS INTERPRETATION (POST1) *****
+
+
+ USE LAST SUBSTEP ON RESULT FILE  FOR LOAD CASE 0 
+
+ SET COMMAND GOT LOAD STEP=     1  SUBSTEP=     1  CUMULATIVE ITERATION=     1
+   TIME/FREQUENCY=  1.0000    
+ TITLE= G3 Cu cube esys [110] || z  (uMKS: um, MPa)                             
+
+ RSYS KEY SET TO   0
+
+ USE THE GLOBAL COORDINATE SYSTEM FOR SOLUTION RESULTS
+
+ ACTIVE COORDINATE SYSTEM SET TO          0  (CARTESIAN)  
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN  1.0000     AND   1.0000    
+   KABS=  0.  TOLERANCE= 0.500000E-02
+
+         25  NODES (OF        125  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ *GET  NTOP      FROM  NODE  ITEM=COUN       VALUE=  25.0000000     
+
+ PARAMETER UZ_TOP =     0.000000000    
+
+ PARAMETER ND =     0.000000000    
+
+ *DO LOOP ON PARAMETER= II FROM  1.0000     TO  25.000     BY  1.0000    
+
+ PARAMETER ND =     26.00000000    
+
+ PARAMETER UZ_TOP =    0.7675436699E-03
+
+ *ENDDO  INDEX= II                              
+
+ PARAMETER UZ_TOP =    0.7675436700E-03
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN  0.0000     AND   0.0000    
+   KABS=  0.  TOLERANCE= 0.100000E-05
+
+         25  NODES (OF        125  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ *GET  NBOT      FROM  NODE  ITEM=COUN       VALUE=  25.0000000     
+
+ PARAMETER UZ_BOT =     0.000000000    
+
+ PARAMETER ND =     0.000000000    
+
+ *DO LOOP ON PARAMETER= II FROM  1.0000     TO  25.000     BY  1.0000    
+
+ PARAMETER ND =     1.000000000    
+
+ PARAMETER UZ_BOT =     0.000000000    
+
+ *ENDDO  INDEX= II                              
+
+ PARAMETER UZ_BOT =    0.2542215513E-13
+
+ SELECT ALL ENTITIES OF TYPE= ALL  AND BELOW
+
+ PARAMETER SX_AVG =     0.000000000    
+
+ PARAMETER EX_AVG =     0.000000000    
+
+ PARAMETER SY_AVG =     0.000000000    
+
+ PARAMETER EY_AVG =     0.000000000    
+
+ PARAMETER SZ_AVG =     0.000000000    
+
+ PARAMETER EZ_AVG =     0.000000000    
+
+ PARAMETER SXY_AVG =     0.000000000    
+
+ PARAMETER EXY_AVG =     0.000000000    
+
+ PARAMETER SYZ_AVG =     0.000000000    
+
+ PARAMETER EYZ_AVG =     0.000000000    
+
+ PARAMETER SXZ_AVG =     0.000000000    
+
+ PARAMETER EXZ_AVG =     0.000000000    
+
+ PARAMETER SZ_DEVMAX =     0.000000000    
+
+ PARAMETER ND =     0.000000000    
+
+ *DO LOOP ON PARAMETER= II FROM  1.0000     TO  125.00     BY  1.0000    
+
+ PARAMETER ND =     1.000000000    
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    X     VALUE=-0.191066452E-08
+
+ PARAMETER SX_AVG =   -0.1910664515E-08
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL X     VALUE=-0.630119408E-03
+
+ PARAMETER EX_AVG =   -0.6301194080E-03
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    Y     VALUE= 0.188411095E-14
+
+ PARAMETER SY_AVG =    0.1884110951E-14
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL Y     VALUE= 0.104413703E-03
+
+ PARAMETER EY_AVG =    0.1044137025E-03
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    Z     VALUE=  100.000000    
+
+ PARAMETER SZ_AVG =     100.0000000    
+
+ PARAMETER DTMP =     0.000000000    
+
+ *IF  DTMP  ( =   0.00000     )  GT  
+      SZ_DEVMAX  ( =   0.00000     )  THEN    
+
+ *ENDIF
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL Z     VALUE= 0.767543665E-03
+
+ PARAMETER EZ_AVG =    0.7675436646E-03
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    XY    VALUE= 0.262454646E-08
+
+ PARAMETER SXY_AVG =    0.2624546457E-08
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL XY    VALUE= 0.348084260E-13
+
+ PARAMETER EXY_AVG =    0.3480842596E-13
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    YZ    VALUE=-0.969017345E-14
+
+ PARAMETER SYZ_AVG =   -0.9690173455E-14
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL YZ    VALUE=-0.291038305E-10
+
+ PARAMETER EYZ_AVG =   -0.2910383049E-10
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    XZ    VALUE= 0.335107327E-07
+
+ PARAMETER SXZ_AVG =    0.3351073274E-07
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL XZ    VALUE= 0.444439370E-12
+
+ PARAMETER EXZ_AVG =    0.4444393696E-12
+
+ *ENDDO  INDEX= II                              
+
+ PARAMETER SX_AVG =    0.4862240212E-09
+
+ PARAMETER EX_AVG =   -0.6301194080E-03
+
+ PARAMETER SY_AVG =    0.1884110951E-14
+
+ PARAMETER EY_AVG =    0.1044137000E-03
+
+ PARAMETER SZ_AVG =     100.0000000    
+
+ PARAMETER EZ_AVG =    0.7675436620E-03
+
+ PARAMETER SXY_AVG =   -0.1609476300E-09
+
+ PARAMETER EXY_AVG =   -0.2134468139E-14
+
+ PARAMETER SYZ_AVG =   -0.9690173454E-14
+
+ PARAMETER EYZ_AVG =   -0.2409797167E-10
+
+ PARAMETER SXZ_AVG =    0.2228225254E-07
+
+ PARAMETER EXZ_AVG =    0.2955205269E-12
+
+ OPENED FILE= g3_esys_110.txt FOR COMMAND FILE DATA 
+
+
+  COMMAND FILE CLOSED 
+
+
+ EXIT THE MAPDL POST1 DATABASE PROCESSOR
+
+
+ ***** ROUTINE COMPLETED *****  ELAPSED TIME =         7.021
+
+
+
+ CLEAR MAPDL DATABASE AND RESTART
+
+ Ansys Mechanical Enterprise Academic Student      
+
+ TITLE= 
+ G3 Cu cube esys [111] || z  (uMKS: um, MPa)                                   
+
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   20:16:24  OCT 08, 2026 Elapsed Time=      7.105
+
+ G3 Cu cube esys [111] || z  (uMKS: um, MPa)                                   
+
+
+
+          ***** MAPDL ANALYSIS DEFINITION (PREP7) *****
+
+ ELEMENT TYPE          1 IS SOLID185     3-D 8-NODE STRUCTURAL SOLID 
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ MATERIAL          1     DENS =  0.8960000E-14  
+
+ DEFINE DATA TABLE  ANEL  FOR MATERIAL     1
+   WITH A MAXIMUM OF   1 TEMPERATURE SPECIFICATIONS
+
+ TEMPERATURE TO BE USED FOR THE NEXT TBDAT COMMAND=  25.000    
+    TEMPERATURE SPECIFICATION=  1
+
+ DATA FOR  ANEL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  25.000    
+ LOC=  1 0.16910E+06 0.12220E+06 0.12220E+06  0.0000      0.0000      0.0000    
+
+ DATA FOR  ANEL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  25.000    
+ LOC=  7 0.16910E+06 0.12220E+06  0.0000      0.0000      0.0000     0.16910E+06
+
+ DATA FOR  ANEL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  25.000    
+ LOC= 13  0.0000      0.0000      0.0000      75400.      0.0000      0.0000    
+
+ DATA FOR  ANEL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  25.000    
+ LOC= 19  75400.      0.0000      75400.    
+
+ CREATE A HEXAHEDRAL VOLUME WITH
+ X-DISTANCES FROM      0.000000000     TO      1.000000000    
+ Y-DISTANCES FROM      0.000000000     TO      1.000000000    
+ Z-DISTANCES FROM      0.000000000     TO      1.000000000    
+
+      OUTPUT VOLUME =     1
+
+ KEYPOINT     1001                  X,Y,Z=   0.00000       0.00000       0.00000      IN CSYS=        0
+
+ KEYPOINT     1002                  X,Y,Z=  0.707107      0.408248      0.577350      IN CSYS=        0
+
+ KEYPOINT     1003                  X,Y,Z= -0.707107      0.408248      0.577350      IN CSYS=        0
+
+ COORDINATE SYSTEM       11 DEFINITION.  TYPE= 0  (CARTESIAN)  
+   ORIGIN POINT=     1001  XPOINT=     1002  YPOINT=     1003  PARAMETERS=   1.000   1.000
+   ORIENTATION=  0.71  0.41  0.58  -0.71  0.41  0.58  -0.00 -0.82  0.58
+   THXY,THYZ,THZX=   60.000   35.264  -45.000
+
+ ACTIVE COORDINATE SYSTEM SET TO        11  (CARTESIAN)  
+
+ ACTIVE COORDINATE SYSTEM SET TO          0  (CARTESIAN)  
+
+ ELEMENT COORDINATE SYSTEM IS PARALLEL TO COORDINATE SYSTEM        11
+
+ MATERIAL NUMBER SET TO         1
+
+ ELEMENT TYPE SET TO         1
+
+ DEFAULT ELEMENT DIVISIONS PER LINE BASED ON ELEMENT SIZE =  0.250    
+ PRODUCE ALL HEXAHEDRAL ELEMENTS IN 3D.
+ USE THE MAPPED MESHER.
+
+ GENERATE NODES AND ELEMENTS   IN  ALL  SELECTED VOLUMES  
+
+ NUMBER OF VOLUMES MESHED   =         1
+ MAXIMUM NODE NUMBER        =       125
+ MAXIMUM ELEMENT NUMBER     =        64
+
+ *GET  NELEM     FROM  ELEM  ITEM=COUN           VALUE=  64.0000000    
+
+ *GET  NNODE     FROM  NODE  ITEM=COUN       VALUE=  125.000000     
+
+
+ ***** ROUTINE COMPLETED *****  ELAPSED TIME =         7.110
+
+
+
+ *****  MAPDL SOLUTION ROUTINE  *****
+
+
+ PERFORM A STATIC ANALYSIS
+  THIS WILL BE A NEW ANALYSIS
+
+ ACTIVE COORDINATE SYSTEM SET TO          0  (CARTESIAN)  
+
+ PARAMETER S0 =     100.0000000    
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN  1.0000     AND   1.0000    
+   KABS=  0.  TOLERANCE= 0.500000E-02
+
+         25  NODES (OF        125  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ GENERATE SURFACE LOAD PRES ON SURFACE DEFINED BY ALL SELECTED NODES
+ VALUES= -100.000000      0.00000000    
+
+ NUMBER OF PRES ELEMENT FACE LOADS STORED =         16
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN  0.0000     AND   0.0000    
+   KABS=  0.  TOLERANCE= 0.100000E-05
+
+         25  NODES (OF        125  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ GENERATE SURFACE LOAD PRES ON SURFACE DEFINED BY ALL SELECTED NODES
+ VALUES= -100.000000      0.00000000    
+
+ NUMBER OF PRES ELEMENT FACE LOADS STORED =         16
+
+ SELECT ALL ENTITIES OF TYPE= ALL  AND BELOW
+
+ PARAMETER NA =     2.000000000    
+
+ PARAMETER NB =     10.00000000    
+
+ PARAMETER NC =     1.000000000    
+
+ SPECIFIED CONSTRAINT UX   FOR SELECTED NODES            2 TO           2 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+ ADDITIONAL DOFS=  UY    UZ  
+
+ SPECIFIED CONSTRAINT UY   FOR SELECTED NODES           10 TO          10 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+ ADDITIONAL DOFS=  UZ  
+
+ SPECIFIED CONSTRAINT UZ   FOR SELECTED NODES            1 TO           1 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ *GET  TCPU0     FROM  ACTI  ITEM=TIME CPU   VALUE=  1.46875000    
+
+ *****  MAPDL SOLVE    COMMAND  *****
+
+ *** SELECTION OF ELEMENT TECHNOLOGIES FOR APPLICABLE ELEMENTS ***
+                ---GIVE SUGGESTIONS ONLY---
+
+ ELEMENT TYPE         1 IS SOLID185. IT IS ASSOCIATED WITH LINEAR MATERIALS ONLY
+ BUT MATERIALS ARE ANISOTROPIC. KEYOPT(2)=2 IS SUGGESTED.
+
+
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   20:16:24  OCT 08, 2026 Elapsed Time=      7.113
+
+ G3 Cu cube esys [111] || z  (uMKS: um, MPa)                                   
+
+
+
+                       S O L U T I O N   O P T I O N S
+
+   PROBLEM DIMENSIONALITY. . . . . . . . . . . . .3-D                  
+   DEGREES OF FREEDOM. . . . . . UX   UY   UZ  
+   ANALYSIS TYPE . . . . . . . . . . . . . . . . .STATIC (STEADY-STATE)
+   GLOBALLY ASSEMBLED MATRIX . . . . . . . . . . .SYMMETRIC  
+
+ *** NOTE ***                            ELAPSED TIME =       7.113   TIME= 20:16:24
+ Present time 0 is less than or equal to the previous time.  Time will   
+ default to 1.                                                           
+
+ *** NOTE ***                            ELAPSED TIME =       7.113   TIME= 20:16:24
+ The conditions for direct assembly have been met.  No .emat or .erot    
+ files will be produced.                                                 
+
+                      L O A D   S T E P   O P T I O N S
+
+   LOAD STEP NUMBER. . . . . . . . . . . . . . . .     1
+   TIME AT END OF THE LOAD STEP. . . . . . . . . .  1.0000    
+   NUMBER OF SUBSTEPS. . . . . . . . . . . . . . .     1
+   STEP CHANGE BOUNDARY CONDITIONS . . . . . . . .    NO
+   PRINT OUTPUT CONTROLS . . . . . . . . . . . . .NO PRINTOUT
+   DATABASE OUTPUT CONTROLS. . . . . . . . . . . .ALL DATA WRITTEN
+                                                  FOR THE LAST SUBSTEP
+
+
+ SOLUTION MONITORING INFO IS WRITTEN TO FILE= g3.mntr                                                                                                                                                                                                                                                             
+
+
+
+                         ***********  PRECISE MASS SUMMARY  ***********
+
+   TOTAL RIGID BODY MASS MATRIX ABOUT ORIGIN
+               Translational mass               |   Coupled translational/rotational mass
+        0.89600E-14    0.0000        0.0000     |     0.0000       0.44800E-14  -0.44800E-14
+         0.0000       0.89600E-14    0.0000     |   -0.44800E-14    0.0000       0.44800E-14
+         0.0000        0.0000       0.89600E-14 |    0.44800E-14  -0.44800E-14    0.0000    
+     ------------------------------------------ | ------------------------------------------
+                                                |         Rotational mass (inertia)
+                                                |    0.59733E-14  -0.22400E-14  -0.22400E-14
+                                                |   -0.22400E-14   0.59733E-14  -0.22400E-14
+                                                |   -0.22400E-14  -0.22400E-14   0.59733E-14
+
+   TOTAL MASS = 0.89600E-14
+     The mass principal axes coincide with the global Cartesian axes
+
+   CENTER OF MASS (X,Y,Z)=   0.50000       0.50000       0.50000    
+
+   TOTAL INERTIA ABOUT CENTER OF MASS
+        0.14933E-14  -0.48882E-29  -0.49484E-29
+       -0.48882E-29   0.14933E-14  -0.50941E-29
+       -0.49484E-29  -0.50941E-29   0.14933E-14
+     The inertia principal axes coincide with the global Cartesian axes
+
+
+  *** MASS SUMMARY BY ELEMENT TYPE ***
+
+  TYPE      MASS
+     1  0.896000E-14
+
+ Range of element maximum matrix coefficients in global coordinates
+ Maximum = 8231.44761 at element 61.                                     
+ Minimum = 8231.44761 at element 1.                                      
+
+   *** ELEMENT MATRIX FORMULATION TIMES
+     TYPE    NUMBER     ENAME   TOTAL ELAPSED   AVG ELAPSED
+
+        1        64  SOLID185          0.0034   0.000052802
+ Elapsed Time at end of element matrix formulation = 7.1218619.          
+
+ SPARSE MATRIX DIRECT SOLVER.
+  Number of equations =         369,    Maximum wavefront =     63
+
+
+  Memory allocated on this process
+  -------------------------------------------------------------------
+  Equation solver memory allocated                     =     0.779 MB
+  Equation solver memory required for in-core mode     =     0.751 MB
+  Equation solver memory required for out-of-core mode =     0.480 MB
+  Total (solver and non-solver) memory allocated       =   357.795 MB
+
+ *** NOTE ***                            ELAPSED TIME =       7.123   TIME= 20:16:24
+ The Sparse Matrix Solver is currently running in the in-core memory     
+ mode.  This memory mode uses the most amount of memory in order to      
+ avoid using the hard drive as much as possible, which most often        
+ results in the fastest solution time.  This mode is recommended if      
+ enough physical memory is present to accommodate all of the solver      
+ data.                                                                   
+ Sparse solver maximum pivot= 51487.3587 at node 121 UX.                 
+ Sparse solver minimum pivot= 2617.21791 at node 15 UX.                  
+ Sparse solver minimum pivot in absolute value= 2617.21791 at node 15    
+ UX.                                                                     
+
+   *** ELEMENT RESULT CALCULATION TIMES
+     TYPE    NUMBER     ENAME   TOTAL ELAPSED   AVG ELAPSED
+
+        1        64  SOLID185          0.0069   0.000107875
+
+   *** NODAL LOAD CALCULATION TIMES
+     TYPE    NUMBER     ENAME   TOTAL ELAPSED   AVG ELAPSED
+
+        1        64  SOLID185          0.0006   0.000010105
+ *** LOAD STEP     1   SUBSTEP     1  COMPLETED.    CUM ITER =      1
+ *** TIME =   1.00000         TIME INC =   1.00000      NEW TRIANG MATRIX
+
+
+ *** MAPDL BINARY FILE STATISTICS
+  BUFFER SIZE USED= 16384
+        0.188 MB WRITTEN ON ASSEMBLED MATRIX FILE: g3.full
+        0.375 MB WRITTEN ON RESULTS FILE: g3.rst
+
+ *GET  TCPU1     FROM  ACTI  ITEM=TIME CPU   VALUE=  1.48437500    
+
+ PARAMETER CPU_SOLVE =    0.1562500000E-01
+
+ FINISH SOLUTION PROCESSING
+
+
+ ***** ROUTINE COMPLETED *****  ELAPSED TIME =         7.137
+
+
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   20:16:24  OCT 08, 2026 Elapsed Time=      7.143
+
+ G3 Cu cube esys [111] || z  (uMKS: um, MPa)                                   
+
+
+
+          ***** MAPDL RESULTS INTERPRETATION (POST1) *****
+
+
+ USE LAST SUBSTEP ON RESULT FILE  FOR LOAD CASE 0 
+
+ SET COMMAND GOT LOAD STEP=     1  SUBSTEP=     1  CUMULATIVE ITERATION=     1
+   TIME/FREQUENCY=  1.0000    
+ TITLE= G3 Cu cube esys [111] || z  (uMKS: um, MPa)                             
+
+ RSYS KEY SET TO   0
+
+ USE THE GLOBAL COORDINATE SYSTEM FOR SOLUTION RESULTS
+
+ ACTIVE COORDINATE SYSTEM SET TO          0  (CARTESIAN)  
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN  1.0000     AND   1.0000    
+   KABS=  0.  TOLERANCE= 0.500000E-02
+
+         25  NODES (OF        125  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ *GET  NTOP      FROM  NODE  ITEM=COUN       VALUE=  25.0000000     
+
+ PARAMETER UZ_TOP =     0.000000000    
+
+ PARAMETER ND =     0.000000000    
+
+ *DO LOOP ON PARAMETER= II FROM  1.0000     TO  25.000     BY  1.0000    
+
+ PARAMETER ND =     26.00000000    
+
+ PARAMETER UZ_TOP =    0.5226993052E-03
+
+ *ENDDO  INDEX= II                              
+
+ PARAMETER UZ_TOP =    0.5226993052E-03
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN  0.0000     AND   0.0000    
+   KABS=  0.  TOLERANCE= 0.100000E-05
+
+         25  NODES (OF        125  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ *GET  NBOT      FROM  NODE  ITEM=COUN       VALUE=  25.0000000     
+
+ PARAMETER UZ_BOT =     0.000000000    
+
+ PARAMETER ND =     0.000000000    
+
+ *DO LOOP ON PARAMETER= II FROM  1.0000     TO  25.000     BY  1.0000    
+
+ PARAMETER ND =     1.000000000    
+
+ PARAMETER UZ_BOT =     0.000000000    
+
+ *ENDDO  INDEX= II                              
+
+ PARAMETER UZ_BOT =   -0.2731334419E-14
+
+ SELECT ALL ENTITIES OF TYPE= ALL  AND BELOW
+
+ PARAMETER SX_AVG =     0.000000000    
+
+ PARAMETER EX_AVG =     0.000000000    
+
+ PARAMETER SY_AVG =     0.000000000    
+
+ PARAMETER EY_AVG =     0.000000000    
+
+ PARAMETER SZ_AVG =     0.000000000    
+
+ PARAMETER EZ_AVG =     0.000000000    
+
+ PARAMETER SXY_AVG =     0.000000000    
+
+ PARAMETER EXY_AVG =     0.000000000    
+
+ PARAMETER SYZ_AVG =     0.000000000    
+
+ PARAMETER EYZ_AVG =     0.000000000    
+
+ PARAMETER SXZ_AVG =     0.000000000    
+
+ PARAMETER EXZ_AVG =     0.000000000    
+
+ PARAMETER SZ_DEVMAX =     0.000000000    
+
+ PARAMETER ND =     0.000000000    
+
+ *DO LOOP ON PARAMETER= II FROM  1.0000     TO  125.00     BY  1.0000    
+
+ PARAMETER ND =     1.000000000    
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    X     VALUE= 0.864675798E-14
+
+ PARAMETER SX_AVG =    0.8646757982E-14
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL X     VALUE=-0.140430675E-03
+
+ PARAMETER EX_AVG =   -0.1404306749E-03
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    Y     VALUE= 0.401093203E-14
+
+ PARAMETER SY_AVG =    0.4010932031E-14
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL Y     VALUE=-0.140430675E-03
+
+ PARAMETER EY_AVG =   -0.1404306749E-03
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    Z     VALUE=  99.9999962    
+
+ PARAMETER SZ_AVG =     99.99999619    
+
+ PARAMETER DTMP =    0.3814697308E-05
+
+ *IF  DTMP  ( =  0.381470E-05 )  GT  
+      SZ_DEVMAX  ( =   0.00000     )  THEN    
+
+ PARAMETER SZ_DEVMAX =    0.3814697308E-05
+
+ *ENDIF
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL Z     VALUE= 0.522699316E-03
+
+ PARAMETER EZ_AVG =    0.5226993162E-03
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    XY    VALUE=-0.509258728E-14
+
+ PARAMETER SXY_AVG =   -0.5092587283E-14
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL XY    VALUE=-0.852709455E-19
+
+ PARAMETER EXY_AVG =   -0.8527094551E-19
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    YZ    VALUE= 0.562579566E-06
+
+ PARAMETER SYZ_AVG =    0.5625795657E-06
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL YZ    VALUE= 0.746126804E-11
+
+ PARAMETER EYZ_AVG =    0.7461268044E-11
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    XZ    VALUE=-0.974416390E-06
+
+ PARAMETER SXZ_AVG =   -0.9744163902E-06
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL XZ    VALUE=-0.129232951E-10
+
+ PARAMETER EXZ_AVG =   -0.1292329508E-10
+
+ *ENDDO  INDEX= II                              
+
+ PARAMETER SX_AVG =    0.8646757982E-14
+
+ PARAMETER EX_AVG =   -0.1404306749E-03
+
+ PARAMETER SY_AVG =    0.4010932031E-14
+
+ PARAMETER EY_AVG =   -0.1404306749E-03
+
+ PARAMETER SZ_AVG =     99.99999619    
+
+ PARAMETER EZ_AVG =    0.5226993162E-03
+
+ PARAMETER SXY_AVG =   -0.5092587283E-14
+
+ PARAMETER EXY_AVG =   -0.8527094551E-19
+
+ PARAMETER SYZ_AVG =    0.5625795657E-06
+
+ PARAMETER EYZ_AVG =    0.7461268044E-11
+
+ PARAMETER SXZ_AVG =   -0.9744163902E-06
+
+ PARAMETER EXZ_AVG =   -0.1292329508E-10
+
+ OPENED FILE= g3_esys_111.txt FOR COMMAND FILE DATA 
+
+
+  COMMAND FILE CLOSED 
+
+
+ EXIT THE MAPDL POST1 DATABASE PROCESSOR
+
+
+ ***** ROUTINE COMPLETED *****  ELAPSED TIME =         7.585
+
+
+
+ CLEAR MAPDL DATABASE AND RESTART
+
+ Ansys Mechanical Enterprise Academic Student      
+
+ TITLE= 
+ G3 Cu cube prerot [100] || z  (uMKS: um, MPa)                                 
+
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   20:16:25  OCT 08, 2026 Elapsed Time=      7.690
+
+ G3 Cu cube prerot [100] || z  (uMKS: um, MPa)                                 
+
+
+
+          ***** MAPDL ANALYSIS DEFINITION (PREP7) *****
+
+ ELEMENT TYPE          1 IS SOLID185     3-D 8-NODE STRUCTURAL SOLID 
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ MATERIAL          1     DENS =  0.8960000E-14  
+
+ DEFINE DATA TABLE  ANEL  FOR MATERIAL     1
+   WITH A MAXIMUM OF   1 TEMPERATURE SPECIFICATIONS
+
+ TEMPERATURE TO BE USED FOR THE NEXT TBDAT COMMAND=  25.000    
+    TEMPERATURE SPECIFICATION=  1
+
+ DATA FOR  ANEL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  25.000    
+ LOC=  1 0.16910E+06 0.12220E+06 0.12220E+06  0.0000      0.0000      0.0000    
+
+ DATA FOR  ANEL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  25.000    
+ LOC=  7 0.16910E+06 0.12220E+06  0.0000      0.0000      0.0000     0.16910E+06
+
+ DATA FOR  ANEL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  25.000    
+ LOC= 13  0.0000      0.0000      0.0000      75400.      0.0000      0.0000    
+
+ DATA FOR  ANEL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  25.000    
+ LOC= 19  75400.      0.0000      75400.    
+
+ CREATE A HEXAHEDRAL VOLUME WITH
+ X-DISTANCES FROM      0.000000000     TO      1.000000000    
+ Y-DISTANCES FROM      0.000000000     TO      1.000000000    
+ Z-DISTANCES FROM      0.000000000     TO      1.000000000    
+
+      OUTPUT VOLUME =     1
+
+ ELEMENT COORDINATE SYSTEM IS AS DEFINED FOR THE ELEMENTS.
+ (NOTE- FOR GLOBAL SYSTEM  0  (CARTESIAN), DEFINE
+ LOCAL CARTESIAN SYSTEM  (LOCAL,N,0)  AND USE ESYS,N.)
+
+ MATERIAL NUMBER SET TO         1
+
+ ELEMENT TYPE SET TO         1
+
+ DEFAULT ELEMENT DIVISIONS PER LINE BASED ON ELEMENT SIZE =  0.250    
+ PRODUCE ALL HEXAHEDRAL ELEMENTS IN 3D.
+ USE THE MAPPED MESHER.
+
+ GENERATE NODES AND ELEMENTS   IN  ALL  SELECTED VOLUMES  
+
+ NUMBER OF VOLUMES MESHED   =         1
+ MAXIMUM NODE NUMBER        =       125
+ MAXIMUM ELEMENT NUMBER     =        64
+
+ *GET  NELEM     FROM  ELEM  ITEM=COUN           VALUE=  64.0000000    
+
+ *GET  NNODE     FROM  NODE  ITEM=COUN       VALUE=  125.000000     
+
+
+ ***** ROUTINE COMPLETED *****  ELAPSED TIME =         7.692
+
+
+
+ *****  MAPDL SOLUTION ROUTINE  *****
+
+
+ PERFORM A STATIC ANALYSIS
+  THIS WILL BE A NEW ANALYSIS
+
+ ACTIVE COORDINATE SYSTEM SET TO          0  (CARTESIAN)  
+
+ PARAMETER S0 =     100.0000000    
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN  1.0000     AND   1.0000    
+   KABS=  0.  TOLERANCE= 0.500000E-02
+
+         25  NODES (OF        125  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ GENERATE SURFACE LOAD PRES ON SURFACE DEFINED BY ALL SELECTED NODES
+ VALUES= -100.000000      0.00000000    
+
+ NUMBER OF PRES ELEMENT FACE LOADS STORED =         16
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN  0.0000     AND   0.0000    
+   KABS=  0.  TOLERANCE= 0.100000E-05
+
+         25  NODES (OF        125  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ GENERATE SURFACE LOAD PRES ON SURFACE DEFINED BY ALL SELECTED NODES
+ VALUES= -100.000000      0.00000000    
+
+ NUMBER OF PRES ELEMENT FACE LOADS STORED =         16
+
+ SELECT ALL ENTITIES OF TYPE= ALL  AND BELOW
+
+ PARAMETER NA =     2.000000000    
+
+ PARAMETER NB =     10.00000000    
+
+ PARAMETER NC =     1.000000000    
+
+ SPECIFIED CONSTRAINT UX   FOR SELECTED NODES            2 TO           2 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+ ADDITIONAL DOFS=  UY    UZ  
+
+ SPECIFIED CONSTRAINT UY   FOR SELECTED NODES           10 TO          10 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+ ADDITIONAL DOFS=  UZ  
+
+ SPECIFIED CONSTRAINT UZ   FOR SELECTED NODES            1 TO           1 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ *GET  TCPU0     FROM  ACTI  ITEM=TIME CPU   VALUE=  2.04687500    
+
+ *****  MAPDL SOLVE    COMMAND  *****
+
+ *** SELECTION OF ELEMENT TECHNOLOGIES FOR APPLICABLE ELEMENTS ***
+                ---GIVE SUGGESTIONS ONLY---
+
+ ELEMENT TYPE         1 IS SOLID185. IT IS ASSOCIATED WITH LINEAR MATERIALS ONLY
+ BUT MATERIALS ARE ANISOTROPIC. KEYOPT(2)=2 IS SUGGESTED.
+
+
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   20:16:25  OCT 08, 2026 Elapsed Time=      7.693
+
+ G3 Cu cube prerot [100] || z  (uMKS: um, MPa)                                 
+
+
+
+                       S O L U T I O N   O P T I O N S
+
+   PROBLEM DIMENSIONALITY. . . . . . . . . . . . .3-D                  
+   DEGREES OF FREEDOM. . . . . . UX   UY   UZ  
+   ANALYSIS TYPE . . . . . . . . . . . . . . . . .STATIC (STEADY-STATE)
+   GLOBALLY ASSEMBLED MATRIX . . . . . . . . . . .SYMMETRIC  
+
+ *** NOTE ***                            ELAPSED TIME =       7.693   TIME= 20:16:25
+ Present time 0 is less than or equal to the previous time.  Time will   
+ default to 1.                                                           
+
+ *** NOTE ***                            ELAPSED TIME =       7.693   TIME= 20:16:25
+ The conditions for direct assembly have been met.  No .emat or .erot    
+ files will be produced.                                                 
+
+                      L O A D   S T E P   O P T I O N S
+
+   LOAD STEP NUMBER. . . . . . . . . . . . . . . .     1
+   TIME AT END OF THE LOAD STEP. . . . . . . . . .  1.0000    
+   NUMBER OF SUBSTEPS. . . . . . . . . . . . . . .     1
+   STEP CHANGE BOUNDARY CONDITIONS . . . . . . . .    NO
+   PRINT OUTPUT CONTROLS . . . . . . . . . . . . .NO PRINTOUT
+   DATABASE OUTPUT CONTROLS. . . . . . . . . . . .ALL DATA WRITTEN
+                                                  FOR THE LAST SUBSTEP
+
+
+ SOLUTION MONITORING INFO IS WRITTEN TO FILE= g3.mntr                                                                                                                                                                                                                                                             
+
+
+
+                         ***********  PRECISE MASS SUMMARY  ***********
+
+   TOTAL RIGID BODY MASS MATRIX ABOUT ORIGIN
+               Translational mass               |   Coupled translational/rotational mass
+        0.89600E-14    0.0000        0.0000     |     0.0000       0.44800E-14  -0.44800E-14
+         0.0000       0.89600E-14    0.0000     |   -0.44800E-14    0.0000       0.44800E-14
+         0.0000        0.0000       0.89600E-14 |    0.44800E-14  -0.44800E-14    0.0000    
+     ------------------------------------------ | ------------------------------------------
+                                                |         Rotational mass (inertia)
+                                                |    0.59733E-14  -0.22400E-14  -0.22400E-14
+                                                |   -0.22400E-14   0.59733E-14  -0.22400E-14
+                                                |   -0.22400E-14  -0.22400E-14   0.59733E-14
+
+   TOTAL MASS = 0.89600E-14
+     The mass principal axes coincide with the global Cartesian axes
+
+   CENTER OF MASS (X,Y,Z)=   0.50000       0.50000       0.50000    
+
+   TOTAL INERTIA ABOUT CENTER OF MASS
+        0.14933E-14  -0.48882E-29  -0.49484E-29
+       -0.48882E-29   0.14933E-14  -0.50941E-29
+       -0.49484E-29  -0.50941E-29   0.14933E-14
+     The inertia principal axes coincide with the global Cartesian axes
+
+
+  *** MASS SUMMARY BY ELEMENT TYPE ***
+
+  TYPE      MASS
+     1  0.896000E-14
+
+ Range of element maximum matrix coefficients in global coordinates
+ Maximum = 7211.05324 at element 58.                                     
+ Minimum = 7211.05324 at element 62.                                     
+
+   *** ELEMENT MATRIX FORMULATION TIMES
+     TYPE    NUMBER     ENAME   TOTAL ELAPSED   AVG ELAPSED
+
+        1        64  SOLID185          0.0039   0.000061075
+ Elapsed Time at end of element matrix formulation = 7.7039973.          
+
+ SPARSE MATRIX DIRECT SOLVER.
+  Number of equations =         369,    Maximum wavefront =     63
+
+
+  Memory allocated on this process
+  -------------------------------------------------------------------
+  Equation solver memory allocated                     =     0.779 MB
+  Equation solver memory required for in-core mode     =     0.751 MB
+  Equation solver memory required for out-of-core mode =     0.480 MB
+  Total (solver and non-solver) memory allocated       =   357.807 MB
+
+ *** NOTE ***                            ELAPSED TIME =       7.706   TIME= 20:16:25
+ The Sparse Matrix Solver is currently running in the in-core memory     
+ mode.  This memory mode uses the most amount of memory in order to      
+ avoid using the hard drive as much as possible, which most often        
+ results in the fastest solution time.  This mode is recommended if      
+ enough physical memory is present to accommodate all of the solver      
+ data.                                                                   
+ Sparse solver maximum pivot= 54521.1106 at node 121 UX.                 
+ Sparse solver minimum pivot= 2831.22894 at node 15 UX.                  
+ Sparse solver minimum pivot in absolute value= 2831.22894 at node 15    
+ UX.                                                                     
+
+   *** ELEMENT RESULT CALCULATION TIMES
+     TYPE    NUMBER     ENAME   TOTAL ELAPSED   AVG ELAPSED
+
+        1        64  SOLID185          0.0059   0.000092914
+
+   *** NODAL LOAD CALCULATION TIMES
+     TYPE    NUMBER     ENAME   TOTAL ELAPSED   AVG ELAPSED
+
+        1        64  SOLID185          0.0011   0.000016686
+ *** LOAD STEP     1   SUBSTEP     1  COMPLETED.    CUM ITER =      1
+ *** TIME =   1.00000         TIME INC =   1.00000      NEW TRIANG MATRIX
+
+
+ *** MAPDL BINARY FILE STATISTICS
+  BUFFER SIZE USED= 16384
+        0.125 MB WRITTEN ON ASSEMBLED MATRIX FILE: g3.full
+        0.375 MB WRITTEN ON RESULTS FILE: g3.rst
+
+ *GET  TCPU1     FROM  ACTI  ITEM=TIME CPU   VALUE=  2.07812500    
+
+ PARAMETER CPU_SOLVE =    0.3125000000E-01
+
+ FINISH SOLUTION PROCESSING
+
+
+ ***** ROUTINE COMPLETED *****  ELAPSED TIME =         7.726
+
+
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   20:16:25  OCT 08, 2026 Elapsed Time=      7.733
+
+ G3 Cu cube prerot [100] || z  (uMKS: um, MPa)                                 
+
+
+
+          ***** MAPDL RESULTS INTERPRETATION (POST1) *****
+
+
+ USE LAST SUBSTEP ON RESULT FILE  FOR LOAD CASE 0 
+
+ SET COMMAND GOT LOAD STEP=     1  SUBSTEP=     1  CUMULATIVE ITERATION=     1
+   TIME/FREQUENCY=  1.0000    
+ TITLE= G3 Cu cube prerot [100] || z  (uMKS: um, MPa)                           
+
+ RSYS KEY SET TO   0
+
+ USE THE GLOBAL COORDINATE SYSTEM FOR SOLUTION RESULTS
+
+ ACTIVE COORDINATE SYSTEM SET TO          0  (CARTESIAN)  
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN  1.0000     AND   1.0000    
+   KABS=  0.  TOLERANCE= 0.500000E-02
+
+         25  NODES (OF        125  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ *GET  NTOP      FROM  NODE  ITEM=COUN       VALUE=  25.0000000     
+
+ PARAMETER UZ_TOP =     0.000000000    
+
+ PARAMETER ND =     0.000000000    
+
+ *DO LOOP ON PARAMETER= II FROM  1.0000     TO  25.000     BY  1.0000    
+
+ PARAMETER ND =     26.00000000    
+
+ PARAMETER UZ_TOP =    0.1502076764E-02
+
+ *ENDDO  INDEX= II                              
+
+ PARAMETER UZ_TOP =    0.1502076764E-02
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN  0.0000     AND   0.0000    
+   KABS=  0.  TOLERANCE= 0.100000E-05
+
+         25  NODES (OF        125  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ *GET  NBOT      FROM  NODE  ITEM=COUN       VALUE=  25.0000000     
+
+ PARAMETER UZ_BOT =     0.000000000    
+
+ PARAMETER ND =     0.000000000    
+
+ *DO LOOP ON PARAMETER= II FROM  1.0000     TO  25.000     BY  1.0000    
+
+ PARAMETER ND =     1.000000000    
+
+ PARAMETER UZ_BOT =     0.000000000    
+
+ *ENDDO  INDEX= II                              
+
+ PARAMETER UZ_BOT =   -0.7027404424E-16
+
+ SELECT ALL ENTITIES OF TYPE= ALL  AND BELOW
+
+ PARAMETER SX_AVG =     0.000000000    
+
+ PARAMETER EX_AVG =     0.000000000    
+
+ PARAMETER SY_AVG =     0.000000000    
+
+ PARAMETER EY_AVG =     0.000000000    
+
+ PARAMETER SZ_AVG =     0.000000000    
+
+ PARAMETER EZ_AVG =     0.000000000    
+
+ PARAMETER SXY_AVG =     0.000000000    
+
+ PARAMETER EXY_AVG =     0.000000000    
+
+ PARAMETER SYZ_AVG =     0.000000000    
+
+ PARAMETER EYZ_AVG =     0.000000000    
+
+ PARAMETER SXZ_AVG =     0.000000000    
+
+ PARAMETER EXZ_AVG =     0.000000000    
+
+ PARAMETER SZ_DEVMAX =     0.000000000    
+
+ PARAMETER ND =     0.000000000    
+
+ *DO LOOP ON PARAMETER= II FROM  1.0000     TO  125.00     BY  1.0000    
+
+ PARAMETER ND =     1.000000000    
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    X     VALUE= 0.521060322E-11
+
+ PARAMETER SX_AVG =    0.5210603216E-11
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL X     VALUE=-0.630119408E-03
+
+ PARAMETER EX_AVG =   -0.6301194080E-03
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    Y     VALUE= 0.525323578E-11
+
+ PARAMETER SY_AVG =    0.5253235780E-11
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL Y     VALUE=-0.630119408E-03
+
+ PARAMETER EY_AVG =   -0.6301194080E-03
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    Z     VALUE=  100.000000    
+
+ PARAMETER SZ_AVG =     100.0000000    
+
+ PARAMETER DTMP =     0.000000000    
+
+ *IF  DTMP  ( =   0.00000     )  GT  
+      SZ_DEVMAX  ( =   0.00000     )  THEN    
+
+ *ENDIF
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL Z     VALUE= 0.150207675E-02
+
+ PARAMETER EZ_AVG =    0.1502076746E-02
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    XY    VALUE=-0.104900871E-10
+
+ PARAMETER SXY_AVG =   -0.1049008710E-10
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL XY    VALUE=-0.139125823E-15
+
+ PARAMETER EXY_AVG =   -0.1391258233E-15
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    YZ    VALUE= 0.192859444E-10
+
+ PARAMETER SYZ_AVG =    0.1928594437E-10
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL YZ    VALUE= 0.255781742E-15
+
+ PARAMETER EYZ_AVG =    0.2557817419E-15
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    XZ    VALUE=-0.192788563E-10
+
+ PARAMETER SXZ_AVG =   -0.1927885629E-10
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL XZ    VALUE=-0.255687748E-15
+
+ PARAMETER EXZ_AVG =   -0.2556877477E-15
+
+ *ENDDO  INDEX= II                              
+
+ PARAMETER SX_AVG =   -0.1542563541E-12
+
+ PARAMETER EX_AVG =   -0.6301194080E-03
+
+ PARAMETER SY_AVG =    0.5326747272E-12
+
+ PARAMETER EY_AVG =   -0.6301194080E-03
+
+ PARAMETER SZ_AVG =     100.0000000    
+
+ PARAMETER EZ_AVG =    0.1502076746E-02
+
+ PARAMETER SXY_AVG =   -0.4057458106E-12
+
+ PARAMETER EXY_AVG =   -0.5381244172E-17
+
+ PARAMETER SYZ_AVG =    0.7226662062E-12
+
+ PARAMETER EYZ_AVG =    0.9584432410E-17
+
+ PARAMETER SXZ_AVG =   -0.1070376322E-12
+
+ PARAMETER EXZ_AVG =   -0.1419597205E-17
+
+ OPENED FILE= g3_prerot_100.txt FOR COMMAND FILE DATA 
+
+
+  COMMAND FILE CLOSED 
+
+
+ EXIT THE MAPDL POST1 DATABASE PROCESSOR
+
+
+ ***** ROUTINE COMPLETED *****  ELAPSED TIME =         8.159
+
+
+
+ CLEAR MAPDL DATABASE AND RESTART
+
+ Ansys Mechanical Enterprise Academic Student      
+
+ TITLE= 
+ G3 Cu cube prerot [110] || z  (uMKS: um, MPa)                                 
+
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   20:16:25  OCT 08, 2026 Elapsed Time=      8.244
+
+ G3 Cu cube prerot [110] || z  (uMKS: um, MPa)                                 
+
+
+
+          ***** MAPDL ANALYSIS DEFINITION (PREP7) *****
+
+ ELEMENT TYPE          1 IS SOLID185     3-D 8-NODE STRUCTURAL SOLID 
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ MATERIAL          1     DENS =  0.8960000E-14  
+
+ DEFINE DATA TABLE  ANEL  FOR MATERIAL     1
+   WITH A MAXIMUM OF   1 TEMPERATURE SPECIFICATIONS
+
+ TEMPERATURE TO BE USED FOR THE NEXT TBDAT COMMAND=  25.000    
+    TEMPERATURE SPECIFICATION=  1
+
+ DATA FOR  ANEL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  25.000    
+ LOC=  1 0.16910E+06 0.12220E+06 0.12220E+06  0.0000     0.18314E-11  0.0000    
+
+ DATA FOR  ANEL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  25.000    
+ LOC=  7 0.22105E+06  70250.      0.0000     0.17008E-11  0.0000     0.22105E+06
+
+ DATA FOR  ANEL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  25.000    
+ LOC= 13  0.0000     0.17008E-11  0.0000      75400.      0.0000    -0.34296E-12
+
+ DATA FOR  ANEL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  25.000    
+ LOC= 19  23450.      0.0000      75400.    
+
+ CREATE A HEXAHEDRAL VOLUME WITH
+ X-DISTANCES FROM      0.000000000     TO      1.000000000    
+ Y-DISTANCES FROM      0.000000000     TO      1.000000000    
+ Z-DISTANCES FROM      0.000000000     TO      1.000000000    
+
+      OUTPUT VOLUME =     1
+
+ ELEMENT COORDINATE SYSTEM IS AS DEFINED FOR THE ELEMENTS.
+ (NOTE- FOR GLOBAL SYSTEM  0  (CARTESIAN), DEFINE
+ LOCAL CARTESIAN SYSTEM  (LOCAL,N,0)  AND USE ESYS,N.)
+
+ MATERIAL NUMBER SET TO         1
+
+ ELEMENT TYPE SET TO         1
+
+ DEFAULT ELEMENT DIVISIONS PER LINE BASED ON ELEMENT SIZE =  0.250    
+ PRODUCE ALL HEXAHEDRAL ELEMENTS IN 3D.
+ USE THE MAPPED MESHER.
+
+ GENERATE NODES AND ELEMENTS   IN  ALL  SELECTED VOLUMES  
+
+ NUMBER OF VOLUMES MESHED   =         1
+ MAXIMUM NODE NUMBER        =       125
+ MAXIMUM ELEMENT NUMBER     =        64
+
+ *GET  NELEM     FROM  ELEM  ITEM=COUN           VALUE=  64.0000000    
+
+ *GET  NNODE     FROM  NODE  ITEM=COUN       VALUE=  125.000000     
+
+
+ ***** ROUTINE COMPLETED *****  ELAPSED TIME =         8.247
+
+
+
+ *****  MAPDL SOLUTION ROUTINE  *****
+
+
+ PERFORM A STATIC ANALYSIS
+  THIS WILL BE A NEW ANALYSIS
+
+ ACTIVE COORDINATE SYSTEM SET TO          0  (CARTESIAN)  
+
+ PARAMETER S0 =     100.0000000    
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN  1.0000     AND   1.0000    
+   KABS=  0.  TOLERANCE= 0.500000E-02
+
+         25  NODES (OF        125  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ GENERATE SURFACE LOAD PRES ON SURFACE DEFINED BY ALL SELECTED NODES
+ VALUES= -100.000000      0.00000000    
+
+ NUMBER OF PRES ELEMENT FACE LOADS STORED =         16
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN  0.0000     AND   0.0000    
+   KABS=  0.  TOLERANCE= 0.100000E-05
+
+         25  NODES (OF        125  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ GENERATE SURFACE LOAD PRES ON SURFACE DEFINED BY ALL SELECTED NODES
+ VALUES= -100.000000      0.00000000    
+
+ NUMBER OF PRES ELEMENT FACE LOADS STORED =         16
+
+ SELECT ALL ENTITIES OF TYPE= ALL  AND BELOW
+
+ PARAMETER NA =     2.000000000    
+
+ PARAMETER NB =     10.00000000    
+
+ PARAMETER NC =     1.000000000    
+
+ SPECIFIED CONSTRAINT UX   FOR SELECTED NODES            2 TO           2 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+ ADDITIONAL DOFS=  UY    UZ  
+
+ SPECIFIED CONSTRAINT UY   FOR SELECTED NODES           10 TO          10 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+ ADDITIONAL DOFS=  UZ  
+
+ SPECIFIED CONSTRAINT UZ   FOR SELECTED NODES            1 TO           1 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ *GET  TCPU0     FROM  ACTI  ITEM=TIME CPU   VALUE=  2.59375000    
+
+ *****  MAPDL SOLVE    COMMAND  *****
+
+ *** SELECTION OF ELEMENT TECHNOLOGIES FOR APPLICABLE ELEMENTS ***
+                ---GIVE SUGGESTIONS ONLY---
+
+ ELEMENT TYPE         1 IS SOLID185. IT IS ASSOCIATED WITH LINEAR MATERIALS ONLY
+ BUT MATERIALS ARE ANISOTROPIC. KEYOPT(2)=2 IS SUGGESTED.
+
+
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   20:16:25  OCT 08, 2026 Elapsed Time=      8.250
+
+ G3 Cu cube prerot [110] || z  (uMKS: um, MPa)                                 
+
+
+
+                       S O L U T I O N   O P T I O N S
+
+   PROBLEM DIMENSIONALITY. . . . . . . . . . . . .3-D                  
+   DEGREES OF FREEDOM. . . . . . UX   UY   UZ  
+   ANALYSIS TYPE . . . . . . . . . . . . . . . . .STATIC (STEADY-STATE)
+   GLOBALLY ASSEMBLED MATRIX . . . . . . . . . . .SYMMETRIC  
+
+ *** NOTE ***                            ELAPSED TIME =       8.250   TIME= 20:16:25
+ Present time 0 is less than or equal to the previous time.  Time will   
+ default to 1.                                                           
+
+ *** NOTE ***                            ELAPSED TIME =       8.250   TIME= 20:16:25
+ The conditions for direct assembly have been met.  No .emat or .erot    
+ files will be produced.                                                 
+
+                      L O A D   S T E P   O P T I O N S
+
+   LOAD STEP NUMBER. . . . . . . . . . . . . . . .     1
+   TIME AT END OF THE LOAD STEP. . . . . . . . . .  1.0000    
+   NUMBER OF SUBSTEPS. . . . . . . . . . . . . . .     1
+   STEP CHANGE BOUNDARY CONDITIONS . . . . . . . .    NO
+   PRINT OUTPUT CONTROLS . . . . . . . . . . . . .NO PRINTOUT
+   DATABASE OUTPUT CONTROLS. . . . . . . . . . . .ALL DATA WRITTEN
+                                                  FOR THE LAST SUBSTEP
+
+
+ SOLUTION MONITORING INFO IS WRITTEN TO FILE= g3.mntr                                                                                                                                                                                                                                                             
+
+
+
+                         ***********  PRECISE MASS SUMMARY  ***********
+
+   TOTAL RIGID BODY MASS MATRIX ABOUT ORIGIN
+               Translational mass               |   Coupled translational/rotational mass
+        0.89600E-14    0.0000        0.0000     |     0.0000       0.44800E-14  -0.44800E-14
+         0.0000       0.89600E-14    0.0000     |   -0.44800E-14    0.0000       0.44800E-14
+         0.0000        0.0000       0.89600E-14 |    0.44800E-14  -0.44800E-14    0.0000    
+     ------------------------------------------ | ------------------------------------------
+                                                |         Rotational mass (inertia)
+                                                |    0.59733E-14  -0.22400E-14  -0.22400E-14
+                                                |   -0.22400E-14   0.59733E-14  -0.22400E-14
+                                                |   -0.22400E-14  -0.22400E-14   0.59733E-14
+
+   TOTAL MASS = 0.89600E-14
+     The mass principal axes coincide with the global Cartesian axes
+
+   CENTER OF MASS (X,Y,Z)=   0.50000       0.50000       0.50000    
+
+   TOTAL INERTIA ABOUT CENTER OF MASS
+        0.14933E-14  -0.48882E-29  -0.49484E-29
+       -0.48882E-29   0.14933E-14  -0.50941E-29
+       -0.49484E-29  -0.50941E-29   0.14933E-14
+     The inertia principal axes coincide with the global Cartesian axes
+
+
+  *** MASS SUMMARY BY ELEMENT TYPE ***
+
+  TYPE      MASS
+     1  0.896000E-14
+
+ Range of element maximum matrix coefficients in global coordinates
+ Maximum = 7211.05324 at element 28.                                     
+ Minimum = 7211.05324 at element 35.                                     
+
+   *** ELEMENT MATRIX FORMULATION TIMES
+     TYPE    NUMBER     ENAME   TOTAL ELAPSED   AVG ELAPSED
+
+        1        64  SOLID185          0.0027   0.000041442
+ Elapsed Time at end of element matrix formulation = 8.2587142.          
+
+ SPARSE MATRIX DIRECT SOLVER.
+  Number of equations =         369,    Maximum wavefront =     63
+
+
+  Memory allocated on this process
+  -------------------------------------------------------------------
+  Equation solver memory allocated                     =     0.779 MB
+  Equation solver memory required for in-core mode     =     0.751 MB
+  Equation solver memory required for out-of-core mode =     0.480 MB
+  Total (solver and non-solver) memory allocated       =   357.811 MB
+
+ *** NOTE ***                            ELAPSED TIME =       8.260   TIME= 20:16:25
+ The Sparse Matrix Solver is currently running in the in-core memory     
+ mode.  This memory mode uses the most amount of memory in order to      
+ avoid using the hard drive as much as possible, which most often        
+ results in the fastest solution time.  This mode is recommended if      
+ enough physical memory is present to accommodate all of the solver      
+ data.                                                                   
+ Sparse solver maximum pivot= 54358.7237 at node 121 UX.                 
+ Sparse solver minimum pivot= 2673.35593 at node 15 UX.                  
+ Sparse solver minimum pivot in absolute value= 2673.35593 at node 15    
+ UX.                                                                     
+
+   *** ELEMENT RESULT CALCULATION TIMES
+     TYPE    NUMBER     ENAME   TOTAL ELAPSED   AVG ELAPSED
+
+        1        64  SOLID185          0.0080   0.000124311
+
+   *** NODAL LOAD CALCULATION TIMES
+     TYPE    NUMBER     ENAME   TOTAL ELAPSED   AVG ELAPSED
+
+        1        64  SOLID185          0.0014   0.000022103
+ *** LOAD STEP     1   SUBSTEP     1  COMPLETED.    CUM ITER =      1
+ *** TIME =   1.00000         TIME INC =   1.00000      NEW TRIANG MATRIX
+
+
+ *** MAPDL BINARY FILE STATISTICS
+  BUFFER SIZE USED= 16384
+        0.125 MB WRITTEN ON ASSEMBLED MATRIX FILE: g3.full
+        0.375 MB WRITTEN ON RESULTS FILE: g3.rst
+
+ *GET  TCPU1     FROM  ACTI  ITEM=TIME CPU   VALUE=  2.60937500    
+
+ PARAMETER CPU_SOLVE =    0.1562500000E-01
+
+ FINISH SOLUTION PROCESSING
+
+
+ ***** ROUTINE COMPLETED *****  ELAPSED TIME =         8.277
+
+
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   20:16:25  OCT 08, 2026 Elapsed Time=      8.283
+
+ G3 Cu cube prerot [110] || z  (uMKS: um, MPa)                                 
+
+
+
+          ***** MAPDL RESULTS INTERPRETATION (POST1) *****
+
+
+ USE LAST SUBSTEP ON RESULT FILE  FOR LOAD CASE 0 
+
+ SET COMMAND GOT LOAD STEP=     1  SUBSTEP=     1  CUMULATIVE ITERATION=     1
+   TIME/FREQUENCY=  1.0000    
+ TITLE= G3 Cu cube prerot [110] || z  (uMKS: um, MPa)                           
+
+ RSYS KEY SET TO   0
+
+ USE THE GLOBAL COORDINATE SYSTEM FOR SOLUTION RESULTS
+
+ ACTIVE COORDINATE SYSTEM SET TO          0  (CARTESIAN)  
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN  1.0000     AND   1.0000    
+   KABS=  0.  TOLERANCE= 0.500000E-02
+
+         25  NODES (OF        125  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ *GET  NTOP      FROM  NODE  ITEM=COUN       VALUE=  25.0000000     
+
+ PARAMETER UZ_TOP =     0.000000000    
+
+ PARAMETER ND =     0.000000000    
+
+ *DO LOOP ON PARAMETER= II FROM  1.0000     TO  25.000     BY  1.0000    
+
+ PARAMETER ND =     26.00000000    
+
+ PARAMETER UZ_TOP =    0.7675436699E-03
+
+ *ENDDO  INDEX= II                              
+
+ PARAMETER UZ_TOP =    0.7675436699E-03
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN  0.0000     AND   0.0000    
+   KABS=  0.  TOLERANCE= 0.100000E-05
+
+         25  NODES (OF        125  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ *GET  NBOT      FROM  NODE  ITEM=COUN       VALUE=  25.0000000     
+
+ PARAMETER UZ_BOT =     0.000000000    
+
+ PARAMETER ND =     0.000000000    
+
+ *DO LOOP ON PARAMETER= II FROM  1.0000     TO  25.000     BY  1.0000    
+
+ PARAMETER ND =     1.000000000    
+
+ PARAMETER UZ_BOT =     0.000000000    
+
+ *ENDDO  INDEX= II                              
+
+ PARAMETER UZ_BOT =   -0.2752386459E-16
+
+ SELECT ALL ENTITIES OF TYPE= ALL  AND BELOW
+
+ PARAMETER SX_AVG =     0.000000000    
+
+ PARAMETER EX_AVG =     0.000000000    
+
+ PARAMETER SY_AVG =     0.000000000    
+
+ PARAMETER EY_AVG =     0.000000000    
+
+ PARAMETER SZ_AVG =     0.000000000    
+
+ PARAMETER EZ_AVG =     0.000000000    
+
+ PARAMETER SXY_AVG =     0.000000000    
+
+ PARAMETER EXY_AVG =     0.000000000    
+
+ PARAMETER SYZ_AVG =     0.000000000    
+
+ PARAMETER EYZ_AVG =     0.000000000    
+
+ PARAMETER SXZ_AVG =     0.000000000    
+
+ PARAMETER EXZ_AVG =     0.000000000    
+
+ PARAMETER SZ_DEVMAX =     0.000000000    
+
+ PARAMETER ND =     0.000000000    
+
+ *DO LOOP ON PARAMETER= II FROM  1.0000     TO  125.00     BY  1.0000    
+
+ PARAMETER ND =     1.000000000    
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    X     VALUE= 0.349678576E-11
+
+ PARAMETER SX_AVG =    0.3496785760E-11
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL X     VALUE=-0.630119408E-03
+
+ PARAMETER EX_AVG =   -0.6301194080E-03
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    Y     VALUE= 0.887703192E-11
+
+ PARAMETER SY_AVG =    0.8877031922E-11
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL Y     VALUE= 0.104413695E-03
+
+ PARAMETER EY_AVG =    0.1044136952E-03
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    Z     VALUE=  100.000000    
+
+ PARAMETER SZ_AVG =     100.0000000    
+
+ PARAMETER DTMP =     0.000000000    
+
+ *IF  DTMP  ( =   0.00000     )  GT  
+      SZ_DEVMAX  ( =   0.00000     )  THEN    
+
+ *ENDIF
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL Z     VALUE= 0.767543679E-03
+
+ PARAMETER EZ_AVG =    0.7675436791E-03
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    XY    VALUE=-0.357576967E-11
+
+ PARAMETER SXY_AVG =   -0.3575769672E-11
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL XY    VALUE=-0.474240016E-16
+
+ PARAMETER EXY_AVG =   -0.4742400160E-16
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    YZ    VALUE= 0.524582981E-11
+
+ PARAMETER SYZ_AVG =    0.5245829812E-11
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL YZ    VALUE= 0.223688749E-15
+
+ PARAMETER EYZ_AVG =    0.2236887488E-15
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    XZ    VALUE=-0.955662806E-11
+
+ PARAMETER SXZ_AVG =   -0.9556628058E-11
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL XZ    VALUE=-0.126745722E-15
+
+ PARAMETER EXZ_AVG =   -0.1267457221E-15
+
+ *ENDDO  INDEX= II                              
+
+ PARAMETER SX_AVG =   -0.1582998048E-12
+
+ PARAMETER EX_AVG =   -0.6301194080E-03
+
+ PARAMETER SY_AVG =    0.2944931903E-12
+
+ PARAMETER EY_AVG =    0.1044136952E-03
+
+ PARAMETER SZ_AVG =     100.0000000    
+
+ PARAMETER EZ_AVG =    0.7675436791E-03
+
+ PARAMETER SXY_AVG =   -0.2644663251E-12
+
+ PARAMETER EXY_AVG =   -0.3507510911E-17
+
+ PARAMETER SYZ_AVG =    0.1675901228E-12
+
+ PARAMETER EYZ_AVG =    0.7132667354E-17
+
+ PARAMETER SXZ_AVG =   -0.2040121803E-12
+
+ PARAMETER EXZ_AVG =   -0.2705731697E-17
+
+ OPENED FILE= g3_prerot_110.txt FOR COMMAND FILE DATA 
+
+
+  COMMAND FILE CLOSED 
+
+
+ EXIT THE MAPDL POST1 DATABASE PROCESSOR
+
+
+ ***** ROUTINE COMPLETED *****  ELAPSED TIME =         8.671
+
+
+
+ CLEAR MAPDL DATABASE AND RESTART
+
+ Ansys Mechanical Enterprise Academic Student      
+
+ TITLE= 
+ G3 Cu cube prerot [111] || z  (uMKS: um, MPa)                                 
+
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   20:16:26  OCT 08, 2026 Elapsed Time=      8.764
+
+ G3 Cu cube prerot [111] || z  (uMKS: um, MPa)                                 
+
+
+
+          ***** MAPDL ANALYSIS DEFINITION (PREP7) *****
+
+ ELEMENT TYPE          1 IS SOLID185     3-D 8-NODE STRUCTURAL SOLID 
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+
+ MATERIAL          1     DENS =  0.8960000E-14  
+
+ DEFINE DATA TABLE  ANEL  FOR MATERIAL     1
+   WITH A MAXIMUM OF   1 TEMPERATURE SPECIFICATIONS
+
+ TEMPERATURE TO BE USED FOR THE NEXT TBDAT COMMAND=  25.000    
+    TEMPERATURE SPECIFICATION=  1
+
+ DATA FOR  ANEL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  25.000    
+ LOC=  1 0.22105E+06 0.10488E+06  87567.     0.11522E-11 -24489.    -0.46477E-12
+
+ DATA FOR  ANEL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  25.000    
+ LOC=  7 0.22105E+06  87567.    -0.93724E-12  24489.    -0.25413E-12 0.23837E+06
+
+ DATA FOR  ANEL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  25.000    
+ LOC= 13-0.14698E-11-0.22646E-11-0.48728E-12  58083.     0.30243E-12 -24489.    
+
+ DATA FOR  ANEL  TABLE FOR MATERIAL   1 AT TEMPERATURE=  25.000    
+ LOC= 19  40767.     0.39525E-12  40767.    
+
+ CREATE A HEXAHEDRAL VOLUME WITH
+ X-DISTANCES FROM      0.000000000     TO      1.000000000    
+ Y-DISTANCES FROM      0.000000000     TO      1.000000000    
+ Z-DISTANCES FROM      0.000000000     TO      1.000000000    
+
+      OUTPUT VOLUME =     1
+
+ ELEMENT COORDINATE SYSTEM IS AS DEFINED FOR THE ELEMENTS.
+ (NOTE- FOR GLOBAL SYSTEM  0  (CARTESIAN), DEFINE
+ LOCAL CARTESIAN SYSTEM  (LOCAL,N,0)  AND USE ESYS,N.)
+
+ MATERIAL NUMBER SET TO         1
+
+ ELEMENT TYPE SET TO         1
+
+ DEFAULT ELEMENT DIVISIONS PER LINE BASED ON ELEMENT SIZE =  0.250    
+ PRODUCE ALL HEXAHEDRAL ELEMENTS IN 3D.
+ USE THE MAPPED MESHER.
+
+ GENERATE NODES AND ELEMENTS   IN  ALL  SELECTED VOLUMES  
+
+ NUMBER OF VOLUMES MESHED   =         1
+ MAXIMUM NODE NUMBER        =       125
+ MAXIMUM ELEMENT NUMBER     =        64
+
+ *GET  NELEM     FROM  ELEM  ITEM=COUN           VALUE=  64.0000000    
+
+ *GET  NNODE     FROM  NODE  ITEM=COUN       VALUE=  125.000000     
+
+
+ ***** ROUTINE COMPLETED *****  ELAPSED TIME =         8.767
+
+
+
+ *****  MAPDL SOLUTION ROUTINE  *****
+
+
+ PERFORM A STATIC ANALYSIS
+  THIS WILL BE A NEW ANALYSIS
+
+ ACTIVE COORDINATE SYSTEM SET TO          0  (CARTESIAN)  
+
+ PARAMETER S0 =     100.0000000    
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN  1.0000     AND   1.0000    
+   KABS=  0.  TOLERANCE= 0.500000E-02
+
+         25  NODES (OF        125  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ GENERATE SURFACE LOAD PRES ON SURFACE DEFINED BY ALL SELECTED NODES
+ VALUES= -100.000000      0.00000000    
+
+ NUMBER OF PRES ELEMENT FACE LOADS STORED =         16
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN  0.0000     AND   0.0000    
+   KABS=  0.  TOLERANCE= 0.100000E-05
+
+         25  NODES (OF        125  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ GENERATE SURFACE LOAD PRES ON SURFACE DEFINED BY ALL SELECTED NODES
+ VALUES= -100.000000      0.00000000    
+
+ NUMBER OF PRES ELEMENT FACE LOADS STORED =         16
+
+ SELECT ALL ENTITIES OF TYPE= ALL  AND BELOW
+
+ PARAMETER NA =     2.000000000    
+
+ PARAMETER NB =     10.00000000    
+
+ PARAMETER NC =     1.000000000    
+
+ SPECIFIED CONSTRAINT UX   FOR SELECTED NODES            2 TO           2 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+ ADDITIONAL DOFS=  UY    UZ  
+
+ SPECIFIED CONSTRAINT UY   FOR SELECTED NODES           10 TO          10 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+ ADDITIONAL DOFS=  UZ  
+
+ SPECIFIED CONSTRAINT UZ   FOR SELECTED NODES            1 TO           1 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ *GET  TCPU0     FROM  ACTI  ITEM=TIME CPU   VALUE=  3.10937500    
+
+ *****  MAPDL SOLVE    COMMAND  *****
+
+ *** SELECTION OF ELEMENT TECHNOLOGIES FOR APPLICABLE ELEMENTS ***
+                ---GIVE SUGGESTIONS ONLY---
+
+ ELEMENT TYPE         1 IS SOLID185. IT IS ASSOCIATED WITH LINEAR MATERIALS ONLY
+ BUT MATERIALS ARE ANISOTROPIC. KEYOPT(2)=2 IS SUGGESTED.
+
+
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   20:16:26  OCT 08, 2026 Elapsed Time=      8.769
+
+ G3 Cu cube prerot [111] || z  (uMKS: um, MPa)                                 
+
+
+
+                       S O L U T I O N   O P T I O N S
+
+   PROBLEM DIMENSIONALITY. . . . . . . . . . . . .3-D                  
+   DEGREES OF FREEDOM. . . . . . UX   UY   UZ  
+   ANALYSIS TYPE . . . . . . . . . . . . . . . . .STATIC (STEADY-STATE)
+   GLOBALLY ASSEMBLED MATRIX . . . . . . . . . . .SYMMETRIC  
+
+ *** NOTE ***                            ELAPSED TIME =       8.769   TIME= 20:16:26
+ Present time 0 is less than or equal to the previous time.  Time will   
+ default to 1.                                                           
+
+ *** NOTE ***                            ELAPSED TIME =       8.769   TIME= 20:16:26
+ The conditions for direct assembly have been met.  No .emat or .erot    
+ files will be produced.                                                 
+
+                      L O A D   S T E P   O P T I O N S
+
+   LOAD STEP NUMBER. . . . . . . . . . . . . . . .     1
+   TIME AT END OF THE LOAD STEP. . . . . . . . . .  1.0000    
+   NUMBER OF SUBSTEPS. . . . . . . . . . . . . . .     1
+   STEP CHANGE BOUNDARY CONDITIONS . . . . . . . .    NO
+   PRINT OUTPUT CONTROLS . . . . . . . . . . . . .NO PRINTOUT
+   DATABASE OUTPUT CONTROLS. . . . . . . . . . . .ALL DATA WRITTEN
+                                                  FOR THE LAST SUBSTEP
+
+
+ SOLUTION MONITORING INFO IS WRITTEN TO FILE= g3.mntr                                                                                                                                                                                                                                                             
+
+
+
+                         ***********  PRECISE MASS SUMMARY  ***********
+
+   TOTAL RIGID BODY MASS MATRIX ABOUT ORIGIN
+               Translational mass               |   Coupled translational/rotational mass
+        0.89600E-14    0.0000        0.0000     |     0.0000       0.44800E-14  -0.44800E-14
+         0.0000       0.89600E-14    0.0000     |   -0.44800E-14    0.0000       0.44800E-14
+         0.0000        0.0000       0.89600E-14 |    0.44800E-14  -0.44800E-14    0.0000    
+     ------------------------------------------ | ------------------------------------------
+                                                |         Rotational mass (inertia)
+                                                |    0.59733E-14  -0.22400E-14  -0.22400E-14
+                                                |   -0.22400E-14   0.59733E-14  -0.22400E-14
+                                                |   -0.22400E-14  -0.22400E-14   0.59733E-14
+
+   TOTAL MASS = 0.89600E-14
+     The mass principal axes coincide with the global Cartesian axes
+
+   CENTER OF MASS (X,Y,Z)=   0.50000       0.50000       0.50000    
+
+   TOTAL INERTIA ABOUT CENTER OF MASS
+        0.14933E-14  -0.48882E-29  -0.49484E-29
+       -0.48882E-29   0.14933E-14  -0.50941E-29
+       -0.49484E-29  -0.50941E-29   0.14933E-14
+     The inertia principal axes coincide with the global Cartesian axes
+
+
+  *** MASS SUMMARY BY ELEMENT TYPE ***
+
+  TYPE      MASS
+     1  0.896000E-14
+
+ Range of element maximum matrix coefficients in global coordinates
+ Maximum = 8231.44761 at element 64.                                     
+ Minimum = 8231.44761 at element 40.                                     
+
+   *** ELEMENT MATRIX FORMULATION TIMES
+     TYPE    NUMBER     ENAME   TOTAL ELAPSED   AVG ELAPSED
+
+        1        64  SOLID185          0.0043   0.000067280
+ Elapsed Time at end of element matrix formulation = 8.7817026.          
+
+ SPARSE MATRIX DIRECT SOLVER.
+  Number of equations =         369,    Maximum wavefront =     63
+
+
+  Memory allocated on this process
+  -------------------------------------------------------------------
+  Equation solver memory allocated                     =     0.779 MB
+  Equation solver memory required for in-core mode     =     0.751 MB
+  Equation solver memory required for out-of-core mode =     0.480 MB
+  Total (solver and non-solver) memory allocated       =   357.818 MB
+
+ *** NOTE ***                            ELAPSED TIME =       8.784   TIME= 20:16:26
+ The Sparse Matrix Solver is currently running in the in-core memory     
+ mode.  This memory mode uses the most amount of memory in order to      
+ avoid using the hard drive as much as possible, which most often        
+ results in the fastest solution time.  This mode is recommended if      
+ enough physical memory is present to accommodate all of the solver      
+ data.                                                                   
+ Sparse solver maximum pivot= 51487.3587 at node 121 UX.                 
+ Sparse solver minimum pivot= 2617.21791 at node 15 UX.                  
+ Sparse solver minimum pivot in absolute value= 2617.21791 at node 15    
+ UX.                                                                     
+
+   *** ELEMENT RESULT CALCULATION TIMES
+     TYPE    NUMBER     ENAME   TOTAL ELAPSED   AVG ELAPSED
+
+        1        64  SOLID185          0.0057   0.000088731
+
+   *** NODAL LOAD CALCULATION TIMES
+     TYPE    NUMBER     ENAME   TOTAL ELAPSED   AVG ELAPSED
+
+        1        64  SOLID185          0.0009   0.000014711
+ *** LOAD STEP     1   SUBSTEP     1  COMPLETED.    CUM ITER =      1
+ *** TIME =   1.00000         TIME INC =   1.00000      NEW TRIANG MATRIX
+
+
+ *** MAPDL BINARY FILE STATISTICS
+  BUFFER SIZE USED= 16384
+        0.125 MB WRITTEN ON ASSEMBLED MATRIX FILE: g3.full
+        0.375 MB WRITTEN ON RESULTS FILE: g3.rst
+
+ *GET  TCPU1     FROM  ACTI  ITEM=TIME CPU   VALUE=  3.14062500    
+
+ PARAMETER CPU_SOLVE =    0.3125000000E-01
+
+ FINISH SOLUTION PROCESSING
+
+
+ ***** ROUTINE COMPLETED *****  ELAPSED TIME =         8.800
+
+
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   20:16:26  OCT 08, 2026 Elapsed Time=      8.806
+
+ G3 Cu cube prerot [111] || z  (uMKS: um, MPa)                                 
+
+
+
+          ***** MAPDL RESULTS INTERPRETATION (POST1) *****
+
+
+ USE LAST SUBSTEP ON RESULT FILE  FOR LOAD CASE 0 
+
+ SET COMMAND GOT LOAD STEP=     1  SUBSTEP=     1  CUMULATIVE ITERATION=     1
+   TIME/FREQUENCY=  1.0000    
+ TITLE= G3 Cu cube prerot [111] || z  (uMKS: um, MPa)                           
+
+ RSYS KEY SET TO   0
+
+ USE THE GLOBAL COORDINATE SYSTEM FOR SOLUTION RESULTS
+
+ ACTIVE COORDINATE SYSTEM SET TO          0  (CARTESIAN)  
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN  1.0000     AND   1.0000    
+   KABS=  0.  TOLERANCE= 0.500000E-02
+
+         25  NODES (OF        125  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ *GET  NTOP      FROM  NODE  ITEM=COUN       VALUE=  25.0000000     
+
+ PARAMETER UZ_TOP =     0.000000000    
+
+ PARAMETER ND =     0.000000000    
+
+ *DO LOOP ON PARAMETER= II FROM  1.0000     TO  25.000     BY  1.0000    
+
+ PARAMETER ND =     26.00000000    
+
+ PARAMETER UZ_TOP =    0.5226993052E-03
+
+ *ENDDO  INDEX= II                              
+
+ PARAMETER UZ_TOP =    0.5226993052E-03
+
+ SELECT       FOR ITEM=LOC  COMPONENT=Z     BETWEEN  0.0000     AND   0.0000    
+   KABS=  0.  TOLERANCE= 0.100000E-05
+
+         25  NODES (OF        125  DEFINED) SELECTED BY  NSEL  COMMAND.
+
+ *GET  NBOT      FROM  NODE  ITEM=COUN       VALUE=  25.0000000     
+
+ PARAMETER UZ_BOT =     0.000000000    
+
+ PARAMETER ND =     0.000000000    
+
+ *DO LOOP ON PARAMETER= II FROM  1.0000     TO  25.000     BY  1.0000    
+
+ PARAMETER ND =     1.000000000    
+
+ PARAMETER UZ_BOT =     0.000000000    
+
+ *ENDDO  INDEX= II                              
+
+ PARAMETER UZ_BOT =   -0.1286228822E-16
+
+ SELECT ALL ENTITIES OF TYPE= ALL  AND BELOW
+
+ PARAMETER SX_AVG =     0.000000000    
+
+ PARAMETER EX_AVG =     0.000000000    
+
+ PARAMETER SY_AVG =     0.000000000    
+
+ PARAMETER EY_AVG =     0.000000000    
+
+ PARAMETER SZ_AVG =     0.000000000    
+
+ PARAMETER EZ_AVG =     0.000000000    
+
+ PARAMETER SXY_AVG =     0.000000000    
+
+ PARAMETER EXY_AVG =     0.000000000    
+
+ PARAMETER SYZ_AVG =     0.000000000    
+
+ PARAMETER EYZ_AVG =     0.000000000    
+
+ PARAMETER SXZ_AVG =     0.000000000    
+
+ PARAMETER EXZ_AVG =     0.000000000    
+
+ PARAMETER SZ_DEVMAX =     0.000000000    
+
+ PARAMETER ND =     0.000000000    
+
+ *DO LOOP ON PARAMETER= II FROM  1.0000     TO  125.00     BY  1.0000    
+
+ PARAMETER ND =     1.000000000    
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    X     VALUE= 0.192104557E-11
+
+ PARAMETER SX_AVG =    0.1921045571E-11
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL X     VALUE=-0.140430668E-03
+
+ PARAMETER EX_AVG =   -0.1404306677E-03
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    Y     VALUE= 0.354134343E-11
+
+ PARAMETER SY_AVG =    0.3541343434E-11
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL Y     VALUE=-0.140430668E-03
+
+ PARAMETER EY_AVG =   -0.1404306677E-03
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    Z     VALUE=  100.000000    
+
+ PARAMETER SZ_AVG =     100.0000000    
+
+ PARAMETER DTMP =     0.000000000    
+
+ *IF  DTMP  ( =   0.00000     )  GT  
+      SZ_DEVMAX  ( =   0.00000     )  THEN    
+
+ *ENDIF
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL Z     VALUE= 0.522699323E-03
+
+ PARAMETER EZ_AVG =    0.5226993235E-03
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    XY    VALUE=-0.122266035E-12
+
+ PARAMETER SXY_AVG =   -0.1222660346E-12
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL XY    VALUE=-0.274793171E-16
+
+ PARAMETER EXY_AVG =   -0.2747931714E-16
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    YZ    VALUE= 0.222509684E-11
+
+ PARAMETER SYZ_AVG =    0.2225096843E-11
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL YZ    VALUE= 0.618645667E-16
+
+ PARAMETER EYZ_AVG =    0.6186456670E-16
+
+ *GET  VTMP      FROM  NODE      1  ITEM=S    XZ    VALUE=-0.178194753E-11
+
+ PARAMETER SXZ_AVG =   -0.1781947528E-11
+
+ *GET  VTMP      FROM  NODE      1  ITEM=EPEL XZ    VALUE=-0.602145796E-16
+
+ PARAMETER EXZ_AVG =   -0.6021457960E-16
+
+ *ENDDO  INDEX= II                              
+
+ PARAMETER SX_AVG =   -0.1678682285E-14
+
+ PARAMETER EX_AVG =   -0.1404306677E-03
+
+ PARAMETER SY_AVG =    0.4962435612E-13
+
+ PARAMETER EY_AVG =   -0.1404306677E-03
+
+ PARAMETER SZ_AVG =     100.0000000    
+
+ PARAMETER EZ_AVG =    0.5226993235E-03
+
+ PARAMETER SXY_AVG =   -0.4770535955E-13
+
+ PARAMETER EXY_AVG =   -0.1340323117E-17
+
+ PARAMETER SYZ_AVG =    0.4057097643E-13
+
+ PARAMETER EYZ_AVG =    0.1013877925E-17
+
+ PARAMETER SXZ_AVG =   -0.1884042264E-13
+
+ PARAMETER EXZ_AVG =   -0.1263543877E-17
+
+ OPENED FILE= g3_prerot_111.txt FOR COMMAND FILE DATA 
+
+
+  COMMAND FILE CLOSED 
+
+
+ EXIT THE MAPDL POST1 DATABASE PROCESSOR
+
+
+ ***** ROUTINE COMPLETED *****  ELAPSED TIME =         9.137
+
+
+
+ EXIT MAPDL WITHOUT SAVING DATABASE
+
+
+ NUMBER OF WARNING MESSAGES ENCOUNTERED=          0
+ NUMBER OF ERROR   MESSAGES ENCOUNTERED=          0
+
++--------------------- M A P D L   S T A T I S T I C S ------------------------+
+
+Release: 2026 R1            Build: 26.1       Update: UP20260202   Platform: WINDOWS x64 
+Date Run: 10/08/2026   Time: 20:16     Process ID: 33336
+Operating System: Windows 11  (Build: 26300)
+
+Processor Model: 11th Gen Intel(R) Core(TM) i7-11850H @ 2.50GHz
+
+Compiler: Intel(R) Fortran Compiler Classic Version 2021.9  (Build: 20230302)
+          Intel(R) C/C++ Compiler Classic Version 2021.9  (Build: 20230302)
+          Intel(R) oneAPI Math Kernel Library Version 2024.2.3-Product Build 20250403
+
+Number of machines requested            :    1
+Total number of cores available         :   16
+Number of physical cores available      :    8
+Number of processes requested           :    1
+Number of threads per process requested :    1
+Total number of cores requested         :    1 (Shared Memory Parallel)                    
+
+GPU Acceleration: Not Requested
+
+Job Name: g3
+Input File: C:\Users\USER\.claude-science\orgs\f50c262b-2754-4e2c-b4cd-c0deca628d34\workspaces\0b7dce47-624a-4a52-8bdc-8d464908c370\g3_results\batch_work\g3_master.dat
+Working Directory: C:\Users\USER\.claude-science\orgs\f50c262b-2754-4e2c-b4cd-c0deca628d34\workspaces\0b7dce47-624a-4a52-8bdc-8d464908c370
+
+Total CPU time for main thread                    :        3.6 seconds
+Total CPU time summed for all threads             :        3.5 seconds
+
+Elapsed time spent obtaining a license            :        1.5 seconds
+Elapsed time spent pre-processing model (/PREP7)  :        0.0 seconds
+Elapsed time spent solution - preprocessing       :        0.0 seconds
+Elapsed time spent computing solution             :        0.2 seconds
+   Elapsed time in element formation & assembly   :        0.0 seconds
+   Elapsed time in equation solver                :        0.0 seconds
+   Elapsed time in element result calculations    :        0.1 seconds
+Elapsed time spent solution - postprocessing      :        0.0 seconds
+Elapsed time spent post-processing model (/POST1) :        2.4 seconds
+ 
+Equation solver used                              :            Sparse (symmetric)
+
+Sum of disk space used on all processes           :        0.5 MB
+
+Sum of memory used on all processes               :       42.0 MB
+Sum of memory allocated on all processes          :     2304.0 MB
+Physical memory available                         :         32 GB
+Total amount of I/O written to disk               :        0.0 GB
+Total amount of I/O read from disk                :        0.0 GB
+
++------------------ E N D   M A P D L   S T A T I S T I C S -------------------+
+
+
+ *-----------------------------------------------------------------------------*
+ |                                                                             |
+ |                               RUN COMPLETED                                 |
+ |                                                                             |
+ |-----------------------------------------------------------------------------|
+ |                                                                             |
+ |  Ansys MAPDL 2026 R1         Build 26.1         UP20260202    WINDOWS x64   |
+ |                                                                             |
+ |-----------------------------------------------------------------------------|
+ |                                                                             |
+ |  Database Requested(-db)  1024 MB     Scratch Memory Requested      1024 MB |
+ |  Maximum Database Used       1 MB     Maximum Scratch Memory Used     41 MB |
+ |                                                                             |
+ |-----------------------------------------------------------------------------|
+ |                                                                             |
+ |        CP Time      (sec) =          3.484       Time  =  20:16:37          |
+ |        Elapsed Time (sec) =         19.843       Date  =  10/08/2026        |
+ |                                                                             |
+ *-----------------------------------------------------------------------------*

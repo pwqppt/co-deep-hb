@@ -1,0 +1,385 @@
+--- stage1_phaseA_model_spec.md (Phase A)
++++ stage1_phaseA_model_spec.md (Phase B-1)
+@@ -13,4 +13,3 @@
+ 
+-**Status.** Specification only. No scripts written, nothing solved. Waiting for your confirmation
+-before Phase B.
++**Status.** Phase A accepted on 2026-10-08 with the decisions in §B. Phase B-1 is done: decks and scripts are generated and dry-run, **nothing has been solved**. Runs depending on temperature-dependent property tables are blocked until those tables are supplied (§B6, §B7).
+ 
+@@ -20,3 +19,3 @@
+ 
+-1. **The paper's displacement values are simulations, not measurements.** Laue microdiffraction
++1. **The paper's displacement values are simulations, not measurements.** *(Phase B: the measured ε′<sub>zz</sub> is now the primary target, G4a; Fig. 5 is the secondary implementation check, G4b.)* Laue microdiffraction
+    only gives the *deviatoric* strain; the hydrostatic part "is not experimentally accessible"
+@@ -139,21 +138,21 @@
+ | A4 | Bottom SiN (SiO2/Si) | **omitted** | not in the paper's FEM description (G7); thin | low |
+-| A5 | 60 nm SiN cap | **omitted** in baseline | FEM description lists only Cu/SiO2/Si; no cap at bonding | optional run with cap (E 220 GPa, ν 0.27, α 2.3 ppm/°C) — a top cap would directly restrain protrusion |
++| A5 | 60 nm SiN cap | **omitted** in baseline | FEM description lists only Cu/SiO2/Si; no cap at bonding | optional run with cap (E 220 GPa, ν 0.27, α 2.3 ppm/°C) — a top cap would directly restrain protrusion **[Phase B: cap **included** by default (G4a); removed in one variant, R11]** |
+ | A6 | TaTaN liner | **not meshed**; its mechanical role is bracketed by the two interface variants | thickness not given; ~5–20 nm would need very small elements | — |
+-| A7 | Si substrate | **750 µm, full thickness**, graded mesh in z; isotropic **E = 130 GPa, ν = 0.28, α = 2.6 ppm/°C** | thickness from paper; α is the RT value of ref. [18] (Okada); E is Si's in-plane ⟨100⟩ modulus | E: very low · α: moderate |
++| A7 | Si substrate | **750 µm, full thickness**, graded mesh in z; isotropic **E = 130 GPa, ν = 0.28, α = 2.6 ppm/°C** | thickness from paper; α is the RT value of ref. [18] (Okada); E is Si's in-plane ⟨100⟩ modulus | E: very low · α: moderate **[Phase B: replaced by a 2 µm Si slab whose cell walls are displaced by α<sub>Si</sub>·(T−T<sub>sf</sub>)·L (infinite-substrate equivalent, B4); R14 checks 4 µm]** |
+ | A8 | SiO2 | **E = 72 GPa, ν = 0.17, α = 0.5 ppm/°C** | fused-silica RT values, consistent with ref. [19] (Bansal & Doremus) | low–moderate |
+-| A9 | Cu CTE | **16.5 ppm/°C, constant** | paper used ambient-T constants for the other materials | **largest magnitude lever**: the 30–400 °C mean is ≈ 17.6 ppm/°C, which raises u<sub>z</sub> by ~6–7 %. Optional run |
++| A9 | Cu CTE | **16.5 ppm/°C, constant** | paper used ambient-T constants for the other materials | **largest magnitude lever**: the 30–400 °C mean is ≈ 17.6 ppm/°C, which raises u<sub>z</sub> by ~6–7 %. Optional run **[Phase B: constant 16.5 ppm/K default; NIST α(T) is variant R09, table to be supplied (B7)]** |
+ | A10 | Cu elasticity vs. T | temperature-independent | paper gives one set (M1) | — |
+ | A11 | In-plane crystal angle | same frames that passed G3 ([110]: x = [001], y = [1-10]; [111]: x = [1-10], y = [11-2]) | E<sub>z</sub> is independent of it; Euler angles not published | small for [110] (twofold in-plane); optional 45° check |
+-| A12 | Cu plasticity, [100] | Ludwick, **pad 3 midpoints**: σ<sub>y</sub> = 143 MPa, K = 675 MPa, N = 0.685 | pad 3 (68 GPa) is the measured pad nearest [100] in both E and direction | bracket: range ends from M9 |
+-| A13 | Cu plasticity, [110] | Ludwick, **pad 2 midpoints**: σ<sub>y</sub> = 187 MPa, K = 695 MPa, N = 0.335 | pad 2's E (130 GPa) equals E[110] = 130.34 GPa | as above |
+-| A14 | Cu plasticity, [111] | **elastic only** | paper: no plasticity for E > 130 GPa (M10) | — |
+-| A15 | Yield / hardening | von Mises yield, **isotropic hardening**, Ludwick tabulated as multilinear (TB,PLAS MISO) on a fine ε<sub>p</sub> grid near 0 (N < 1 gives an infinite initial slope); temperature-independent | paper gives neither; fit used one σ<sub>y</sub> per pad, which implies a J2-type yield | Phase B must confirm TB,ANEL + TB,PLAS MISO is accepted by SOLID185/186 in v261 before any production run. Fallback: elastic-only for [100] and [110], reported as a deviation |
+-| A16 | Stress-free T | **MP,REFT = TREF = 275 °C** | midpoint of 250–300 °C (T1); equals pad 3's stress-free point (T2) | only matters for the plastic orientations; bracket 250/300 °C |
+-| A17 | FEM thermal history | uniform T, quasi-static load steps: **275 → 30 → 100 → 150 → … → 400 (50 °C steps) → 300 → 200 → 100 → 30 °C**; hold at 400 °C omitted (no creep) | mirrors the experiment (T3–T6); first step builds the as-processed state at 30 °C | elastic cases are path-independent |
+-| A18 | Outer lateral faces | **full model**; each outer face gets a **coupled normal displacement** (CP: the face stays planar and moves as one) — periodic-array approximation | the cell can expand with the Si. Plain rollers would stop Si's lateral expansion and over-restrain the Cu by ≈ 1.03 · α<sub>Si</sub> · ΔT · h ≈ 0.8 nm, half the orientation spread | optional: free outer faces (another reading of G8) |
++| A12 | Cu plasticity, [100] | Ludwick, **pad 3 midpoints**: σ<sub>y</sub> = 143 MPa, K = 675 MPa, N = 0.685 | pad 3 (68 GPa) is the measured pad nearest [100] in both E and direction | bracket: range ends from M9 **[Phase B: superseded by the pad-specific mapping rule, B5]** |
++| A13 | Cu plasticity, [110] | Ludwick, **pad 2 midpoints**: σ<sub>y</sub> = 187 MPa, K = 695 MPa, N = 0.335 | pad 2's E (130 GPa) equals E[110] = 130.34 GPa | as above **[Phase B: superseded by B5 (pure [110] is not simulated; pads 3 and 10 are)]** |
++| A14 | Cu plasticity, [111] | **elastic only** | paper: no plasticity for E > 130 GPa (M10) | — **[Phase B: kept as rule: E<sub>z</sub> > 130 GPa → elastic (pad 10)]** |
++| A15 | Yield / hardening | von Mises yield, **isotropic hardening**, Ludwick tabulated as multilinear (TB,PLAS MISO) on a fine ε<sub>p</sub> grid near 0 (N < 1 gives an infinite initial slope); temperature-independent | paper gives neither; fit used one σ<sub>y</sub> per pad, which implies a J2-type yield | Phase B must confirm TB,ANEL + TB,PLAS MISO is accepted by SOLID185/186 in v261 before any production run. Fallback: elastic-only for [100] and [110], reported as a deviation **[Phase B: accepted; ANEL + MISO syntax reused from cp_check lw_*.dat; temperature dependence per B6]** |
++| A16 | Stress-free T | **MP,REFT = TREF = 275 °C** | midpoint of 250–300 °C (T1); equals pad 3's stress-free point (T2) | only matters for the plastic orientations; bracket 250/300 °C **[Phase B: per pad: pad 3 = 275 °C, pad 10 = 277 °C (B3)]** |
++| A17 | FEM thermal history | uniform T, quasi-static load steps: **275 → 30 → 100 → 150 → … → 400 (50 °C steps) → 300 → 200 → 100 → 30 °C**; hold at 400 °C omitted (no creep) | mirrors the experiment (T3–T6); first step builds the as-processed state at 30 °C | elastic cases are path-independent **[Phase B: accepted, with output at every step (13 load steps, B2)]** |
++| A18 | Outer lateral faces | **full model**; each outer face gets a **coupled normal displacement** (CP: the face stays planar and moves as one) — periodic-array approximation | the cell can expand with the Si. Plain rollers would stop Si's lateral expansion and over-restrain the Cu by ≈ 1.03 · α<sub>Si</sub> · ΔT · h ≈ 0.8 nm, half the orientation spread | optional: free outer faces (another reading of G8) **[Phase B: accepted as flat walls with **prescribed** normal displacement (substrate expansion), B4]** |
+ | A19 | Bottom | Si bottom UZ = 0, plus 3-2-1 point restraints for rigid-body motion | no other loads; substrate stays flat by symmetry | — |
+ | A20 | Symmetry cut | **none (full model)**. A quarter model is valid for [100] and [110] in the chosen frames (x = 0 and y = 0 are crystal mirror planes), but **not for [111]**, because (11-2) is not a cubic mirror plane | one mesh topology for every orientation, as you asked | — |
+-| A21 | Sidewall interface | Variant **B** (bonded): shared nodes. Variant **S** (sliding): frictionless standard contact on the 4 sidewalls (CONTA174/TARGE170, augmented Lagrange), separation allowed. **Pad bottom bonded in both** | paper silent; you asked for both | — |
+-| A22 | Elements / mesh | SOLID185 with enhanced strain or SOLID186. Pad ≈ 20 nm elements at G2 level 0, refined until Δu<sub>center</sub> ≤ 0.1 nm; geometric grading into the Si | to be sized in Phase B against the 128k node/element limit | G2 |
+-| A23 | Displacement definition | **u<sub>center</sub>** = u<sub>z</sub>(Cu top center) − u<sub>z</sub>(Si/dielectric interface), taken as the 30 → 400 °C change on heating. Also reported: u<sub>edge</sub> (top-face edge midpoint), u<sub>avg</sub> (top-face area average), and protrusion relative to far-field oxide surface | paper silent; subtracting the substrate surface removes the ~720 nm Si thickness expansion, which Fig. 5's magnitudes exclude (Finding 6) | center vs. average expected to differ by a few tenths of a nm; both reported |
++| A21 | Sidewall interface | Variant **B** (bonded): shared nodes. Variant **S** (sliding): frictionless standard contact on the 4 sidewalls (CONTA174/TARGE170, augmented Lagrange), separation allowed. **Pad bottom bonded in both** | paper silent; you asked for both | — **[Phase B: sliding implemented as frictionless, **no separation**: normal displacement tied by CE on duplicated sidewall nodes (B7)]** |
++| A22 | Elements / mesh | SOLID185 with enhanced strain or SOLID186. Pad ≈ 20 nm elements at G2 level 0, refined until Δu<sub>center</sub> ≤ 0.1 nm; geometric grading into the Si | to be sized in Phase B against the 128k node/element limit | G2 **[Phase B: SOLID185, KEYOPT(2)=3; four structured levels L0–L3 (B8)]** |
++| A23 | Displacement definition | **u<sub>center</sub>** = u<sub>z</sub>(Cu top center) − u<sub>z</sub>(Si/dielectric interface), taken as the 30 → 400 °C change on heating. Also reported: u<sub>edge</sub> (top-face edge midpoint), u<sub>avg</sub> (top-face area average), and protrusion relative to far-field oxide surface | paper silent; subtracting the substrate surface removes the ~720 nm Si thickness expansion, which Fig. 5's magnitudes exclude (Finding 6) | center vs. average expected to differ by a few tenths of a nm; both reported **[Phase B: accepted; u and ε′<sub>zz</sub> definitions fixed in B0/B9]** |
+ 
+@@ -161,54 +160,284 @@
+ 
+-## 3. Comparison target (like-for-like)
+-
+-**Primary quantity (G4).** u<sub>center</sub> as defined in A23: the change in Cu top-center height
+-relative to the substrate surface between **30 °C and 400 °C on the heating ramp**. Anisotropic
+-elastic Cu everywhere, Ludwick plasticity for [100] and [110], **no creep**. This matches what
+-Fig. 5 shows: anisotropic-plastic, explicitly without creep (§3.2 p.5), with magnitudes that are only
+-consistent with ΔT = 370 °C (Finding 6).
+-
+-**Reference values.** The paper's regression evaluated at E<sub>z</sub> of each pure orientation,
+-using the paper's constants. Pure orientations were not simulated in the paper, and the regression
+-avoids Table 1's inconsistent pads. The nearest digitized pad is reported alongside.
+-
+-| Orientation | E<sub>z</sub> (GPa) | **Target u<sub>z</sub> (fit)** | Nearest pad (digitized) |
++## 3. Comparison target (superseded by §B2)
++
++Phase A proposed Fig. 5 protrusion as the primary target. Phase B reverses this: the **measured**
++deviatoric strain is primary (G4a), and Fig. 5 is a secondary implementation check (G4b). See §B2.
++
++## 4. Run matrix (superseded by §B10 and `stage1/RUNLIST.md`)
++
++## 5. Decisions (resolved 2026-10-08)
++
++| # | Question | Decision |
++|---|---|---|
++| 1 | Square pad, 2.9 µm cell | accepted; circular pad is one variant (R12) |
++| 2 | SiN cap / liner | 60 nm cap **included** (default for G4a); no TaTaN liner |
++| 3 | Cu CTE | constant 16.5 ppm/K default; NIST α(T) as one variant |
++| 4 | Plasticity | TB,ANEL + TB,PLAS MISO from Ludwick (not TB,XTAL), pad-specific mapping (B5) |
++| 5 | Outer walls | coupled flat walls (periodic-like) |
++| 6 | Comparison basis | measured ε′<sub>zz</sub>(T) primary; Fig. 5 secondary, ±0.3 nm |
++
++---
++
++# B. Phase B specification (decided 2026-10-08)
++
++## B0. Terminology (used identically in code, files and reports)
++
++- **recess** – initial Cu depth after CMP. **Not used in Stage 1.**
++- **protrusion u** – vertical rise of the Cu top surface during heating, from FEM (nm).
++- **deviatoric strain ε′<sub>zz</sub>** – the measured Laue quantity. Model equivalent:
++  ε′<sub>zz</sub> = ε<sub>zz</sub> − (ε<sub>xx</sub> + ε<sub>yy</sub> + ε<sub>zz</sub>)/3, computed from the **elastic**
++  strain (EPEL), volume-averaged over all Cu elements, in the global (sample) frame.
++  Thermal strain is isotropic in cubic Cu and so has no deviatoric part. Plastic strain does not
++  strain the lattice. Taking EPEL is therefore consistent with what Laue measures.
++
++## B1. Execution
++
++ANSYS is never run inside the app. `stage1/stage1_pipeline.py` writes the decks; you run them in
++your terminal with `C:\Users\USER\.claude-science\conda\envs\ansys\python.exe`, using
++MAPDL Student v261 (`ANSYS261.exe -b -smp -np 4`). Results land in `stage1/results/`, which I then
++read. Default mode is batch (one MAPDL job per run, exit code and `.out` log kept); `--mode auto`
++tries PyMAPDL first. The ANEL + MISO syntax is taken unchanged from `cp_check/run/lw_*.dat`: ANEL
++rotated to the global frame with `ESYS,0`, then `TB,PLAS,…,MISO` with `TBPT,DEFI`.
++
++## B2. Validation hierarchy and pass criteria
++
++| Gate | Quantity | Reference | Pass |
+ |---|---|---|---|
+-| [100] | 66.69 | **9.007 nm** | pad 3, 68 GPa: 8.897 nm |
+-| [110] | 130.34 | **8.167 nm** | pad 2, 130 GPa: 8.346 nm |
+-| [111] | 191.15 | **7.364 nm** | pad 5, 188 GPa: 7.340 nm (pad 10's E is inconsistent) |
+-| spread [100] − [111] | | **1.643 nm** | |
+-
+-**G4 criteria, as you stated them, with proposals filled in:**
+-1. Order [100] > [110] > [111]. This is a weak test; every model in the bounds table already
+-   satisfies it.
+-2. Magnitudes: report Δ in nm and % per orientation. **Proposed tolerance: |Δ| ≤ 0.3 nm (≈ 3–4 %)**.
+-   That covers the paper's own scatter (max residual 0.18 nm) plus digitization; please confirm or
+-   set your own.
+-3. **Proposed addition:** the spread u[100] − u[111] within ±0.3 nm of 1.64 nm. Your Stage 2
+-   question depends on the spread more than on the absolute level, and the spread is far less
+-   sensitive to A9 (Cu CTE) and A3 (stack).
+-4. Solve time per run, as requested.
+-
+-**Optional, later — G4b against the measurement.** Volume-averaged deviatoric ε′<sub>zz</sub>(T) for
+-pads 3 and 10 vs. Fig. 3. This needs those pads' hkl, which Table 1 gives, plus digitizing Fig. 3.
+-It is the only check against experiment, not against another model.
+-
+----
+-
+-## 4. Proposed Phase B run matrix
+-
+-3 orientations × 2 interface variants × G2 mesh levels (until Δu ≤ 0.1 nm), one load history each.
+-Optional sensitivity runs, off by default: A9 Cu α = 17.6 ppm/°C, A5 SiN cap, A16 stress-free
+-T = 250/300 °C, A18 free outer faces, A1 cylinder. All in µMKS units (µm, kg, s, °C → µN, MPa),
+-with MP,REFT = TREF; ANEL convention and rotation (CSKP + ESYS) exactly as validated in G3. Dry-run
+-decks generated here; you run them from your terminal.
+-
+-## 5. Decisions needed from you
+-
+-1. Square pad (A1) and 2.9 µm cell (A2)?
+-2. Baseline stack without SiN cap or liner (A3–A6)?
+-3. Cu α = 16.5 ppm/°C constant (A9), with 17.6 ppm/°C as an optional run?
+-4. Plasticity mapping (A12–A14) and the fallback if MAPDL rejects ANEL + MISO (A15)?
+-5. Coupled outer faces (A18) rather than rollers?
+-6. Target = regression at pure-orientation E<sub>z</sub>, and tolerance ±0.3 nm on magnitude and on
+-   spread (§3)?
++| **G4a (primary)** | ε′<sub>zz</sub>(T) per simulated pad | measured, Figs. 2(b), 3(a), 3(b), digitized (§B9) | model within the measured error bar at every measured T in 30–350 °C. **Scope by computed E<sub>z</sub>** (addendum B): E<sub>z</sub> < 130.3 GPa (pad 3) → **heating only**; the cooling branch follows the 400 °C hold (creep, not modelled) and is reported without pass/fail. E<sub>z</sub> > 130.3 GPa (pad 10; no creep per paper) → **heating and cooling**. The hold itself is reported, never pass/fail |
++| G4b (secondary) | u = Δ[UZ(Cu top centre) − UZ(top surface at the cell edge)], 30 °C → end of heating at 400 °C (before the hold) | digitized Fig. 5 per pad, plus regression u = 9.887 − 0.0132·E<sub>z</sub> | ±0.3 nm. Pads compared against their **own** Fig. 5 point; the regression is evaluated at the **computed** E<sub>z</sub>. Also reported: u at the Cu top edge (same reference) and u referenced to the Cu pad bottom. If the offset to Fig. 5 is uniform across pads while the slope du/dE<sub>z</sub> matches, it is classified as a **reference-definition difference** |
++| G2 | u<sub>center</sub>(400 °C) vs mesh | L0 → L1 → L2 → L3 | change ≤ 0.1 nm between the last two levels |
++| G1, G3 | — | — | already passed, not repeated |
++
++**Computed vs. listed E<sub>z</sub>** (eq. 1, paper constants): pad 3 68.04 (table 68), pad 10
++**189.53** (table 198), pad 1 127.30 (127), pad 2 130.34 (130), pad 6 102.29 (102) GPa. Pads 8/9/10
++are misprinted in Table 1. The regression in G4b uses 189.53 for pad 10 (→ 7.385 nm); the digitized
++pad-10 point (7.191 nm) is compared directly.
++
++## B3. Pads, orientation and stress-free temperature
++
++- **Loading direction.** The Table 1 continuous Miller indices, sorted |h| ≥ |k| ≥ |l|:
++  pad 3 [1, 0.1, 0.02], pad 10 [1, 1, 0.9].
++- **In-plane angle.** The paper gives no Euler angles. 0° is defined as global x = the projection of
++  crystal [001] (the cube axis most nearly perpendicular to the loading direction) onto the pad
++  plane. Elastic runs are done at 0° and 45° (R01/R02, R03/R04), plus a plastic 45° run (R13).
++- **Stress-free temperature T<sub>sf</sub>, with MP,REFT = TREF = T<sub>sf</sub> for every material** (asserted
++  by the generator):
++
++| Pad | T<sub>sf</sub> | Source |
++|---|---|---|
++| 3 | **275 °C** | stated in the paper (§3.2, Fig. 4: stress-free at T ≈ 275 °C); the paper's FEM ε′<sub>zz</sub> crosses zero at 275.7 °C. The measured curve crosses at 269.5 °C, but that curve is plastically bent |
++| 10 | **277 °C** | zero crossing of a linear fit to the measured heating curve, Fig. 3(a), RMS residual 0.023 × 10⁻³. The paper's FEM curve crosses at 274 °C. **Not stated in the paper; derived** |
++| 1, 2, 6 (optional) | 275 °C | **ASSUMPTION**: no per-pad curve exists; midpoint of 250–300 °C |
++
++The whole stack is assumed stress-free at T<sub>sf</sub>. No intrinsic film stress is included.
++
++**Load step 0 (addendum A).** Every run starts stress-free at the pad's T<sub>sf</sub>
++(MP,REFT = TREF = T<sub>sf</sub>) and cools to 30 °C (`LS0_cool_Tsf_to_30`, 12 substeps when plastic).
++Only then does the measured history follow. With plasticity, this cool-down already yields. All
++reported changes (u, Δε′<sub>zz</sub>) are measured from the end of load step 0.
++
++| Load step | 0 | 1–7 | 8 | 9–12 |
++|---|---|---|---|---|
++| T (°C) | T<sub>sf</sub> → 30 | 100, 150, 200, 250, 300, 350, 400 | 400 (2 h hold; no creep, so the state is unchanged) | 300, 200, 100, 30 |
++
++## B4. Geometry, substrate equivalent, boundary conditions
++
++- Square Cu pad 0.3 × 0.3 × 0.85 µm in a 2.9 × 2.9 µm cell, full model. 0.30 µm SiO2 under the
++  pad, 60 nm SiN cap, no liner.
++- **Substrate equivalent (replaces the 750 µm Si).** The model has a 2 µm Si slab, bottom UZ = 0.
++  The four outer walls stay flat: x = 0 and y = 0 are fixed normal to themselves, and x = L and
++  y = L are displaced normal to themselves by α<sub>Si</sub>·(T − T<sub>sf</sub>)·L at every load step, which is
++  the free expansion of the thick wafer. Justification:
++  - The film's in-plane stiffness relative to 750 µm of Si is
++    (E·t)<sub>film</sub>/(E·t)<sub>Si</sub> = (72 × 1.15 + 220 × 0.06)/(130 × 750) ≈ 1.0 × 10⁻³. So the wafer
++    strain equals its free expansion to 0.1 %.
++  - Flat walls exclude bending, as in a periodic array.
++  - The wafer's own thickness expansion (~0.72 µm over 30 → 400 °C) is removed by measuring u
++    relative to the Si top surface.
++  - R14 repeats a plastic run with a 4 µm slab to confirm the slab is thick enough.
++- Materials, isotropic, ambient: SiO2 E 72 GPa, ν 0.17, α 0.5 ppm/K; Si E 130 GPa, ν 0.28,
++  α 2.6 ppm/K; SiN E 220 GPa, ν 0.27, α 2.3 ppm/K (**ASSUMPTION**: typical PECVD values; the paper
++  gives none, and the cap stiffness bears directly on u).
++- Cu: TB,ANEL with C11 = 168.4, C12 = 121.4, C44 = 75.4 GPa (paper), identical in every variant.
++
++## B5. Plasticity model (decided)
++
++**Model.** TB,ANEL + TB,PLAS,…,MISO. The curve is tabulated from Ludwick σ = σ<sub>0</sub> + K·ε<sub>p</sub><sup>N</sup>
++on 19 points, ε<sub>p</sub> = 0 … 0.2, with fine spacing near 0 because N < 1. Yield is von Mises with
++isotropic hardening.
++
++**Why not TB,XTAL.**
++- Crystal plasticity took ~30 s per substep at 64 elements, i.e. more than 50 min per orientation.
++- Ayoub's fits are not consistent with a single critical resolved shear stress: back-computed τ<sub>c</sub>
++  varies with CV ≈ 12 %, and pads with near-equal Schmid factors differ 1.3× in σ<sub>0</sub>.
++
++**Parameters** (midpoints of the paper's fitted ranges):
++
++| Pad | E (table) | σ<sub>0</sub> (MPa) | K (MPa) | N |
++|---|---|---|---|---|
++| 3 | 68 | 143 | 675 | 0.685 |
++| 6 | 102 | 165 | 712.5 | 0.575 |
++| 1 | 127 | 185 | 675 | 0.375 |
++| 2 | 130 | 187 | 695 | 0.335 |
++
++**Mapping rule (addendum C) — on COMPUTED E<sub>z</sub>** (eq. 1, paper constants): pad 3 68.04, pad 6
++102.29, pad 1 127.30, pad 2 130.34 GPa.
++- E<sub>z</sub> > 130.34 GPa (pad 2's computed value) → elastic only. Pad 10, at 189.53 GPa, is elastic.
++- 68.04 ≤ E<sub>z</sub> ≤ 130.34 GPa → the flow curves are **interpolated pointwise**: σ is interpolated
++  at the same ε<sub>p</sub> grid points between the two neighbouring fitted pads. σ<sub>0</sub>, K and N are
++  not interpolated separately, because the paper states the parameter fits are non-unique. Verified:
++  E = 115 GPa gives w = 0.508 between pads 6 and 1, matching the pointwise combination exactly.
++- 66.6 ≤ E<sub>z</sub> < 68.04 GPa → pad 3 curve.
++- A fitted pad lands exactly on its own curve (w = 0 or 1).
++
++**Elastic and plastic runs.** Every pad is run elastic-only and plastic. Pad 10 "plastic" is
++elastic by the rule. R08 confirms this without a solve: its deck is byte-identical to R01's apart
++from the title line (verified, SHA-256 match).
++
++## B6. Temperature dependence of plasticity
++
++**Variants** (ANEL constants unchanged in all three):
++1. **T-independent:** one MISO curve.
++2. **DEFAULT, shear-modulus scaled:** σ<sub>0</sub>(T) and K(T) scaled by G(T)/G(30 °C); N fixed, so the
++   whole flow curve scales. G is the **Hill-averaged isotropic shear modulus** from Chang & Himmel's
++   C11, C12, C44(T), which is consistent with isotropic J2 plasticity. The **C44-only ratio** is
++   computed and reported alongside. **G(400)/G(30) is stated for both bases once the data are
++   supplied; neither value can be stated now** (see Source status). MISO tables are given at 30,
++   100, 150 … 400 °C.
++3. **Stronger reduction (ASSUMPTION):** twice the reduction rate of variant 2,
++   f₃(T) = 1 − 2·[1 − G(T)/G(30 °C)].
++
++**Source status — BLOCKED.**
++- Chang & Himmel, *J. Appl. Phys.* 37, 3567 (1966), doi:10.1063/1.1708903, measured c44,
++  ½(c11 − c12) and ½(c11 + c12 + 2c44) for Cu over 300–800 K and found a linear decrease with T.
++- I could not obtain the numbers: the article is paywalled, and NIST's free reprint of the
++  compilation that tabulates them (Ledbetter & Naimon, *J. Phys. Chem. Ref. Data* 3, 897 (1974),
++  srd.nist.gov/jpcrdreprint/1.3253150.pdf) refuses automated downloads.
++- **No G(T) value has been entered.** Variants 2/3 read `stage1/inputs/cu_elastic_constants_vs_T.csv`
++  (template provided; every row needs a source) and refuse to build until it exists.
++
++**350–400 °C check (as specified: a check, not a fit).** Pad 3 has **no 400 °C measurement before
++the hold**. The three 400 °C points are the 40 min, 80 min and 2 h acquisitions (1.20, 1.55,
++1.85 × 10⁻³). The heating segment therefore has only its 350 °C end (0.499 × 10⁻³). The model's
++400 °C end (no creep) can only be checked as an **upper bound**: it must not exceed the 40 min
++value. I will report each variant's 350 °C value, its 400 °C value against that bound, and
++Δε′<sub>zz</sub> and Δu between variants.
++
++## B7. Other variants (one at a time; pad 3, plastic variant 2 unless stated)
++
++| Run | Variant | Status |
++|---|---|---|
++| R09 | Cu CTE: NIST instantaneous α(T) vs constant 16.5 ppm/K | BLOCKED: the open sources I could reach give only the 283 K value (16.43 ppm/K), not the 30–400 °C table. Needs `inputs/cu_cte_vs_T.csv` (NIST SRM 736, Hahn, *J. Appl. Phys.* 41, 5096 (1970), doi:10.1063/1.1658614) |
++| R10 | Sidewall frictionless sliding | implemented as **no separation**: Cu-side sidewall nodes duplicated, normal displacement tied by CE, tangential free; pad top and bottom perimeters (and square corners) stay bonded. A true contact that can open is **not** modelled (open issue O6) |
++| R11 | SiN cap removed | |
++| R12 | Circular pad, D = 300 nm | O-grid blend; 4 corner elements reach 175° interior angle (below the 179.9° error limit, `SHPP,WARN`) |
++| R13 | In-plane 45° (plastic) | |
++| R14 | Si slab 4 µm (substrate-equivalent check; variant 1) | READY |
++
++## B8. Mesh (structured hex, generated in Python, SOLID185 KEYOPT(2)=3)
++
++| Level | Pad elements across | Nodes | Elements | Role |
++|---|---|---|---|---|
++| L0 | 6 (50 nm) | 18,750 | 16,704 | G2 (R15) |
++| L1 | 8 (37.5 nm) | 31,958 | 29,008 | G2 (R16) |
++| **L2** | 10 (30 nm) | 51,450 | 47,396 | **production** (= G2 level for R05) |
++| L3 | 12 (25 nm) | 82,369 | 76,800 | G2 (R17) |
++
++All levels are below the 128,000 limit. The largest variant model is L3 at 82,369 nodes; the
++sliding variant at L2 adds 540 duplicated nodes. All element Jacobians are positive (checked).
++Production uses L2 before G2 has run. If G2 shows L2 has not converged, the production runs move to
++L3 and are repeated.
++
++## B9. Outputs and the digitized measurement
++
++**Per load step** (13 steps: init → 30, heating 100 … 400, end of hold, cooling 300/200/100/30):
++- Cu volume-averaged EPEL (6 components) and ε′<sub>zz</sub>; volume-averaged stress (6 components,
++  for comparison with Fig. 4).
++- Mean and maximum equivalent plastic strain; maximum Cu von Mises stress.
++- Sidewall maximum tensile and compressive normal stress, and maximum shear traction, from Cu-side
++  nodal stresses.
++- **Protrusion** (all are changes since the end of load step 0 at 30 °C; nm):
++  - **u<sub>center</sub>** = Δ[UZ(Cu top centre) − UZ(top cap/dielectric surface at the cell edge,
++    mid-side node)]. This is the **G4b primary** quantity.
++  - u<sub>edge</sub>: the same, with the Cu top edge (mid-side) in place of the centre.
++  - u referenced to the Cu pad bottom: Δ[UZ(top centre) − UZ(bottom centre)].
++  - Secondary: Cu top centre and top-face average relative to the Si top; surface centre and
++    surface edge relative to the Si top.
++- **Frame of ε′<sub>zz</sub> (addendum F).**
++  - All elements are created with `ESYS,0`; Cu anisotropy is entered as the stiffness rotated to the
++    global frame. The element coordinate system is therefore the global (sample) frame.
++  - POST1 sets `RSYS,0`. The volume averages use `ETABLE,…,EPEL,X/Y/Z/XY/YZ/XZ` over the Cu elements.
++  - Each run writes `*GET,…,ELEM,n,ATTR,ESYS` for the first and last Cu element to `meta.txt`. The
++    collector flags `global_frame = True` only if both are 0 and element 1 is Cu.
++  - No crystal-frame quantity enters ε′<sub>zz</sub>.
++- Per-step CPU time and convergence flag.
++
++**Per run:** node/element counts, wall time, exit code.
++
++**Digitized measured ε′<sub>zz</sub> (× 10⁻³)** — `stage1/reference/ayoub2022_eps_dev_digitized.json`:
++- Error bars are read from the bar caps: ±0.08–0.11 × 10⁻³, consistent with the stated 10⁻⁴
++  resolution.
++- Digitization uncertainty is 0.02–0.03 × 10⁻³. Points hidden behind markers are reconstructed
++  from the caps and flagged in the file.
++
++| T (°C) | pad 3 heat | pad 3 cool | pad 10 heat | pad 10 cool |
++|---|---|---|---|---|
++| 30 | −1.851 ± 0.080 | −0.760 ± 0.078 | −1.197 ± 0.102 | −1.14 ± 0.10 |
++| 100 | −1.109 ± 0.103 | — | −0.795 ± 0.100 | — |
++| 150 | −0.740 ± 0.104 | | −0.578 ± 0.100 | |
++| 200 | −0.39 ± 0.10 | +0.100 ± 0.109 | −0.367 ± 0.102 | −0.118 ± 0.100 |
++| 250 | −0.10 ± 0.10 | | −0.144 ± 0.103 | |
++| 300 | +0.156 ± 0.10 | +0.995 ± 0.095 | +0.102 ± 0.106 | +0.380 ± 0.104 |
++| 350 | +0.499 ± 0.097 | | +0.321 ± 0.101 | |
++| 400 | 40/80/120 min: 1.20 / 1.55 / 1.85 | | +0.600 ± 0.100 | |
++
++Cooling was measured at 400 → 300 → 200 → 30 °C only; there is **no 100 °C cooling point**. The
++paper's own FEM curves are stored alongside: pad 10 elastic, and pad 3 elastic and plastic.
++
++## B10. Run order
++
++See `stage1/RUNLIST.md` (one command per step, expected files, runtime). Steps follow your order:
++1. pad 10 elastic
++2. pad 3 elastic
++3. pad 3 plastic ②
++4. ① and ③
++5. pad 10 plastic confirmation
++6. variants
++7. G2
++8. optional pads 1/2/6
++
++## B11. Open issues (flagged, not guessed)
++
++- **O1. Cooling scope — decided by addendum B; residual risk for pad 10.** Pad 3's cooling branch
++  is reported without pass/fail. Pad 10's cooling **is** pass/fail. The measured pad-10 cooling
++  branch differs from its heating branch: +0.380 vs +0.102 × 10⁻³ at 300 °C, and −0.118 vs −0.367 at
++  200 °C. An elastic model retraces its heating line. **Pad 10's G4a on cooling is therefore
++  expected to fail at 300 °C and 200 °C by ~0.25–0.28 × 10⁻³, about 2.5 error bars, independent of
++  model parameters.** I am not changing the criterion; I am flagging it so the result is not a
++  surprise.
++- **O2. Unknown FEM averaging.** How Ayoub computed FEM ε′<sub>zz</sub> is not stated: volume average,
++  beam-footprint weighting (the 500 nm beam is larger than the 300 nm pad), or a point value. Fig. 4
++  says "average volume" for stresses only. We use the Cu volume average.
++- **O3. No pre-hold 400 °C measurement for pad 3** (§B6). The 350–400 °C check is an inequality
++  only.
++- **O4. Fig. 3 caption swaps (a) and (b)** relative to the legends; the legends are used.
++- **O5. Processing history before the first 30 °C measurement is unknown.** The model cools
++  directly T<sub>sf</sub> → 30 °C. For pad 3 this first cooling already yields plastically, which sets
++  the 30 °C starting point.
++- **O6. Sliding variant cannot open.** At 30 °C the Cu is in lateral tension (Fig. 4), so a real
++  frictionless contact could separate; this variant cannot.
++- **O7. Assumed cap properties.** The SiN cap properties are assumed and act directly on u.
++- **O8. Untested element/material combinations.** Temperature-dependent MISO (multiple TBTEMP) with
++  ANEL, and KEYOPT(2)=3 with ANEL + MISO, have not been exercised in v261. cp_check validated ANEL +
++  single-temperature MISO with KEYOPT(2)=0. R06 is the first run that tests KEYOPT(2)=3.
++- **O10. Hardening rule (addendum G, reported, not changed).** MISO is **isotropic hardening**; the
++  paper does not state its hardening rule. With isotropic hardening the yield surface only expands,
++  so after forward yielding (load step 0 cooling, and heating > 350 °C) reverse yielding needs a
++  stress change of 2·σ<sub>y</sub>(current), which grows with accumulated ε<sub>p</sub>. Kinematic hardening
++  (Bauschinger effect) would reverse-yield earlier: during re-heating after the initial cool-down,
++  and on cooling after the hold. Isotropic hardening therefore tends to **understate** plastic
++  strain in the later half-cycles, i.e. it under-predicts the curvature of ε′<sub>zz</sub>(T) below 150 °C
++  on heating and the heating/cooling hysteresis. The effect is largest for pad 3 (lowest σ<sub>0</sub>,
++  largest N).
++- **O9. Missing property tables.** The G(T) (Chang & Himmel) and α(T) (NIST) tables are missing
++  (§B6, §B7).

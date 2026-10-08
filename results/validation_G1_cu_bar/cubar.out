@@ -1,0 +1,524 @@
+
+ Ansys Mechanical Enterprise Academic Student      
+
+
+ *------------------------------------------------------------------*
+ |                                                                  |
+ |   W E L C O M E   T O   T H E   A N S Y S (R)  P R O G R A M     |
+ |                                                                  |
+ *------------------------------------------------------------------*
+
+
+
+
+ ***************************************************************
+ *         ANSYS MAPDL 2026 R1          LEGAL NOTICES          *
+ ***************************************************************
+ *                                                             *
+ * Copyright (c) 2026 Synopsys, Inc. and ANSYS, Inc.           *
+ * All rights reserved.                                        *
+ * Unauthorized use, distribution or duplication is            *
+ * prohibited.                                                 *
+ *                                                             *
+ * Ansys is a registered trademark of Ansys, Inc. or its       *
+ * subsidiaries in the United States or other countries.       *
+ * See the Ansys, Inc. online documentation or the Ansys, Inc. *
+ * documentation CD or online help for the complete Legal      *
+ * Notice.                                                     *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * THIS ANSYS SOFTWARE PRODUCT AND PROGRAM DOCUMENTATION       *
+ * INCLUDE TRADE SECRETS AND CONFIDENTIAL AND PROPRIETARY      *
+ * PRODUCTS OF ANSYS, INC., ITS SUBSIDIARIES, OR LICENSORS.    *
+ * The software products and documentation are furnished by    *
+ * Ansys, Inc. or its subsidiaries under a software license    *
+ * agreement that contains provisions concerning               *
+ * non-disclosure, copying, length and nature of use,          *
+ * compliance with exporting laws, warranties, disclaimers,    *
+ * limitations of liability, and remedies, and other           *
+ * provisions.  The software products and documentation may be *
+ * used, disclosed, transferred, or copied only in accordance  *
+ * with the terms and conditions of that software license      *
+ * agreement.                                                  *
+ *                                                             *
+ * Ansys, Inc. is a UL registered                              *
+ * ISO 9001:2015 company.                                      *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * This product is subject to U.S. laws governing export and   *
+ * re-export.                                                  *
+ *                                                             *
+ * For U.S. Government users, except as specifically granted   *
+ * by the Ansys, Inc. software license agreement, the use,     *
+ * duplication, or disclosure by the United States Government  *
+ * is subject to restrictions stated in the Ansys, Inc.        *
+ * software license agreement and FAR 12.212 (for non-DOD      *
+ * licenses).                                                  *
+ *                                                             *
+ ***************************************************************
+
+ 2026 R1 
+     
+ Point Releases and Patches installed:   
+     
+ Ansys, Inc. License Manager 2026 R1 
+ Discovery (full install) 2026 R1
+ Core WB Files 2026 R1   
+ optiSLang Core UI 2026 R1   
+ CFX (includes CFD-Post) 2026 R1 
+ Chemkin 2026 R1 
+ EnSight 2026 R1 
+ FENSAP-ICE 2026 R1  
+ Fluent (includes CFD-Post) 2026 R1  
+ Polyflow (includes CFD-Post) 2026 R1
+ Forte (includes EnSight) 2026 R1
+ Rocky 2026 R1   
+ TurboGrid 2026 R1   
+ ACIS Geometry Interface 2026 R1 
+ AutoCAD Geometry Interface 2026 R1  
+ Catia, Version 4 Geometry Interface 2026 R1 
+ Catia, Version 5 Geometry Interface 2026 R1 
+ Catia, Version 6 Geometry Interface 2026 R1 
+ Creo Elements/Direct Modeling Geometry Interface 2026 R1
+ Creo Parametric Geometry Interface 2026 R1  
+ Inventor Geometry Interface 2026 R1 
+ JTOpen Geometry Interface 2026 R1   
+ NX Geometry Interface 2026 R1   
+ Parasolid Geometry Interface  2026 R1   
+ Solid Edge Geometry Interface 2026 R1   
+ SOLIDWORKS Geometry Interface 2026 R1   
+ Speos 2026 R1   
+ SpaceClaim 2026 R1  
+ Speos RPC 2026 R1   
+ Zemax OpticStudio 2026 R1   
+ Dynamic Reporting 2026 R1   
+ Aqwa 2026 R1
+ Autodyn 2026 R1 
+ Material Calibration App 2026 R1
+ Mechanical Products 2026 R1 
+ Motion 2026 R1  
+ Academic Student 2026 R1
+
+
+          *****  MAPDL COMMAND LINE ARGUMENTS  *****
+  INITIAL JOBNAME              = cubar                                                                                                                                                                                                                                                   
+  BATCH MODE REQUESTED (-b)    = LIST
+  INPUT FILE COPY MODE (-c)    = COPY
+  SHARED MEMORY PARALLEL REQUESTED
+    SINGLE PROCESS WITH SINGLE THREAD REQUESTED
+    TOTAL OF     1 CORES REQUESTED
+  INPUT FILE NAME              = C:\Users\USER\.claude-science\orgs\f50c262b-2754-4e2c-b4cd-c0deca628d34\workspaces\0b7dce47-624a-4a52-8bdc-8d464908c370\batch_run\cu_bar.dat
+  OUTPUT FILE NAME             = C:\Users\USER\.claude-science\orgs\f50c262b-2754-4e2c-b4cd-c0deca628d34\workspaces\0b7dce47-624a-4a52-8bdc-8d464908c370\batch_run\cubar.out
+  INITIAL DIRECTORY = C:\Users\USER\.claude-science\orgs\f50c262b-2754-4e2c-b4cd-c0deca628d34\workspaces\0b7dce47-624a-4a52-8bdc-8d464908c370\batch_run
+
+ RELEASE= 2026 R1              BUILD= 26.1      UP20260202   VERSION=WINDOWS x64 
+ CURRENT JOBNAME=cubar  19:21:37  OCT 08, 2026  Elapsed Time=       0.078
+
+     1  ! ===================================================================== 
+     2  !  Cu bar 1-D thermal expansion benchmark -- uMKS consistent units  
+     3  !  length um | mass kg | time s | temp degC  =>  force uN, stress MPa   
+     4  !   
+     5  !  Load step 1 : free axial expansion      -> UX(node 2) = a*dT*L0  
+     6  !  Load step 2 : both ends axially fixed   -> Sxx        = -E*a*dT  
+     7  !   
+     8  !  Analytic (a=16.5e-6/degC, dT=375 degC, L0=1000 um, E=110000 MPa):
+     9  !      UX  =    6.187500 um 
+    10  !      Sxx = -680.625000 MPa
+    11  !   
+    12  !  No /BATCH and no /EXIT here on purpose: the deck is shared by the
+    13  !  PyMAPDL path (mapdl.input) and the batch path (runner appends /EXIT).
+    14  ! ===================================================================== 
+    15  /TITLE,Cu bar thermal expansion 25C -> 400C (uMKS)  
+    16      
+    17  /PREP7  
+    18  ET,1,LINK180
+    19  SECTYPE,1,LINK  
+    20  SECDATA,1.0                ! cross-section area A = 1 um^2  
+    21      
+    22  MP,EX,1,110000             ! E   = 110 GPa = 110000 MPa 
+    23  MP,PRXY,1,0.34  
+    24  MP,ALPX,1,16.5e-6          ! secant CTE, 1/degC 
+    25  MP,REFT,1,25               ! material reference temperature, degC   
+    26      
+    27  N,1,0,0,0   
+    28  N,2,1000,0,0               ! L0 = 1000 um   
+    29  TYPE,1  
+    30  SECN,1  
+    31  MAT,1   
+    32  E,1,2   
+    33  FINISH  
+    34      
+    35  /SOLU   
+    36  ANTYPE,STATIC   
+    37  TREF,25 
+    38      
+    39  ! ---- LS1: statically determinate (free to grow along X) ----  
+    40  D,1,UX,0
+    41  D,1,UY,0
+    42  D,1,UZ,0
+    43  D,2,UY,0
+    44  D,2,UZ,0
+    45  BF,1,TEMP,400   
+    46  BF,2,TEMP,400   
+    47  SOLVE   
+    48      
+    49  ! ---- LS2: fully constrained -> pure thermal stress ----   
+    50  D,2,UX,0
+    51  SOLVE   
+    52  FINISH  
+    53      
+    54  /POST1  
+    55  SET,1,1 
+    56  *GET,UX2,NODE,2,U,X        ! free expansion, um 
+    57  SET,2,1 
+    58  ETABLE,SAXL,LS,1
+    59  *GET,SIG,ELEM,1,ETAB,SAXL  ! constrained axial stress, MPa  
+    60      
+    61  *CFOPEN,results,txt 
+    62  *VWRITE,UX2,SIG 
+    63  ('RESULT ',E20.12,' ',E20.12)   
+    64  *CFCLOS 
+    65  FINISH  
+    66      
+    67  /EXIT,NOSAVE
+
+ RUN SETUP PROCEDURE FROM FILE= C:\Program Files\ANSYS Inc\ANSYS Student\v261\Ansys\apdl\start.ans
+
+ /INPUT FILE= C:\Program Files\ANSYS Inc\ANSYS Student\v261\Ansys\apdl\start.ans  LINE=       0
+
+ TITLE= 
+ Cu bar thermal expansion 25C -> 400C (uMKS)                                   
+
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   19:21:37  OCT 08, 2026 Elapsed Time=      5.781
+
+ Cu bar thermal expansion 25C -> 400C (uMKS)                                   
+
+
+
+          ***** MAPDL ANALYSIS DEFINITION (PREP7) *****
+
+ ELEMENT TYPE          1 IS LINK180      3-D SPAR                    
+  KEYOPT( 1- 6)=        0      0      0        0      0      0
+  KEYOPT( 7-12)=        0      0      0        0      0      0
+  KEYOPT(13-18)=        0      0      0        0      0      0
+
+ CURRENT NODAL DOF SET IS  UX    UY    UZ  
+  THREE-DIMENSIONAL MODEL
+                                   
+   INPUT SECTION ID NUMBER               1
+   INPUT SECTION TYPE                    LINK
+   INPUT LINK SECTION NAME                    
+    Area                          =  1.0000    
+
+ MATERIAL          1     EX   =   110000.0      
+
+ MATERIAL          1     PRXY =  0.3400000      
+
+ MATERIAL          1     ALPX =  0.1650000E-04  
+
+ MATERIAL          1     REFT =   25.00000      
+
+ NODE          1  KCS=      0  X,Y,Z=  0.0000       0.0000       0.0000     
+
+ NODE          2  KCS=      0  X,Y,Z=  1000.0       0.0000       0.0000     
+
+ ELEMENT TYPE SET TO         1
+
+ SECTION ID NUMBER=        1
+
+ MATERIAL NUMBER SET TO         1
+
+ ELEMENT      1       1      2
+
+
+ ***** ROUTINE COMPLETED *****  ELAPSED TIME =         5.782
+
+
+
+ *****  MAPDL SOLUTION ROUTINE  *****
+
+
+ PERFORM A STATIC ANALYSIS
+  THIS WILL BE A NEW ANALYSIS
+
+ REFERENCE TEMPERATURE=  25.000  (TUNIF=  25.000)
+
+ SPECIFIED CONSTRAINT UX   FOR SELECTED NODES            1 TO           1 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ SPECIFIED CONSTRAINT UY   FOR SELECTED NODES            1 TO           1 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ SPECIFIED CONSTRAINT UZ   FOR SELECTED NODES            1 TO           1 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ SPECIFIED CONSTRAINT UY   FOR SELECTED NODES            2 TO           2 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ SPECIFIED CONSTRAINT UZ   FOR SELECTED NODES            2 TO           2 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ SPECIFIED BODY FORCE TEMP FOR NODE       1 SET TO   400.000000 
+
+ SPECIFIED BODY FORCE TEMP FOR NODE       2 SET TO   400.000000 
+
+ *****  MAPDL SOLVE    COMMAND  *****
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   19:21:37  OCT 08, 2026 Elapsed Time=      5.784
+
+ Cu bar thermal expansion 25C -> 400C (uMKS)                                   
+
+
+
+                       S O L U T I O N   O P T I O N S
+
+   PROBLEM DIMENSIONALITY. . . . . . . . . . . . .3-D                  
+   DEGREES OF FREEDOM. . . . . . UX   UY   UZ  
+   ANALYSIS TYPE . . . . . . . . . . . . . . . . .STATIC (STEADY-STATE)
+   GLOBALLY ASSEMBLED MATRIX . . . . . . . . . . .SYMMETRIC  
+
+ *** NOTE ***                            ELAPSED TIME =       5.784   TIME= 19:21:37
+ Present time 0 is less than or equal to the previous time.  Time will   
+ default to 1.                                                           
+
+ *** NOTE ***                            ELAPSED TIME =       5.785   TIME= 19:21:37
+ The conditions for direct assembly have been met.  No .emat or .erot    
+ files will be produced.                                                 
+
+                      L O A D   S T E P   O P T I O N S
+
+   LOAD STEP NUMBER. . . . . . . . . . . . . . . .     1
+   TIME AT END OF THE LOAD STEP. . . . . . . . . .  1.0000    
+   NUMBER OF SUBSTEPS. . . . . . . . . . . . . . .     1
+   STEP CHANGE BOUNDARY CONDITIONS . . . . . . . .    NO
+   PRINT OUTPUT CONTROLS . . . . . . . . . . . . .NO PRINTOUT
+   DATABASE OUTPUT CONTROLS. . . . . . . . . . . .ALL DATA WRITTEN
+                                                  FOR THE LAST SUBSTEP
+
+
+ SOLUTION MONITORING INFO IS WRITTEN TO FILE= cubar.mntr                                                                                                                                                                                                                                                          
+
+
+ Range of element maximum matrix coefficients in global coordinates
+ Maximum = 110 at element 1.                                             
+ Minimum = 110 at element 1.                                             
+
+   *** ELEMENT MATRIX FORMULATION TIMES
+     TYPE    NUMBER     ENAME   TOTAL ELAPSED   AVG ELAPSED
+
+        1         1   LINK180          0.0003   0.000346300
+ Elapsed Time at end of element matrix formulation = 5.7914639.          
+
+ SPARSE MATRIX DIRECT SOLVER.
+  Number of equations =           1,    Maximum wavefront =      3
+
+
+  Memory allocated on this process
+  -------------------------------------------------------------------
+  Equation solver memory allocated                     =     0.060 MB
+  Equation solver memory required for in-core mode     =     0.058 MB
+  Equation solver memory required for out-of-core mode =     0.050 MB
+  Total (solver and non-solver) memory allocated       =   340.588 MB
+
+ *** NOTE ***                            ELAPSED TIME =       5.792   TIME= 19:21:37
+ The Sparse Matrix Solver is currently running in the in-core memory     
+ mode.  This memory mode uses the most amount of memory in order to      
+ avoid using the hard drive as much as possible, which most often        
+ results in the fastest solution time.  This mode is recommended if      
+ enough physical memory is present to accommodate all of the solver      
+ data.                                                                   
+ Sparse solver maximum pivot= 110 at node 2 UX.                          
+ Sparse solver minimum pivot= 110 at node 2 UX.                          
+ Sparse solver minimum pivot in absolute value= 110 at node 2 UX.        
+
+   *** ELEMENT RESULT CALCULATION TIMES
+     TYPE    NUMBER     ENAME   TOTAL ELAPSED   AVG ELAPSED
+
+        1         1   LINK180          0.0002   0.000157500
+
+   *** NODAL LOAD CALCULATION TIMES
+     TYPE    NUMBER     ENAME   TOTAL ELAPSED   AVG ELAPSED
+
+        1         1   LINK180          0.0004   0.000387200
+ *** LOAD STEP     1   SUBSTEP     1  COMPLETED.    CUM ITER =      1
+ *** TIME =   1.00000         TIME INC =   1.00000      NEW TRIANG MATRIX
+
+
+ *** MAPDL BINARY FILE STATISTICS
+  BUFFER SIZE USED= 16384
+        0.062 MB WRITTEN ON ASSEMBLED MATRIX FILE: cubar.full
+        0.312 MB WRITTEN ON RESULTS FILE: cubar.rst
+
+ SPECIFIED CONSTRAINT UX   FOR SELECTED NODES            2 TO           2 BY           1
+ REAL=  0.00000000       IMAG=  0.00000000    
+
+ *****  MAPDL SOLVE    COMMAND  *****
+
+ *** NOTE ***                            ELAPSED TIME =       5.798   TIME= 19:21:37
+ Present time 0 is less than or equal to the previous time.  Time will   
+ default to 2.                                                           
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   19:21:37  OCT 08, 2026 Elapsed Time=      5.799
+
+ Cu bar thermal expansion 25C -> 400C (uMKS)                                   
+
+
+
+                      L O A D   S T E P   O P T I O N S
+
+   LOAD STEP NUMBER. . . . . . . . . . . . . . . .     2
+   TIME AT END OF THE LOAD STEP. . . . . . . . . .  2.0000    
+   NUMBER OF SUBSTEPS. . . . . . . . . . . . . . .     1
+   STEP CHANGE BOUNDARY CONDITIONS . . . . . . . .    NO
+   PRINT OUTPUT CONTROLS . . . . . . . . . . . . .NO PRINTOUT
+   DATABASE OUTPUT CONTROLS. . . . . . . . . . . .ALL DATA WRITTEN
+                                                  FOR THE LAST SUBSTEP
+
+
+ SOLUTION MONITORING INFO IS WRITTEN TO FILE= cubar.mntr                                                                                                                                                                                                                                                          
+
+ *** LOAD STEP     2   SUBSTEP     1  COMPLETED.    CUM ITER =      2
+ *** TIME =   2.00000         TIME INC =   1.00000      NEW TRIANG MATRIX
+
+ FINISH SOLUTION PROCESSING
+
+
+ ***** ROUTINE COMPLETED *****  ELAPSED TIME =         5.812
+
+
+
+ *** MAPDL - ENGINEERING ANALYSIS SYSTEM  RELEASE 2026 R1          26.1     ***
+ Ansys Mechanical Enterprise Academic Student      
+ 01055371  VERSION=WINDOWS x64   19:21:37  OCT 08, 2026 Elapsed Time=      5.816
+
+ Cu bar thermal expansion 25C -> 400C (uMKS)                                   
+
+
+
+          ***** MAPDL RESULTS INTERPRETATION (POST1) *****
+
+ *** NOTE ***                            ELAPSED TIME =       5.816   TIME= 19:21:37
+ Reading results into the database (SET command) will update the current 
+ displacement and force boundary conditions in the database with the     
+ values from the results file for that load set.  Note that any          
+ subsequent solutions will use these values unless action is taken to    
+ either SAVE the current values or not overwrite them (/EXIT,NOSAVE).    
+
+
+ USE LOAD STEP     1  SUBSTEP     1  FOR LOAD CASE 0 
+
+ SET COMMAND GOT LOAD STEP=     1  SUBSTEP=     1  CUMULATIVE ITERATION=     1
+   TIME/FREQUENCY=  1.0000    
+ TITLE= Cu bar thermal expansion 25C -> 400C (uMKS)                             
+
+ *GET  UX2       FROM  NODE      2  ITEM=U    X     VALUE=  6.18750000    
+
+
+ USE LOAD STEP     2  SUBSTEP     1  FOR LOAD CASE 0 
+
+ SET COMMAND GOT LOAD STEP=     2  SUBSTEP=     1  CUMULATIVE ITERATION=     2
+   TIME/FREQUENCY=  2.0000    
+ TITLE= Cu bar thermal expansion 25C -> 400C (uMKS)                             
+
+ STORE SAXL     FROM ITEM=LS   COMP=   1  FOR ALL SELECTED ELEMENTS
+
+ *GET  SIG       FROM  ELEM         1  ITEM=ETAB SAXL      VALUE= -680.625000    
+
+ OPENED FILE= results.txt FOR COMMAND FILE DATA 
+
+
+  COMMAND FILE CLOSED 
+
+
+ EXIT THE MAPDL POST1 DATABASE PROCESSOR
+
+
+ ***** ROUTINE COMPLETED *****  ELAPSED TIME =         5.826
+
+
+
+ EXIT MAPDL WITHOUT SAVING DATABASE
+
+
+ NUMBER OF WARNING MESSAGES ENCOUNTERED=          0
+ NUMBER OF ERROR   MESSAGES ENCOUNTERED=          0
+
++--------------------- M A P D L   S T A T I S T I C S ------------------------+
+
+Release: 2026 R1            Build: 26.1       Update: UP20260202   Platform: WINDOWS x64 
+Date Run: 10/08/2026   Time: 19:21     Process ID: 31400
+Operating System: Windows 11  (Build: 26300)
+
+Processor Model: 11th Gen Intel(R) Core(TM) i7-11850H @ 2.50GHz
+
+Compiler: Intel(R) Fortran Compiler Classic Version 2021.9  (Build: 20230302)
+          Intel(R) C/C++ Compiler Classic Version 2021.9  (Build: 20230302)
+          Intel(R) oneAPI Math Kernel Library Version 2024.2.3-Product Build 20250403
+
+Number of machines requested            :    1
+Total number of cores available         :   16
+Number of physical cores available      :    8
+Number of processes requested           :    1
+Number of threads per process requested :    1
+Total number of cores requested         :    1 (Shared Memory Parallel)                    
+
+GPU Acceleration: Not Requested
+
+Job Name: cubar
+Input File: C:\Users\USER\.claude-science\orgs\f50c262b-2754-4e2c-b4cd-c0deca628d34\workspaces\0b7dce47-624a-4a52-8bdc-8d464908c370\batch_run\cu_bar.dat
+Working Directory: C:\Users\USER\.claude-science\orgs\f50c262b-2754-4e2c-b4cd-c0deca628d34\workspaces\0b7dce47-624a-4a52-8bdc-8d464908c370
+
+Total CPU time for main thread                    :        0.3 seconds
+Total CPU time summed for all threads             :        0.2 seconds
+
+Elapsed time spent obtaining a license            :        1.4 seconds
+Elapsed time spent pre-processing model (/PREP7)  :        0.0 seconds
+Elapsed time spent solution - preprocessing       :        0.0 seconds
+Elapsed time spent computing solution             :        0.0 seconds
+   Elapsed time in element formation & assembly   :        0.0 seconds
+   Elapsed time in equation solver                :        0.0 seconds
+   Elapsed time in element result calculations    :        0.0 seconds
+Elapsed time spent solution - postprocessing      :        0.0 seconds
+Elapsed time spent post-processing model (/POST1) :        0.0 seconds
+ 
+Equation solver used                              :            Sparse (symmetric)
+
+Sum of disk space used on all processes           :        0.3 MB
+
+Sum of memory used on all processes               :       41.0 MB
+Sum of memory allocated on all processes          :     2304.0 MB
+Physical memory available                         :         32 GB
+Total amount of I/O written to disk               :        0.0 GB
+Total amount of I/O read from disk                :        0.0 GB
+
++------------------ E N D   M A P D L   S T A T I S T I C S -------------------+
+
+
+ *-----------------------------------------------------------------------------*
+ |                                                                             |
+ |                               RUN COMPLETED                                 |
+ |                                                                             |
+ |-----------------------------------------------------------------------------|
+ |                                                                             |
+ |  Ansys MAPDL 2026 R1         Build 26.1         UP20260202    WINDOWS x64   |
+ |                                                                             |
+ |-----------------------------------------------------------------------------|
+ |                                                                             |
+ |  Database Requested(-db)  1024 MB     Scratch Memory Requested      1024 MB |
+ |  Maximum Database Used       1 MB     Maximum Scratch Memory Used     40 MB |
+ |                                                                             |
+ |-----------------------------------------------------------------------------|
+ |                                                                             |
+ |        CP Time      (sec) =          0.188       Time  =  19:21:48          |
+ |        Elapsed Time (sec) =         16.047       Date  =  10/08/2026        |
+ |                                                                             |
+ *-----------------------------------------------------------------------------*

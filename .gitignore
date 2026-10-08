@@ -1,0 +1,40 @@
+# ---- MAPDL binary results and scratch (large; regenerate by re-running) ----
+*.rst
+*.rth
+*.rmg
+*.esav
+*.osav
+*.full
+*.emat
+*.db
+*.dbb
+*.DSP
+*.dsp
+*.err
+*.log
+*.stat
+*.page
+*.ldhi
+*.rdb
+*.BCS
+*.bcs
+*.r0*
+*.lock
+*.mode
+*.sub
+*.PCS
+*.pcs
+*.mlv
+*.cnd
+*.gst
+# generated decks: reproducible from src/ (the deck physics hash is kept in deck_meta.json / record.json)
+results/**/*.dat
+results/_pymapdl/
+# ---- papers: cite in docs/REFERENCES.md, do not commit ----
+*.pdf
+# ---- per-PC settings ----
+configs/machine.json
+# ---- Python ----
+.venv/
+__pycache__/
+*.pyc

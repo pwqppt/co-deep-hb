@@ -1,0 +1,5 @@
+{
+  "_comment": "Copy to configs/machine.json (not in git) and edit for this PC. nproc: MAPDL -np (Student licence: at most 4).",
+  "mapdl_exe": "C:\\Program Files\\ANSYS Inc\\ANSYS Student\\v261\\ansys\\bin\\winx64\\ANSYS261.exe",
+  "nproc": 4
+}

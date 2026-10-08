@@ -1,0 +1,65 @@
+! =====================================================================
+!  Cu bar 1-D thermal expansion benchmark -- uMKS consistent units
+!  length um | mass kg | time s | temp degC  =>  force uN, stress MPa
+!
+!  Load step 1 : free axial expansion      -> UX(node 2) = a*dT*L0
+!  Load step 2 : both ends axially fixed   -> Sxx        = -E*a*dT
+!
+!  Analytic (a=16.5e-6/degC, dT=375 degC, L0=1000 um, E=110000 MPa):
+!      UX  =    6.187500 um
+!      Sxx = -680.625000 MPa
+!
+!  No /BATCH and no /EXIT here on purpose: the deck is shared by the
+!  PyMAPDL path (mapdl.input) and the batch path (runner appends /EXIT).
+! =====================================================================
+/TITLE,Cu bar thermal expansion 25C -> 400C (uMKS)
+
+/PREP7
+ET,1,LINK180
+SECTYPE,1,LINK
+SECDATA,1.0                ! cross-section area A = 1 um^2
+
+MP,EX,1,110000             ! E   = 110 GPa = 110000 MPa
+MP,PRXY,1,0.34
+MP,ALPX,1,16.5e-6          ! secant CTE, 1/degC
+MP,REFT,1,25               ! material reference temperature, degC
+
+N,1,0,0,0
+N,2,1000,0,0               ! L0 = 1000 um
+TYPE,1
+SECN,1
+MAT,1
+E,1,2
+FINISH
+
+/SOLU
+ANTYPE,STATIC
+TREF,25
+
+! ---- LS1: statically determinate (free to grow along X) ----
+D,1,UX,0
+D,1,UY,0
+D,1,UZ,0
+D,2,UY,0
+D,2,UZ,0
+BF,1,TEMP,400
+BF,2,TEMP,400
+SOLVE
+
+! ---- LS2: fully constrained -> pure thermal stress ----
+D,2,UX,0
+SOLVE
+FINISH
+
+/POST1
+SET,1,1
+*GET,UX2,NODE,2,U,X        ! free expansion, um
+SET,2,1
+ETABLE,SAXL,LS,1
+*GET,SIG,ELEM,1,ETAB,SAXL  ! constrained axial stress, MPa
+
+*CFOPEN,results,txt
+*VWRITE,UX2,SIG
+('RESULT ',E20.12,' ',E20.12)
+*CFCLOS
+FINISH

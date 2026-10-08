@@ -1,0 +1,71 @@
+--- spec (B-1)
++++ spec (B-1 + decisions 2026-10-08)
+@@ -14 +14 @@
+-**Status.** Phase A accepted on 2026-10-08 with the decisions in §B. Phase B-1 is done: decks and scripts are generated and dry-run, **nothing has been solved**. Runs depending on temperature-dependent property tables are blocked until those tables are supplied (§B6, §B7).
++**Status.** Phase A accepted on 2026-10-08 with the decisions in §B; B-1 accepted the same day. Decks and scripts are generated and dry-run. G(T) from Chang & Himmel is in place, so every run except R09 (NIST α(T)) can now be built. The first solves are running on your machine.
+@@ -206 +206 @@
+-| **G4a (primary)** | ε′<sub>zz</sub>(T) per simulated pad | measured, Figs. 2(b), 3(a), 3(b), digitized (§B9) | model within the measured error bar at every measured T in 30–350 °C. **Scope by computed E<sub>z</sub>** (addendum B): E<sub>z</sub> < 130.3 GPa (pad 3) → **heating only**; the cooling branch follows the 400 °C hold (creep, not modelled) and is reported without pass/fail. E<sub>z</sub> > 130.3 GPa (pad 10; no creep per paper) → **heating and cooling**. The hold itself is reported, never pass/fail |
++| **G4a (primary)** | ε′<sub>zz</sub>(T) per simulated pad | measured, Figs. 2(b), 3(a), 3(b), digitized (§B9) | model within the measured error bar at every measured T in 30–350 °C on **heating only, for every pad** (decision 2026-10-08, supersedes addendum B). The measured heating/cooling offset is irreversible behaviour the model does not contain. **Cooling is report-only for all pads**: the model-vs-measured cooling offset is reported as a number (×10⁻³) at each cooling point (300, 200, 30 °C). The 400 °C hold is reported, never pass/fail |
+@@ -310,10 +310,32 @@
+-**Source status — BLOCKED.**
+-- Chang & Himmel, *J. Appl. Phys.* 37, 3567 (1966), doi:10.1063/1.1708903, measured c44,
+-  ½(c11 − c12) and ½(c11 + c12 + 2c44) for Cu over 300–800 K and found a linear decrease with T.
+-- I could not obtain the numbers: the article is paywalled, and NIST's free reprint of the
+-  compilation that tabulates them (Ledbetter & Naimon, *J. Phys. Chem. Ref. Data* 3, 897 (1974),
+-  srd.nist.gov/jpcrdreprint/1.3253150.pdf) refuses automated downloads.
+-- **No G(T) value has been entered.** Variants 2/3 read `stage1/inputs/cu_elastic_constants_vs_T.csv`
+-  (template provided; every row needs a source) and refuse to build until it exists.
+-
+-**350–400 °C check (as specified: a check, not a fit).** Pad 3 has **no 400 °C measurement before
++**Source — resolved 2026-10-08.**
++- Values are from Y. A. Chang and L. Himmel, *Temperature Dependence of the Elastic Constants of Cu,
++  Ag, and Au above Room Temperature*, report **UCRL-16697**, Lawrence Radiation Laboratory (1966),
++  published as *J. Appl. Phys.* 37, 3567 (1966), doi:10.1063/1.1708903.
++- The file you provided is the report version, so the page reference is to the report: **Table I,
++  "Adiabatic Elastic Constants … for Copper", report p. 14 (PDF p. 18)**, 300–800 K in 50 K steps.
++- Ledbetter & Naimon 1974 was not used: per your check it gives C<sub>ij</sub>(T) only as figures.
++- **Transcription.** Read from the page image, not the OCR. Checked against the table's own
++  identities: C′<sub>L</sub> = ½(C11 + C12 + 2C44) to ≤ 0.004, B<sub>s</sub> = (C11 + 2C12)/3 to ≤ 0.003, and
++  C′ = ½(C11 − C12) to ≤ 0.002 (× 10¹² dyn/cm²), all within the table's 0.005 rounding of C11 and
++  C12. The directly measured C44, C′ and C′<sub>L</sub> are linear in T to ≤ 0.0005, 0.0002 and 0.0022, as
++  the authors state.
++- **Input file:** `stage1/inputs/cu_elastic_constants_vs_T.csv`, with C11, C12, C44 in GPa at
++  26.85–526.85 °C and the source on every row.
++- **Adiabatic vs isothermal.** Not material here: for cubic crystals C44 and C′ are identical in the
++  adiabatic and isothermal states, and the Hill G depends only on C44 and C11 − C12.
++
++| T (°C) | G<sub>Hill</sub>/G<sub>Hill</sub>(30 °C) | C44/C44(30 °C) | variant ③ factor |
++|---|---|---|---|
++| 100 | 0.9696 | 0.9754 | 0.9392 |
++| 200 | 0.9314 | 0.9397 | 0.8628 |
++| 300 | 0.8932 | 0.9040 | 0.7864 |
++| 350 | 0.8737 | 0.8855 | 0.7474 |
++| **400** | **0.8545** | **0.8677** | **0.709** |
++
++- G<sub>Hill</sub>(30 °C) = 47.62 GPa and G<sub>Hill</sub>(400 °C) = 40.69 GPa from Chang & Himmel. Only the
++  ratio is used; ANEL stays at the paper's constants.
++- If C11 − C12 is taken as 2C′ (directly measured) instead of the printed C11 and C12, the Hill
++  ratio at 400 °C becomes 0.8554 (Δ 0.001).
++- Pad 3 σ<sub>0</sub> at 400 °C: variant ① 143 MPa, ② 122.2 MPa, ③ 101.4 MPa.
++
++**350–400 °C check (as specified: a check, not a fit; one-sided form accepted 2026-10-08).** Pad 3 has **no 400 °C measurement before
+@@ -323,2 +345,4 @@
+-value. I will report each variant's 350 °C value, its 400 °C value against that bound, and
+-Δε′<sub>zz</sub> and Δu between variants.
++value (1.20 × 10⁻³). I will report each variant's 350 °C value, its 400 °C value against that
++bound, and Δε′<sub>zz</sub> and Δu between variants. **If ①②③ all satisfy the bound and agree at
++350 °C within the error bar, I will state plainly that the data cannot rank them.** The sensitivity
++(Δε′<sub>zz</sub>, Δu) is then the deliverable; it feeds the Stage 2 Sobol parameter.
+@@ -411 +435 @@
+-- **O1. Cooling scope — decided by addendum B; residual risk for pad 10.** Pad 3's cooling branch
++- **O1. Cooling scope — resolved (2026-10-08): cooling is report-only for all pads.** Historical note on why: Pad 3's cooling branch
+@@ -416,2 +440,2 @@
+-  model parameters.** I am not changing the criterion; I am flagging it so the result is not a
+-  surprise.
++  model parameters.** This is why cooling was made report-only; the offset is still reported as a
++  number.
+@@ -442,2 +466,2 @@
+-- **O9. Missing property tables.** The G(T) (Chang & Himmel) and α(T) (NIST) tables are missing
+-  (§B6, §B7).
++- **O9. Missing property table.** G(T) is resolved (§B6). The NIST α(T) table for R09 is still
++  missing (§B7).

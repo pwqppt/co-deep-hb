@@ -1,0 +1,4 @@
+# Fill with NIST copper thermal expansion (e.g. SRM 736: Hahn, J. Appl. Phys. 41, 5096 (1970), doi:10.1063/1.1658614),
+# INSTANTANEOUS linear CTE in 1/K. Rows must span 30-400 C. Give table/page in 'source'.
+# Save as cu_cte_vs_T.csv (drop .template). Do not invent values.
+T_C,alpha_inst_per_K,source

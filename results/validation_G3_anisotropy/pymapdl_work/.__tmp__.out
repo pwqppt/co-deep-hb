@@ -1,0 +1,303 @@
+ Beta activation of the GRPC server.
+
+ Ansys Mechanical Enterprise Academic Student      
+
+
+ *------------------------------------------------------------------*
+ |                                                                  |
+ |   W E L C O M E   T O   T H E   A N S Y S (R)  P R O G R A M     |
+ |                                                                  |
+ *------------------------------------------------------------------*
+
+
+
+
+ ***************************************************************
+ *         ANSYS MAPDL 2026 R1          LEGAL NOTICES          *
+ ***************************************************************
+ *                                                             *
+ * Copyright (c) 2026 Synopsys, Inc. and ANSYS, Inc.           *
+ * All rights reserved.                                        *
+ * Unauthorized use, distribution or duplication is            *
+ * prohibited.                                                 *
+ *                                                             *
+ * Ansys is a registered trademark of Ansys, Inc. or its       *
+ * subsidiaries in the United States or other countries.       *
+ * See the Ansys, Inc. online documentation or the Ansys, Inc. *
+ * documentation CD or online help for the complete Legal      *
+ * Notice.                                                     *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * THIS ANSYS SOFTWARE PRODUCT AND PROGRAM DOCUMENTATION       *
+ * INCLUDE TRADE SECRETS AND CONFIDENTIAL AND PROPRIETARY      *
+ * PRODUCTS OF ANSYS, INC., ITS SUBSIDIARIES, OR LICENSORS.    *
+ * The software products and documentation are furnished by    *
+ * Ansys, Inc. or its subsidiaries under a software license    *
+ * agreement that contains provisions concerning               *
+ * non-disclosure, copying, length and nature of use,          *
+ * compliance with exporting laws, warranties, disclaimers,    *
+ * limitations of liability, and remedies, and other           *
+ * provisions.  The software products and documentation may be *
+ * used, disclosed, transferred, or copied only in accordance  *
+ * with the terms and conditions of that software license      *
+ * agreement.                                                  *
+ *                                                             *
+ * Ansys, Inc. is a UL registered                              *
+ * ISO 9001:2015 company.                                      *
+ *                                                             *
+ ***************************************************************
+ *                                                             *
+ * This product is subject to U.S. laws governing export and   *
+ * re-export.                                                  *
+ *                                                             *
+ * For U.S. Government users, except as specifically granted   *
+ * by the Ansys, Inc. software license agreement, the use,     *
+ * duplication, or disclosure by the United States Government  *
+ * is subject to restrictions stated in the Ansys, Inc.        *
+ * software license agreement and FAR 12.212 (for non-DOD      *
+ * licenses).                                                  *
+ *                                                             *
+ ***************************************************************
+
+ 2026 R1 
+     
+ Point Releases and Patches installed:   
+     
+ Ansys, Inc. License Manager 2026 R1 
+ Discovery (full install) 2026 R1
+ Core WB Files 2026 R1   
+ optiSLang Core UI 2026 R1   
+ CFX (includes CFD-Post) 2026 R1 
+ Chemkin 2026 R1 
+ EnSight 2026 R1 
+ FENSAP-ICE 2026 R1  
+ Fluent (includes CFD-Post) 2026 R1  
+ Polyflow (includes CFD-Post) 2026 R1
+ Forte (includes EnSight) 2026 R1
+ Rocky 2026 R1   
+ TurboGrid 2026 R1   
+ ACIS Geometry Interface 2026 R1 
+ AutoCAD Geometry Interface 2026 R1  
+ Catia, Version 4 Geometry Interface 2026 R1 
+ Catia, Version 5 Geometry Interface 2026 R1 
+ Catia, Version 6 Geometry Interface 2026 R1 
+ Creo Elements/Direct Modeling Geometry Interface 2026 R1
+ Creo Parametric Geometry Interface 2026 R1  
+ Inventor Geometry Interface 2026 R1 
+ JTOpen Geometry Interface 2026 R1   
+ NX Geometry Interface 2026 R1   
+ Parasolid Geometry Interface  2026 R1   
+ Solid Edge Geometry Interface 2026 R1   
+ SOLIDWORKS Geometry Interface 2026 R1   
+ Speos 2026 R1   
+ SpaceClaim 2026 R1  
+ Speos RPC 2026 R1   
+ Zemax OpticStudio 2026 R1   
+ Dynamic Reporting 2026 R1   
+ Aqwa 2026 R1
+ Autodyn 2026 R1 
+ Material Calibration App 2026 R1
+ Mechanical Products 2026 R1 
+ Motion 2026 R1  
+ Academic Student 2026 R1
+
+
+          *****  MAPDL COMMAND LINE ARGUMENTS  *****
+  INITIAL JOBNAME              = g3                                                                                                                                                                                                                                                      
+  BATCH MODE REQUESTED (-b)    = LIST
+  INPUT FILE COPY MODE (-c)    = COPY
+  SHARED MEMORY PARALLEL REQUESTED
+    SINGLE PROCESS WITH SINGLE THREAD REQUESTED
+    TOTAL OF     1 CORES REQUESTED
+  INPUT FILE NAME              = C:\Users\USER\.claude-science\orgs\f50c262b-2754-4e2c-b4cd-c0deca628d34\workspaces\0b7dce47-624a-4a52-8bdc-8d464908c370\g3_results\pymapdl_work\.__tmp__.inp
+  OUTPUT FILE NAME             = C:\Users\USER\.claude-science\orgs\f50c262b-2754-4e2c-b4cd-c0deca628d34\workspaces\0b7dce47-624a-4a52-8bdc-8d464908c370\g3_results\pymapdl_work\.__tmp__.out
+
+ PARAMETER STATUS-           (   1 PARAMETERS DEFINED)
+
+ NAME                              VALUE                        TYPE
+ PORT                              50052.0000                    SCALAR
+
+ RELEASE= 2026 R1              BUILD= 26.1      UP20260202   VERSION=WINDOWS x64 
+ CURRENT JOBNAME=g3  20:16:06  OCT 08, 2026  Elapsed Time=       0.062
+
+     1  FINISH 
+
+ RUN SETUP PROCEDURE FROM FILE= C:\Program Files\ANSYS Inc\ANSYS Student\v261\Ansys\apdl\start.ans
+
+ /OUTPUT FILE= anstmp
+
+ /OUTPUT FILE= anstmp
+
+ /OUTPUT FILE=         
+   *****MAPDL VERIFICATION RUN ONLY*****
+     DO NOT USE RESULTS FOR PRODUCTION
+
+
+          ***** TIME-HISTORY POSTPROCESSOR (POST26) *****
+
+ ALL POST26 SPECIFICATIONS ARE RESET TO INITIAL DEFAULTS
+
+ *** NOTE ***                            ELAPSED TIME =       0.000   TIME= 00:00:00
+ Geometry is not available.  Issue RESUME to restore database.           
+
+ *** NOTE ***                            ELAPSED TIME =       0.000   TIME= 00:00:00
+ Unable to open default results file                                     
+  Use FILE command to open a results file.                               
+
+ *** WARNING ***                         ELAPSED TIME =       0.000   TIME= 00:00:00
+ The geometry is not available.  Issue the RESUME command to restore the 
+ database.  The NUMVAR command is ignored.                               
+
+
+ ***** ROUTINE COMPLETED *****  ELAPSED TIME =         0.000
+
+
+
+ /OUTPUT FILE=         
+
+ /OUTPUT FILE=         
+
+ *** WARNING ***                         ELAPSED TIME =       0.000   TIME= 00:00:00
+ Altering the abort level key is not recommended.                        
+
+
+ NUMBER OF DISPLAYED ERRORS ALLOWED PER COMMAND=                200
+ NUMBER OF ERRORS ALLOWED PER COMMAND BEFORE ANSYS ABORT=     10000
+ ABORT LEVEL KEY= -1
+ ALL ERRORS WRITTEN TO                                                                                                                                                                                                                                                                     
+ DO NOT TERMINATE /INPUT UPON FIRST ERROR
+
+ /OUTPUT FILE=         
+
+ /OUTPUT FILE=         
+
+ /OUTPUT FILE=         
+
+ /OUTPUT FILE=         
+
+ CLEAR MAPDL DATABASE AND RESTART
+
+ Ansys Mechanical Enterprise Academic Student      
+
+ /OUTPUT FILE=         
+
+ /OUTPUT FILE=         
+
+ CLEAR MAPDL DATABASE AND RESTART
+
+ Ansys Mechanical Enterprise Academic Student      
+
+ /OUTPUT FILE=         
+
+ /OUTPUT FILE=         
+
+ /INPUT FILE=    LINE=       0
+
+ /OUTPUT FILE=         
+
+ /OUTPUT FILE=         
+
+ CLEAR MAPDL DATABASE AND RESTART
+
+ Ansys Mechanical Enterprise Academic Student      
+
+ /OUTPUT FILE=         
+
+ /OUTPUT FILE=         
+
+ /INPUT FILE=    LINE=       0
+
+ /OUTPUT FILE=         
+
+ /OUTPUT FILE=         
+
+ CLEAR MAPDL DATABASE AND RESTART
+
+ Ansys Mechanical Enterprise Academic Student      
+
+ /OUTPUT FILE=         
+
+ /OUTPUT FILE=         
+
+ /INPUT FILE=    LINE=       0
+
+ /OUTPUT FILE=         
+
+ /OUTPUT FILE=         
+
+ CLEAR MAPDL DATABASE AND RESTART
+
+ Ansys Mechanical Enterprise Academic Student      
+
+ /OUTPUT FILE=         
+
+ /OUTPUT FILE=         
+
+ /INPUT FILE=    LINE=       0
+
+ /OUTPUT FILE=         
+
+ /OUTPUT FILE=         
+
+ CLEAR MAPDL DATABASE AND RESTART
+
+ Ansys Mechanical Enterprise Academic Student      
+
+ /OUTPUT FILE=         
+
+ /OUTPUT FILE=         
+
+ /INPUT FILE=    LINE=       0
+
+ /OUTPUT FILE=         
+
+ /OUTPUT FILE=         
+
+ CLEAR MAPDL DATABASE AND RESTART
+
+ Ansys Mechanical Enterprise Academic Student      
+
+ /OUTPUT FILE=         
+
+ /OUTPUT FILE=         
+
+ /INPUT FILE=    LINE=       0
+
+ /OUTPUT FILE=         
+
+ /OUTPUT FILE=         
+
+ /OUTPUT FILE=         
+
+ EXIT MAPDL WHILE IN SERVER MODE
+
+ SAVE ALL MODEL, SOLUTION AND POST DATA
+
+ ALL CURRENT MAPDL DATA WRITTEN TO FILE NAME= 
+  FOR POSSIBLE RESUME FROM THIS POINT
+
+
+ NUMBER OF WARNING MESSAGES ENCOUNTERED=          2
+ NUMBER OF ERROR   MESSAGES ENCOUNTERED=          0
+
+
+ *-----------------------------------------------------------------------------*
+ |                                                                             |
+ |                               RUN COMPLETED                                 |
+ |                                                                             |
+ |-----------------------------------------------------------------------------|
+ |                                                                             |
+ |  Ansys MAPDL 2026 R1         Build 26.1         UP20260202    WINDOWS x64   |
+ |                                                                             |
+ |-----------------------------------------------------------------------------|
+ |                                                                             |
+ |  Database Requested(-db)  1024 MB     Scratch Memory Requested      1024 MB |
+ |  Maximum Database Used       1 MB     Maximum Scratch Memory Used     41 MB |
+ |                                                                             |
+ |-----------------------------------------------------------------------------|
+ |                                                                             |
+ |        CP Time      (sec) =          3.828       Time  =  20:16:16          |
+ |        Elapsed Time (sec) =         17.237       Date  =  10/08/2026        |
+ |                                                                             |
+ *-----------------------------------------------------------------------------*

@@ -1,0 +1,124 @@
+{
+ "run": {
+  "model": "elastic",
+  "variant": 1,
+  "mesh": "L2",
+  "shape": "square",
+  "cap": false,
+  "sliding": true,
+  "cte": "const",
+  "angle": 0.0,
+  "t_si": 2.0,
+  "id": "R26",
+  "pad": 10,
+  "step": 9,
+  "note": "DIAG pad 10 elastic, no cap + sliding"
+ },
+ "T_sf": 277.0,
+ "T_sf_src": "zero crossing of linear fit to measured heating curve, Fig. 3a (rms 0.023e-3); paper FEM curve crosses at 274 C",
+ "n_nodes": 49640,
+ "n_elems": 45084,
+ "probes": {
+  "cu_top_center": 48388,
+  "cu_top_edge": 49635,
+  "cu_bottom_center": 28788,
+  "si_top_corner": 18376,
+  "surface_corner": 47776,
+  "surface_center": 48388,
+  "surface_edge_mid": 48371
+ },
+ "n_sidewall": 680,
+ "n_ce": 704,
+ "mat": {
+  "hkl_sorted": [
+   1,
+   1,
+   0.9
+  ],
+  "Ez_GPa": 189.53251020479243,
+  "sources": [],
+  "cte": "constant 1.65e-05 1/K",
+  "plastic": false
+ },
+ "history": [
+  {
+   "ls": 1,
+   "tag": "LS0_cool_Tsf_to_30",
+   "branch": "init",
+   "T": 30.0
+  },
+  {
+   "ls": 2,
+   "tag": "h100",
+   "branch": "heating",
+   "T": 100.0
+  },
+  {
+   "ls": 3,
+   "tag": "h150",
+   "branch": "heating",
+   "T": 150.0
+  },
+  {
+   "ls": 4,
+   "tag": "h200",
+   "branch": "heating",
+   "T": 200.0
+  },
+  {
+   "ls": 5,
+   "tag": "h250",
+   "branch": "heating",
+   "T": 250.0
+  },
+  {
+   "ls": 6,
+   "tag": "h300",
+   "branch": "heating",
+   "T": 300.0
+  },
+  {
+   "ls": 7,
+   "tag": "h350",
+   "branch": "heating",
+   "T": 350.0
+  },
+  {
+   "ls": 8,
+   "tag": "h400",
+   "branch": "heating",
+   "T": 400.0
+  },
+  {
+   "ls": 9,
+   "tag": "hold400_2h",
+   "branch": "hold",
+   "T": 400.0
+  },
+  {
+   "ls": 10,
+   "tag": "c300",
+   "branch": "cooling",
+   "T": 300.0
+  },
+  {
+   "ls": 11,
+   "tag": "c200",
+   "branch": "cooling",
+   "T": 200.0
+  },
+  {
+   "ls": 12,
+   "tag": "c100",
+   "branch": "cooling",
+   "T": 100.0
+  },
+  {
+   "ls": 13,
+   "tag": "c030",
+   "branch": "cooling",
+   "T": 30.0
+  }
+ ],
+ "physics_sha256": "27a0704a1655c760d56289b771f8fd9e635afeede0ace05fae1f3efbf6ec28fe"
+}

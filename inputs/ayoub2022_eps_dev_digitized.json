@@ -1,0 +1,231 @@
+{
+ "pad10": {
+  "heating": [
+   {
+    "T": 30,
+    "e": -1.197,
+    "err": 0.102,
+    "dig": 0.02,
+    "src": "Fig3a bar midpoint; Fig2b -1.20"
+   },
+   {
+    "T": 100,
+    "e": -0.795,
+    "err": 0.1,
+    "dig": 0.02,
+    "src": "Fig3a marker+top cap; Fig2b -0.800"
+   },
+   {
+    "T": 150,
+    "e": -0.578,
+    "err": 0.1,
+    "dig": 0.02,
+    "src": "Fig3a marker top+bottom cap; Fig2b -0.599"
+   },
+   {
+    "T": 200,
+    "e": -0.367,
+    "err": 0.102,
+    "dig": 0.02,
+    "src": "Fig3a bar midpoint; Fig2b -0.367"
+   },
+   {
+    "T": 250,
+    "e": -0.144,
+    "err": 0.103,
+    "dig": 0.02,
+    "src": "Fig3a bar midpoint; Fig2b -0.147"
+   },
+   {
+    "T": 300,
+    "e": 0.102,
+    "err": 0.106,
+    "dig": 0.02,
+    "src": "Fig3a marker bottom+top cap; Fig2b +0.100"
+   },
+   {
+    "T": 350,
+    "e": 0.321,
+    "err": 0.101,
+    "dig": 0.02,
+    "src": "Fig3a bar midpoint+marker; Fig2b +0.321"
+   },
+   {
+    "T": 400,
+    "e": 0.6,
+    "err": 0.1,
+    "dig": 0.02,
+    "src": "Fig3a bar midpoint; Fig2b +0.596"
+   }
+  ],
+  "cooling": [
+   {
+    "T": 300,
+    "e": 0.38,
+    "err": 0.104,
+    "dig": 0.02,
+    "src": "Fig2b red marker centroid"
+   },
+   {
+    "T": 200,
+    "e": -0.118,
+    "err": 0.1,
+    "dig": 0.02,
+    "src": "Fig2b red marker centroid"
+   },
+   {
+    "T": 30,
+    "e": -1.14,
+    "err": 0.1,
+    "dig": 0.03,
+    "src": "Fig2b red; merged with heating marker, from top cap -1.045"
+   }
+  ],
+  "hold400": [],
+  "paper_fem_elastic": {
+   "30": -1.181,
+   "100": -0.845,
+   "150": -0.605,
+   "200": -0.362,
+   "250": -0.12,
+   "300": 0.127,
+   "350": 0.371,
+   "400": 0.613
+  }
+ },
+ "pad3": {
+  "heating": [
+   {
+    "T": 30,
+    "e": -1.851,
+    "err": 0.08,
+    "dig": 0.02,
+    "src": "Fig2b black marker; caps -1.797/-1.956"
+   },
+   {
+    "T": 100,
+    "e": -1.109,
+    "err": 0.103,
+    "dig": 0.02,
+    "src": "Fig2b black marker; bar -1.011/-1.217"
+   },
+   {
+    "T": 150,
+    "e": -0.74,
+    "err": 0.104,
+    "dig": 0.02,
+    "src": "Fig2b black marker; bottom cap -0.848"
+   },
+   {
+    "T": 200,
+    "e": -0.39,
+    "err": 0.1,
+    "dig": 0.03,
+    "src": "hidden behind FEM/pad10 markers; Fig3b -0.40, Fig2b -0.37"
+   },
+   {
+    "T": 250,
+    "e": -0.1,
+    "err": 0.1,
+    "dig": 0.03,
+    "src": "partly hidden; Fig3b -0.093, Fig2b -0.113"
+   },
+   {
+    "T": 300,
+    "e": 0.156,
+    "err": 0.1,
+    "dig": 0.03,
+    "src": "hidden; Fig2b top cap +0.256 minus 0.10"
+   },
+   {
+    "T": 350,
+    "e": 0.499,
+    "err": 0.097,
+    "dig": 0.02,
+    "src": "Fig2b black marker; top cap +0.596"
+   }
+  ],
+  "hold400": [
+   {
+    "t_min": 40,
+    "e": 1.2,
+    "err": 0.08,
+    "dig": 0.03,
+    "src": "Fig3b pentagon"
+   },
+   {
+    "t_min": 80,
+    "e": 1.55,
+    "err": 0.07,
+    "dig": 0.03,
+    "src": "Fig3b star"
+   },
+   {
+    "t_min": 120,
+    "e": 1.85,
+    "err": 0.1,
+    "dig": 0.06,
+    "src": "Fig2b circle 1.847 (Fig3b reads 1.79)"
+   }
+  ],
+  "cooling": [
+   {
+    "T": 300,
+    "e": 0.995,
+    "err": 0.095,
+    "dig": 0.02,
+    "src": "Fig2b black marker"
+   },
+   {
+    "T": 200,
+    "e": 0.1,
+    "err": 0.109,
+    "dig": 0.02,
+    "src": "Fig2b black marker"
+   },
+   {
+    "T": 30,
+    "e": -0.76,
+    "err": 0.078,
+    "dig": 0.02,
+    "src": "Fig2b black marker"
+   }
+  ],
+  "paper_fem_elastic": {
+   "30": -1.416,
+   "100": -1.017,
+   "400": 0.726
+  },
+  "paper_fem_plastic": {
+   "30": -1.833,
+   "100": -1.131,
+   "150": -0.746,
+   "200": -0.439,
+   "250": -0.153,
+   "300": 0.145,
+   "350": 0.433,
+   "400": 0.845
+  }
+ },
+ "_meta": {
+  "source": "Ayoub et al. 2022 (HAL hal-03672631v1) Figs 2(b), 3(a), 3(b); units 1e-3",
+  "method": "column-profile of error bars + colour-masked marker centroids at 8x render; see stage1 spec",
+  "notes": [
+   "Fig.3 caption swaps (a)/(b); legends: (a)=pad 10, (b)=pad 3",
+   "pad 3: no 400 C acquisition before the hold; 40/80/120 min points only",
+   "cooling branch: 400->300->200->30 C; no 100 C cooling point in Fig 2(b)"
+  ],
+  "stress_free": {
+   "pad10_linear_fit": {
+    "slope_per_C": 0.004711570983533601,
+    "intercept": -1.3055745438362258,
+    "T_zero": 277.09962311913773,
+    "rms": 0.023240475794952843
+   },
+   "pad10_interp_250_300": 279.2682926829268,
+   "pad10_paperFEM_T_zero": 274.03953145193066,
+   "pad3_interp_250_300": 269.53125,
+   "pad3_paperFEM_interp": 275.6711409395973
+  }
+ }
+}
