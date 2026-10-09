@@ -45,6 +45,14 @@
 **저자에게 할 질문 (1개).**
 > "In the COMSOL model behind Fig. 3 and Fig. 5, what boundary conditions did you use at the Cu/SiO2 sidewalls and at the pad top (perfectly bonded, sliding/contact, or free), and did the model include the 60 nm SiN cap and the Ta/TaN liner (if so, with what thickness and properties)?"
 
-**결정이 필요한 사항.** 저자 답변을 기다리는 동안 lumped 파라미터 1개를 보정하고 독립 데이터로 검증하는 방안(Option B)을 쓸지 정해 주십시오. 근거는 별도 문서에 정리했습니다.
+
+**추가 (Step 11, 방위 의존성 시험).**
+- 목적: 미지 요인 하나를 lumped 파라미터로 보정하는 것(Option B)이 정당한지 확인했다.
+- 방법: R26 구성으로 탄성 패드 4, 5, 7, 9를 계산해 Fig 2c의 Δε′zz(30→400 °C)와 비교했다.
+- 결과: 모델/측정 비가 0.459–0.595로 패드마다 다르다. 사전에 정한 기준(±10 % 또는 오차막대)을 패드 9(+14.9 %), 4(−11.9 %), 7(−11.3 %)가 넘었다. **방위와 무관한 단일 보정 인자로는 설명되지 않으므로 Option B는 진행하지 않는다.**
+- 해석: 패드 7과 9는 계산한 E_z가 같은데(164.6 / 164.2 GPa) 측정 Δ는 2.41과 1.85로 다르다. 단, 패드 9는 Table 1의 hkl과 E(172)가 서로 맞지 않는다. 패드 9를 빼면 기준 안에 든다(보조 결과).
+- 저자에게 추가로 물을 것: 패드 9의 정확한 hkl(또는 E_z).
+
+**현재 상태.** Option B는 Step 11 결과에 따라 보류했다. 다음 단계는 저자 답변이다. 질문은 경계조건·캡·라이너, 그리고 패드 9의 hkl이다.
 
 자료: `results/diagnostics/step10_outcomes_pad10.csv`, `results/diagnostics/pad10_configs_vs_measured.png`, 사전등록 문서 `docs/stage1_lateral_screen.md`

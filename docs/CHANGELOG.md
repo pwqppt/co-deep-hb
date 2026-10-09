@@ -12,6 +12,7 @@ Newest first. Every entry: what changed and why. Bug entries add what was wrong,
   - Registry step 11: R31–R34, the R26 configuration for elastic pads 4, 5, 7, 9.
   - New `src/tools/step11_compare.py` evaluates the pre-registered criterion.
 - **Safety.** All R01–R30 deck physics hashes are unchanged. R31–R34 differ from R26 only in the Cu stiffness lines.
+- **Outcome (R31–R34 solved).** Primary verdict FAIL (pads 9, 7, 4); Option B not justified. See the doc §6.
 - **Why.** This tests whether the pad-10 shortfall is one orientation-independent factor, which is the precondition for Option B. Pre-registered in `docs/stage1_step11_orientation_test.md`.
 
 ## 2026-10-09 — Step 10: paper-literal model and lateral-side screen (new capability, new runs R27–R30)

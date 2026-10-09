@@ -66,3 +66,20 @@ Plastic pads, report only (elastic estimate; it should under-predict because pla
   - pad 3 heating with plasticity ②;
   - the u-vs-E_z slope against Fig 5 within ±10 %.
 - **FAIL:** stop. Add the result to the PI summary. The question for the authors stays as written.
+
+## 6. Outcome (added after R31–R34; sections 1–5 unchanged)
+| pad | run | E_z | Δ_model | Δ_meas | r_p | r_p/r̄ − 1 | tol | result | u model / Fig 5 (nm) |
+|---|---|---|---|---|---|---|---|---|---|
+| 9 | R34 | 164.2 | 1.103 | 1.854 | 0.595 | +14.9% | 10.8% | **fail** | 6.21 / 7.59 |
+| 7 | R33 | 164.6 | 1.105 | 2.406 | 0.459 | -11.3% | 10.0% | **fail** | 6.21 / 7.69 |
+| 4 | R31 | 169.4 | 1.078 | 2.363 | 0.456 | -11.9% | 10.0% | **fail** | 6.18 / 7.65 |
+| 5 | R32 | 188.3 | 0.989 | 1.854 | 0.534 | +3.0% | 11.1% | pass | 6.10 / 7.34 |
+| 10 | R26 | 189.5 | 0.984 | 1.806 | 0.545 | +5.2% | 11.0% | pass | 6.09 / 7.19 |
+
+- r̄ = 0.518. **PRIMARY VERDICT: FAIL** (pads 9, 7, 4), as predicted.
+  - Option B is **not justified**, so we stop.
+  - FEM and the analytic prediction agree within 2.2 points on every deviation.
+- Secondary result (pad 9 excluded; does not override): deviations of −7.9 / −8.5 / +7.0 / +9.3 %, all within tolerance.
+  - The failure therefore depends on pad 9, whose Table 1 hkl (E_z 164.2) is inconsistent with its Table/Fig. 2 E (172).
+- u (report only): model slope -0.0045 nm/GPa over the elastic pads, against −0.0132 for the Fig 5 fit. That is about one third. Model u = 6.09–6.21 nm vs Fig 5 7.19–7.69 nm.
+- Checks: all four runs exit 0 and converged, global frame, Cu σz ≈ 0, pad lengthening 5.65–5.78 nm.
