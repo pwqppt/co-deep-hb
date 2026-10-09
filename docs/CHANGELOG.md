@@ -2,6 +2,18 @@
 
 Newest first. Every entry: what changed and why. Bug entries add what was wrong, how it was found, and how it was fixed.
 
+## 2026-10-09 — Step 11: Fig 2a/2c digitized, pads 4/5/7/8/9 added, orientation test R31–R34 registered
+
+- **Data.** `inputs/ayoub2022_fig2ac_digitized.json` contains Fig. 2(a) and 2(c) for all 10 pads, with QA overlays in `docs/history/`.
+  - Fig. 2(c) is the change from 30 °C to 400 °C **after the 2 h hold**.
+  - Both figures use the Table 1 E values on the x axis.
+- **Pipeline.**
+  - `PADS` now includes pads 4, 5, 7, 8, 9 (Table 1 hkl, T_sf 277 °C assumption; pad 8 is a placeholder).
+  - Registry step 11: R31–R34, the R26 configuration for elastic pads 4, 5, 7, 9.
+  - New `src/tools/step11_compare.py` evaluates the pre-registered criterion.
+- **Safety.** All R01–R30 deck physics hashes are unchanged. R31–R34 differ from R26 only in the Cu stiffness lines.
+- **Why.** This tests whether the pad-10 shortfall is one orientation-independent factor, which is the precondition for Option B. Pre-registered in `docs/stage1_step11_orientation_test.md`.
+
 ## 2026-10-09 — Step 10: paper-literal model and lateral-side screen (new capability, new runs R27–R30)
 
 - **What.**

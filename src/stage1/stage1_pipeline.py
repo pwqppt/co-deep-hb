@@ -83,6 +83,13 @@ PADS = {   # Miller indices along z as printed; stress-free T and its source
     2: dict(hkl=(1, 0.76, 0.24), E_table=130, T_sf=275.0, T_sf_src="ASSUMPTION: midpoint of 250-300 C (no per-pad curve)"),
     3: dict(hkl=(1, 0.1, 0.02), E_table=68, T_sf=275.0, T_sf_src="paper Sec. 3.2/Fig. 4: stress-free at ~275 C (FEM curve Fig. 3b crosses 0 at 275.7 C)"),
     6: dict(hkl=(1, 0.24, 0.47), E_table=102, T_sf=275.0, T_sf_src="ASSUMPTION: midpoint of 250-300 C (no per-pad curve)"),
+    # step 11 (orientation test): elastic pads 4, 5, 7, 9 (computed E_z > 130.34 GPa) and plastic pad 8.
+    # T_sf = 277 C for all of them: for elastic pads the 30->400 C change of eps'_zz does not depend on T_sf.
+    4: dict(hkl=(1, 0.9, 0.6), E_table=169, T_sf=277.0, T_sf_src="ASSUMPTION: pad-10 value; elastic pad, delta(30->400) is T_sf-independent"),
+    5: dict(hkl=(1, 0.89, 0.87), E_table=188, T_sf=277.0, T_sf_src="ASSUMPTION: pad-10 value; elastic pad, delta(30->400) is T_sf-independent"),
+    7: dict(hkl=(1, 0.85, 0.56), E_table=164, T_sf=277.0, T_sf_src="ASSUMPTION: pad-10 value; elastic pad, delta(30->400) is T_sf-independent"),
+    8: dict(hkl=(0.7, 1, 0.2), E_table=132, T_sf=277.0, T_sf_src="PLACEHOLDER: plastic pad, no run registered; computed E_z 123.2 vs Table 1 132 (misprint)"),
+    9: dict(hkl=(1, 0.56, 1), E_table=172, T_sf=277.0, T_sf_src="ASSUMPTION: pad-10 value; elastic pad; computed E_z 164.2 vs Table 1 172 (misprint)"),
     10: dict(hkl=(1, 1, 0.9), E_table=198, T_sf=277.0, T_sf_src="zero crossing of linear fit to measured heating curve, Fig. 3a (rms 0.023e-3); paper FEM curve crosses at 274 C"),
 }
 
@@ -318,6 +325,11 @@ RUNS = [
     _run("R28", 10, 10, "LAT R26 + circular pad", shape="circle", cap=False, sliding=True, layers=True),
     _run("R29", 10, 10, "LAT R26 + Ta liner 10 nm (E 186 GPa)", cap=False, sliding=True, t_liner=0.010, layers=True),
     _run("R30", 10, 10, "LAT R26 + Ta liner 25 nm (E 186 GPa)", cap=False, sliding=True, t_liner=0.025, layers=True),
+    # step 11: orientation test, R26 configuration for the other elastic pads (docs/stage1_step11_orientation_test.md)
+    _run("R31", 4, 11, "ORI pad 4 elastic, R26 config (no cap, sliding)", cap=False, sliding=True),
+    _run("R32", 5, 11, "ORI pad 5 elastic, R26 config (no cap, sliding)", cap=False, sliding=True),
+    _run("R33", 7, 11, "ORI pad 7 elastic, R26 config (no cap, sliding)", cap=False, sliding=True),
+    _run("R34", 9, 11, "ORI pad 9 elastic, R26 config (no cap, sliding)", cap=False, sliding=True),
 ]
 RUN_BY_ID = {r["id"]: r for r in RUNS}
 E_ELASTIC_ABOVE = _fitted_E(2)       # 130.34 GPa: above -> elastic; also the G4a cooling-scope split

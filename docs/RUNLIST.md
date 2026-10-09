@@ -115,3 +115,13 @@ measurements. R01's actual wall time recalibrates them.
 | R30 | R26 + Ta liner 25 nm (186 GPa) |
 
 `.\.venv\Scripts\python.exe src\stage1\stage1_pipeline.py --case R27,R28,R29,R30`
+
+## Step 11 — orientation test, R26 configuration (see docs/stage1_step11_orientation_test.md)
+| Run | Configuration |
+|---|---|
+| R31 | pad 4 elastic, no cap, sliding |
+| R32 | pad 5 elastic, no cap, sliding |
+| R33 | pad 7 elastic, no cap, sliding |
+| R34 | pad 9 elastic, no cap, sliding |
+
+`.\.venv\Scripts\python.exe src\stage1\stage1_pipeline.py --case R31,R32,R33,R34; .\.venv\Scripts\python.exe src\tools\step11_compare.py`

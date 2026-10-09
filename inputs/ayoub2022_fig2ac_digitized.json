@@ -1,0 +1,167 @@
+{
+ "_meta": {
+  "source": "Ayoub et al. 2022, HAL hal-03672631v1, page 4, Fig. 2(a) and 2(c); units 1e-3",
+  "method": "page rendered at 8x (pypdfium2); axis frames and tick marks/labels located by pixel runs; markers found by morphological opening (disk r=8 px) and centroid; error bars by column walk to caps",
+  "calibration": {
+   "fig2a": {
+    "x": "E = 50 + (px-630)*50/401.33",
+    "y": "eps = -1.2 - (py-1563)*0.4/349.5"
+   },
+   "fig2c": {
+    "x": "E = 50 + (px-617)*50/403.0",
+    "y": "d_eps = 4.0 - (py-4195)*2.5/1051"
+   }
+  },
+  "notes": [
+   "x axis uses Table 1 E values (digitized E matches Table 1 to <=0.2 GPa); computed E_z differs for pads 8, 9, 10 (Table misprints)",
+   "Fig. 2(c) is the difference between 30 C and 400 C AFTER the 2 h hold ('400 C-2h'); pad 10: 1.806 vs heating-only 1.797 (Fig 3a), pad 3: 3.702 = hold-120 min value 1.85 - (-1.851)",
+   "pads 7 and 9: error-bar lines not drawn in the figure; err taken from the visible cap (symmetric assumption): 0.10 (2a), 0.20 (2c)",
+   "pads 2 and 8 overlap in Fig. 2(c) (E 130/132, both 2.36); split by fixed marker width, assignment by x order",
+   "digitization uncertainty ~0.01e-3 (1 px = 0.0011 in 2a, 0.0024 in 2c)"
+  ]
+ },
+ "fig2a_eps30": [
+  {
+   "pad": 3,
+   "E_table": 68,
+   "E_digit": 68.1,
+   "value": -1.855,
+   "err": 0.1
+  },
+  {
+   "pad": 6,
+   "E_table": 102,
+   "E_digit": 102.1,
+   "value": -1.446,
+   "err": 0.102
+  },
+  {
+   "pad": 1,
+   "E_table": 127,
+   "E_digit": 127.0,
+   "value": -2.045,
+   "err": 0.102
+  },
+  {
+   "pad": 2,
+   "E_table": 130,
+   "E_digit": 130.2,
+   "value": -1.356,
+   "err": 0.1
+  },
+  {
+   "pad": 8,
+   "E_table": 132,
+   "E_digit": 132.0,
+   "value": -1.246,
+   "err": 0.1
+  },
+  {
+   "pad": 7,
+   "E_table": 164,
+   "E_digit": 164.1,
+   "value": -1.515,
+   "err": 0.1
+  },
+  {
+   "pad": 4,
+   "E_table": 169,
+   "E_digit": 169.1,
+   "value": -1.655,
+   "err": 0.102
+  },
+  {
+   "pad": 9,
+   "E_table": 172,
+   "E_digit": 172.0,
+   "value": -1.256,
+   "err": 0.1
+  },
+  {
+   "pad": 5,
+   "E_table": 188,
+   "E_digit": 188.1,
+   "value": -1.305,
+   "err": 0.1
+  },
+  {
+   "pad": 10,
+   "E_table": 198,
+   "E_digit": 198.0,
+   "value": -1.206,
+   "err": 0.1
+  }
+ ],
+ "fig2c_delta_30_400h": [
+  {
+   "pad": 3,
+   "E_table": 68,
+   "E_digit": 68.1,
+   "value": 3.702,
+   "err": 0.203
+  },
+  {
+   "pad": 6,
+   "E_table": 102,
+   "E_digit": 102.0,
+   "value": 2.843,
+   "err": 0.205
+  },
+  {
+   "pad": 1,
+   "E_table": 127,
+   "E_digit": 126.9,
+   "value": 2.683,
+   "err": 0.203
+  },
+  {
+   "pad": 2,
+   "E_table": 130,
+   "E_digit": 130.1,
+   "value": 2.359,
+   "err": 0.205
+  },
+  {
+   "pad": 8,
+   "E_table": 132,
+   "E_digit": 131.8,
+   "value": 2.359,
+   "err": 0.218
+  },
+  {
+   "pad": 7,
+   "E_table": 164,
+   "E_digit": 163.9,
+   "value": 2.406,
+   "err": 0.2
+  },
+  {
+   "pad": 4,
+   "E_table": 169,
+   "E_digit": 169.1,
+   "value": 2.363,
+   "err": 0.203
+  },
+  {
+   "pad": 9,
+   "E_table": 172,
+   "E_digit": 171.8,
+   "value": 1.854,
+   "err": 0.2
+  },
+  {
+   "pad": 5,
+   "E_table": 188,
+   "E_digit": 188.0,
+   "value": 1.854,
+   "err": 0.205
+  },
+  {
+   "pad": 10,
+   "E_table": 198,
+   "E_digit": 197.9,
+   "value": 1.806,
+   "err": 0.199
+  }
+ ]
+}
