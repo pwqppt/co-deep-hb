@@ -2,6 +2,20 @@
 
 Newest first. Every entry: what changed and why. Bug entries add what was wrong, how it was found, and how it was fixed.
 
+## 2026-10-09 — Step 10: paper-literal model and lateral-side screen (new capability, new runs R27–R30)
+
+- **What.**
+  - `s1_mesh.build_mesh(..., t_liner=0.0)`: optional barrier-liner ring (MAT 5) around the Cu plus a trench-bottom layer.
+  - `stage1_pipeline.py`:
+    - liner material (Ta handbook values);
+    - optional `hist_layers.txt` with ε′zz per height band (gated by `layers=True`);
+    - registry step 10: R27–R30.
+- **Why.** No cap/sidewall combination reproduces the magnitude of pad 10's ε′zz (best: R26, 55 %). The missing ~1.8× must come from the lateral side; see `docs/stage1_lateral_screen.md` (pre-registered).
+- **Safety.** With `t_liner = 0` and `layers` unset, the mesh and deck are unchanged. The physics hashes of all R01–R26 decks were re-generated and are identical.
+- Outcome (R27–R30 solved 2026-10-09): see `docs/stage1_lateral_screen.md` §4. The stopping rule was triggered.
+  Added `docs/stage1_summary_for_PI_ko.md`, `docs/stage1_optionB_assessment.md`, `results/diagnostics/step10_outcomes_pad10.csv` and the figure.
+- Analytic screen output: `results/diagnostics/lateral_screen_analytic.csv`. The pad-10 diagnostic tables are in `results/diagnostics/`.
+
 ## 2026-10-09 — Repository created (structure and paths only)
 
 - **What.** The Stage 1 work was moved out of the Claude Science chat workspace into this repository.

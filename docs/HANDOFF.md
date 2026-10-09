@@ -31,6 +31,10 @@ write it here.
 | R24 | DIAG: no cap, bonded | done | u 2.817 nm, ε′zz −0.492e-3 |
 | R25 | DIAG: cap, sliding (fixed build) | done | u 2.539 nm, ε′zz −0.478e-3, Cu σz −227 MPa |
 | R26 | DIAG: no cap, sliding (fixed build) | done; equilibrium acceptance **PASS** | u 6.093 nm, ε′zz +0.327e-3, Cu σz ≈ 0, pad lengthening 5.649 nm |
+| R27 | LAT paper-literal: circle, no cap, bonded, no liner | done | ε′zz 30/400 +1.143/−0.569e-3 (opposite sign to measured/Ayoub FEM), u 2.572 nm |
+| R28 | LAT R26 + circle | done | ε′zz −0.677/+0.337e-3, gap closed 4 % |
+| R29 | LAT R26 + Ta liner 10 nm | done | ε′zz −0.700/+0.348e-3, gap closed 8 % |
+| R30 | LAT R26 + Ta liner 25 nm | done | ε′zz −0.755/+0.376e-3, gap closed 18 % |
 | R02–R07, R10–R23 | see `docs/RUNLIST.md` | not run | — |
 | R08 | pad 10 plastic = elastic | no solve needed (deck identical to R01) | — |
 | R09 | Cu CTE(T) variant | blocked: needs `inputs/cu_cte_vs_T.csv` (NIST) | — |
@@ -40,7 +44,10 @@ against measured pad 10 ε′zz on heating 30–350 °C. Report both; do not pic
 
 ## Next commands
 
-Before R03 and onward: the restructure regression check (R01 and R26 from the repo layout must
+Restructure regression check R01/R26: **ALL MATCH** (2026-10-09); first commit/push: command issued, completion not yet confirmed.
+Step 10 done: pre-registered stopping rule TRIGGERED (best combination 33–44 % < 50 %). Lateral-factor search stopped.
+Open: author question (docs/stage1_summary_for_PI_ko.md); Option B awaiting PI decision (docs/stage1_optionB_assessment.md) — not run.
+Previously: the restructure regression check (R01 and R26 from the repo layout must
 reproduce the numbers above exactly), then the first commit and push. See `docs/GIT_SETUP.md`.
 
 ## Open issues (run level)

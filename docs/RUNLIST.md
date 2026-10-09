@@ -105,3 +105,13 @@ measurements. R01's actual wall time recalibrates them.
 2. **NIST α(T) for R09.** Save the NIST SRM 736 certificate, or Hahn, *J. Appl. Phys.* 41, 5096
    (1970), into `inputs\`. I will build `cu_cte_vs_T.csv` (instantaneous CTE, 30–400 °C)
    from it.
+
+## Step 10 — paper-literal model and lateral screen (pad 10 elastic; see docs/stage1_lateral_screen.md)
+| Run | Configuration |
+|---|---|
+| R27 | circular pad, no cap, bonded sidewalls, no liner (paper-literal) |
+| R28 | R26 + circular pad |
+| R29 | R26 + Ta liner 10 nm (186 GPa) |
+| R30 | R26 + Ta liner 25 nm (186 GPa) |
+
+`.\.venv\Scripts\python.exe src\stage1\stage1_pipeline.py --case R27,R28,R29,R30`

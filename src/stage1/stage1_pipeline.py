@@ -63,6 +63,7 @@ CU_ALPHA_CONST = 16.5e-6
 OXIDE = dict(EX=72000.0, PRXY=0.17, ALPX=0.5e-6)    # ASSUMPTION A8 (fused silica, RT)
 SILICON = dict(EX=130000.0, PRXY=0.28, ALPX=2.6e-6) # ASSUMPTION A7 (RT)
 SIN = dict(EX=220000.0, PRXY=0.27, ALPX=2.3e-6)     # ASSUMPTION A5 (PECVD SiN, RT)
+LINER = dict(EX=186000.0, PRXY=0.34, ALPX=6.3e-6)   # Ta, bulk handbook values (step-10 screen only)
 
 # Ludwick midpoints of the paper's fitted ranges (Sec. 3.2) - sigma0, K in MPa
 LUDWICK_FITS = {   # pad: (E_table GPa, sigma0, K, N)
@@ -311,6 +312,12 @@ RUNS = [
     _run("R24", 10, 9, "DIAG pad 10 elastic, SiN cap removed", cap=False),
     _run("R25", 10, 9, "DIAG pad 10 elastic, sidewall sliding (normal tied)", sliding=True),
     _run("R26", 10, 9, "DIAG pad 10 elastic, no cap + sliding", cap=False, sliding=True),
+    # step 10: paper-literal model and lateral-side screen (pad 10 elastic only; docs/stage1_lateral_screen.md)
+    _run("R27", 10, 10, "LAT paper-literal: circular pad, no cap, bonded sidewalls, no liner",
+         shape="circle", cap=False, layers=True),
+    _run("R28", 10, 10, "LAT R26 + circular pad", shape="circle", cap=False, sliding=True, layers=True),
+    _run("R29", 10, 10, "LAT R26 + Ta liner 10 nm (E 186 GPa)", cap=False, sliding=True, t_liner=0.010, layers=True),
+    _run("R30", 10, 10, "LAT R26 + Ta liner 25 nm (E 186 GPa)", cap=False, sliding=True, t_liner=0.025, layers=True),
 ]
 RUN_BY_ID = {r["id"]: r for r in RUNS}
 E_ELASTIC_ABOVE = _fitted_E(2)       # 130.34 GPa: above -> elastic; also the G4a cooling-scope split
@@ -365,13 +372,20 @@ def material_block(run, Tsf):
         L.append(f"! ---- MAT {m}: {name}, isotropic, ambient properties")
         L += [f"MP,EX,{m},{_f(props['EX'])}", f"MP,PRXY,{m},{_f(props['PRXY'])}",
               f"MP,ALPX,{m},{_f(props['ALPX'])}", f"MP,REFT,{m},{_f(Tsf)}"]
+    if run.get("t_liner", 0.0) > 0:
+        lp = dict(LINER); lp["EX"] = run.get("E_liner", LINER["EX"])
+        L.append(f"! ---- MAT 5: barrier liner (step-10 screen), isotropic, t = {run['t_liner'] * 1000:g} nm")
+        L += [f"MP,EX,5,{_f(lp['EX'])}", f"MP,PRXY,5,{_f(lp['PRXY'])}",
+              f"MP,ALPX,5,{_f(lp['ALPX'])}", f"MP,REFT,5,{_f(Tsf)}"]
+        info["liner"] = dict(lp, t_um=run["t_liner"])
     return L, info
 
 
 def build_deck(run):
     pad = PADS[run["pad"]]
     Tsf = pad["T_sf"]
-    mesh = MESH.build_mesh(run["mesh"], run["shape"], run["cap"], run["sliding"], run["t_si"])
+    mesh = MESH.build_mesh(run["mesh"], run["shape"], run["cap"], run["sliding"], run["t_si"],
+                           run.get("t_liner", 0.0))
     if mesh.n_nodes > MESH.STUDENT_LIMIT or mesh.n_elems > MESH.STUDENT_LIMIT:
         raise RuntimeError(f"{run['id']}: {mesh.n_nodes} nodes / {mesh.n_elems} elements exceed Student limit")
     mat_lines, info = material_block(run, Tsf)
@@ -439,6 +453,12 @@ def build_deck(run):
     z_top = (zz[kk["k_pt"] - 1], zz[kk["k_pt"]]); z_bot = (zz[kk["k_pb"]], zz[kk["k_pb"] + 1])
     k_mid = (kk["k_pb"] + kk["k_pt"]) // 2
     z_mid = (zz[k_mid], zz[k_mid + 1])
+    bands = []
+    if run.get("layers", False):
+        # step-10 diagnostic: eps'_zz per height band (top element layer + five equal fifths of the pad)
+        hp_ = MESH.Z_PT - MESH.Z_PB
+        bands = [z_top] + [(MESH.Z_PB + q * hp_ / 5, MESH.Z_PB + (q + 1) * hp_ / 5) for q in range(5)]
+        d += [f"*DIM,RL,ARRAY,{nls},{1 + len(bands)}"]
     d += [f"*DIM,RD,ARRAY,{nls},4",
           f"*DIM,RA,ARRAY,{nls},10", f"*DIM,RB,ARRAY,{nls},11", f"*DIM,RC,ARRAY,{nls},11",
           f"*DO,LS_,1,{nls}",
@@ -466,6 +486,14 @@ def build_deck(run):
         d += ["ESEL,S,MAT,,1", f"ESEL,R,CENT,Z,{_f(za)},{_f(zb)}",
               "ETABLE,LVOL,VOLU", "ETABLE,LSZ,S,Z", "SMULT,LWSZ,LSZ,LVOL", "SSUM",
               "*GET,LV_,SSUM,,ITEM,LVOL", "*GET,LS_SZ,SSUM,,ITEM,LWSZ", f"RD(LS_,{col})=LS_SZ/LV_"]
+    if bands:
+        d += ["RL(LS_,1)=LS_"]
+        for col, (za, zb) in enumerate(bands, start=2):
+            d += ["ESEL,S,MAT,,1", f"ESEL,R,CENT,Z,{_f(za)},{_f(zb)}", "ETABLE,LVOL,VOLU"]
+            for c in ("X", "Y", "Z"):
+                d += [f"ETABLE,LE{c},EPEL,{c}", f"SMULT,LWE{c},LE{c},LVOL"]
+            d += ["SSUM", "*GET,LV_,SSUM,,ITEM,LVOL", "*GET,LEX_,SSUM,,ITEM,LWEX", "*GET,LEY_,SSUM,,ITEM,LWEY",
+                  "*GET,LEZ_,SSUM,,ITEM,LWEZ", f"RL(LS_,{col})=(2*LEZ_-LEX_-LEY_)/(3*LV_)"]
     d += ["ESEL,S,MAT,,1",
           "NSLE,S",
           "SNMX_=-1E30", "SNMN_=1E30", "STMX_=0",
@@ -512,6 +540,9 @@ def build_deck(run):
           "*CFOPEN,hist_force,txt",
           "*VWRITE,RD(1,1),RD(1,2),RD(1,3),RD(1,4)",
           "(4E22.13)", "*CFCLOS",
+          *([ "*CFOPEN,hist_layers,txt",
+              "*VWRITE," + ",".join(f"RL(1,{q})" for q in range(1, len(bands) + 2)),
+              f"({len(bands) + 1}E22.13)", "*CFCLOS"] if bands else []),
           "*CFOPEN,meta,txt",
           "*VWRITE,NELEM,NNODE,ESY1_,ESY2_,MAT1_",
           "(5E22.13)", "*CFCLOS",
@@ -660,6 +691,12 @@ def collect(run, outdir, exec_info):
         Fz = np.loadtxt(fz, ndmin=2)
         for i, r_ in enumerate(rows):
             r_.update(sz_cu_top_layer=Fz[i, 1], sz_cu_mid_layer=Fz[i, 2], sz_cu_bottom_layer=Fz[i, 3])
+    fl = outdir / "hist_layers.txt"
+    if fl.exists():
+        Lr = np.loadtxt(fl, ndmin=2)
+        names = ["epsdev_top_elem"] + [f"epsdev_band{q}" for q in range(1, Lr.shape[1] - 1)]   # band1 = bottom fifth
+        for i, r_ in enumerate(rows):
+            r_.update({nm: Lr[i, q + 1] for q, nm in enumerate(names)})
     rec.update(ok=True, n_elems=int(mt[0]), n_nodes=int(mt[1]), rows=rows, convergence=conv,
                frame_check=dict(rsys=0, cu_elem_esys=[int(mt[2]), int(mt[3])], elem1_mat=int(mt[4]),
                                 global_frame=bool(mt[2] == 0 and mt[3] == 0 and mt[4] == 1)),

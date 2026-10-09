@@ -30,6 +30,7 @@ T_CAP = 0.06          # um  SiN cap (paper Sec. 2)
 T_SI = 2.0            # um  Si slab thickness (substrate equivalent)
 
 MAT_CU, MAT_OX, MAT_SI, MAT_SIN = 1, 2, 3, 4
+MAT_LINER = 5         # optional barrier liner (step-10 lateral screen); absent when t_liner = 0
 
 # mesh-refinement levels (G2): in-pad element size and grading limits
 LEVELS = {
@@ -61,9 +62,13 @@ def _symmetric_graded(length, h_end, growth, h_max):
     return np.concatenate([half, half[::-1]])
 
 
-def lateral_axis(n_pad, growth, h_max):
+def lateral_axis(n_pad, growth, h_max, t_liner=0.0):
     h_p = 2 * A_PAD / n_pad
-    outside = _graded(C_PAD - A_PAD, h_p, growth, h_max)        # from pad edge outwards
+    if t_liner > 0:
+        # one element ring of thickness t_liner outside the 0.3 um Cu, then the usual grading
+        outside = np.concatenate([[t_liner], _graded(C_PAD - A_PAD - t_liner, min(h_p, 2.0 * t_liner), growth, h_max)])
+    else:
+        outside = _graded(C_PAD - A_PAD, h_p, growth, h_max)    # from pad edge outwards
     inc = np.concatenate([outside[::-1], np.full(n_pad, h_p), outside])
     x = np.concatenate([[0.0], np.cumsum(inc)])
     x[-1] = L_CELL
@@ -71,10 +76,14 @@ def lateral_axis(n_pad, growth, h_max):
     return x, i0, i0 + n_pad
 
 
-def vertical_axis(n_pad, growth, h_max, cap=True, t_si=T_SI):
+def vertical_axis(n_pad, growth, h_max, cap=True, t_si=T_SI, t_liner=0.0):
     h_p = 2 * A_PAD / n_pad
     si = _graded(t_si, h_p, growth, h_max)[::-1]                 # coarse at bottom
-    ox = _symmetric_graded(Z_PB, h_p, growth, h_max)
+    if t_liner > 0:
+        # last element layer below the pad bottom = liner thickness (trench-bottom liner)
+        ox = np.concatenate([_symmetric_graded(Z_PB - t_liner, min(h_p, 2.0 * t_liner), growth, h_max), [t_liner]])
+    else:
+        ox = _symmetric_graded(Z_PB, h_p, growth, h_max)
     pad = _symmetric_graded(H_PAD, h_p, growth, 2.5 * h_p)       # fine at top/bottom
     segs = [si, ox, pad]
     if cap:
@@ -131,10 +140,10 @@ class Mesh:
     n_elems: int = 0
 
 
-def build_mesh(level="L2", shape="square", cap=True, sliding=False, t_si=T_SI):
+def build_mesh(level="L2", shape="square", cap=True, sliding=False, t_si=T_SI, t_liner=0.0):
     p = LEVELS[level]
-    x, i0, i1 = lateral_axis(p["n_pad"], p["growth"], p["h_max_lat"])
-    z, k_si, k_pb, k_pt = vertical_axis(p["n_pad"], p["growth"], p["h_max_z"], cap, t_si)
+    x, i0, i1 = lateral_axis(p["n_pad"], p["growth"], p["h_max_lat"], t_liner)
+    z, k_si, k_pb, k_pt = vertical_axis(p["n_pad"], p["growth"], p["h_max_z"], cap, t_si, t_liner)
     nx = ny = len(x) - 1
     nz = len(z) - 1
     X, Y = np.meshgrid(x, x, indexing="ij")
@@ -160,6 +169,12 @@ def build_mesh(level="L2", shape="square", cap=True, sliding=False, t_si=T_SI):
     mat = np.where(ek < k_si, MAT_SI,
           np.where(ek < k_pb, MAT_OX,
           np.where(ek < k_pt, np.where(in_pad_xy, MAT_CU, MAT_OX), MAT_SIN)))
+    if t_liner > 0:
+        # liner = one element ring around the Cu (sidewalls, pad height) + one layer under the trench
+        in_trench_xy = (ei >= i0 - 1) & (ei < i1 + 1) & (ej >= i0 - 1) & (ej < i1 + 1)
+        ring = in_trench_xy & ~in_pad_xy & (ek >= k_pb) & (ek < k_pt)
+        bottom = in_trench_xy & (ek == k_pb - 1)
+        mat = np.where(ring | bottom, MAT_LINER, mat)
 
     # sidewall nodes: pad boundary lines, strictly between pad bottom and top
     sw = []
@@ -216,7 +231,7 @@ def build_mesh(level="L2", shape="square", cap=True, sliding=False, t_si=T_SI):
     else:
         dup = {}
 
-    elems = {m: conn[mat == m] for m in (MAT_CU, MAT_OX, MAT_SI, MAT_SIN) if np.any(mat == m)}
+    elems = {m: conn[mat == m] for m in (MAT_CU, MAT_OX, MAT_SI, MAT_SIN, MAT_LINER) if np.any(mat == m)}
 
     ic = (i0 + i1) // 2
     probes = dict(
@@ -236,6 +251,7 @@ def build_mesh(level="L2", shape="square", cap=True, sliding=False, t_si=T_SI):
     m.n_elems = int(sum(len(v) for v in elems.values()))
     m.k = dict(k_si=k_si, k_pb=k_pb, k_pt=k_pt, nz=nz, i0=i0, i1=i1, nx=nx)
     m.t_si = t_si
+    m.t_liner = t_liner
     return m
 
 
